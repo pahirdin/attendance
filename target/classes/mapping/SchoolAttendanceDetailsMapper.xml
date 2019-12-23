@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phd.mapper.SchoolAttendanceDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.phd.entity.SchoolAttendanceDetails">
+    <result column="sadid" jdbcType="INTEGER" property="sadid" />
+    <result column="said" jdbcType="INTEGER" property="said" />
+    <result column="couid" jdbcType="INTEGER" property="couid" />
+    <result column="sid" jdbcType="INTEGER" property="sid" />
+    <result column="sadstatus" jdbcType="CHAR" property="sadstatus" />
+    <result column="sadtime" jdbcType="DATE" property="sadtime" />
+    <result column="sadaddress" jdbcType="VARCHAR" property="sadaddress" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    sadid, said, couid, sid, sadstatus, sadtime, sadaddress
+  </sql>
+  <select id="selectByExample" parameterType="com.phd.entity.SchoolAttendanceDetailsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from schoolattendancedetails
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.phd.entity.SchoolAttendanceDetailsExample">
+    delete from schoolattendancedetails
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.phd.entity.SchoolAttendanceDetails">
+    insert into schoolattendancedetails (sadid, said, couid, 
+      sid, sadstatus, sadtime, 
+      sadaddress)
+    values (#{sadid,jdbcType=INTEGER}, #{said,jdbcType=INTEGER}, #{couid,jdbcType=INTEGER}, 
+      #{sid,jdbcType=INTEGER}, #{sadstatus,jdbcType=CHAR}, #{sadtime,jdbcType=DATE}, 
+      #{sadaddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.phd.entity.SchoolAttendanceDetails">
+    insert into schoolattendancedetails
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sadid != null">
+        sadid,
+      </if>
+      <if test="said != null">
+        said,
+      </if>
+      <if test="couid != null">
+        couid,
+      </if>
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="sadstatus != null">
+        sadstatus,
+      </if>
+      <if test="sadtime != null">
+        sadtime,
+      </if>
+      <if test="sadaddress != null">
+        sadaddress,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sadid != null">
+        #{sadid,jdbcType=INTEGER},
+      </if>
+      <if test="said != null">
+        #{said,jdbcType=INTEGER},
+      </if>
+      <if test="couid != null">
+        #{couid,jdbcType=INTEGER},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="sadstatus != null">
+        #{sadstatus,jdbcType=CHAR},
+      </if>
+      <if test="sadtime != null">
+        #{sadtime,jdbcType=DATE},
+      </if>
+      <if test="sadaddress != null">
+        #{sadaddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.phd.entity.SchoolAttendanceDetailsExample" resultType="java.lang.Long">
+    select count(*) from schoolattendancedetails
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update schoolattendancedetails
+    <set>
+      <if test="record.sadid != null">
+        sadid = #{record.sadid,jdbcType=INTEGER},
+      </if>
+      <if test="record.said != null">
+        said = #{record.said,jdbcType=INTEGER},
+      </if>
+      <if test="record.couid != null">
+        couid = #{record.couid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sid != null">
+        sid = #{record.sid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sadstatus != null">
+        sadstatus = #{record.sadstatus,jdbcType=CHAR},
+      </if>
+      <if test="record.sadtime != null">
+        sadtime = #{record.sadtime,jdbcType=DATE},
+      </if>
+      <if test="record.sadaddress != null">
+        sadaddress = #{record.sadaddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update schoolattendancedetails
+    set sadid = #{record.sadid,jdbcType=INTEGER},
+      said = #{record.said,jdbcType=INTEGER},
+      couid = #{record.couid,jdbcType=INTEGER},
+      sid = #{record.sid,jdbcType=INTEGER},
+      sadstatus = #{record.sadstatus,jdbcType=CHAR},
+      sadtime = #{record.sadtime,jdbcType=DATE},
+      sadaddress = #{record.sadaddress,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phd.mapper.LeaveMapper">
+  <resultMap id="BaseResultMap" type="com.phd.entity.Leave">
+    <result column="lid" jdbcType="INTEGER" property="lid" />
+    <result column="sid" jdbcType="INTEGER" property="sid" />
+    <result column="lstime" jdbcType="DATE" property="lstime" />
+    <result column="letime" jdbcType="DATE" property="letime" />
+    <result column="ltype" jdbcType="CHAR" property="ltype" />
+    <result column="lcontent" jdbcType="VARCHAR" property="lcontent" />
+    <result column="aid" jdbcType="INTEGER" property="aid" />
+    <result column="lstatus" jdbcType="CHAR" property="lstatus" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    lid, sid, lstime, letime, ltype, lcontent, aid, lstatus
+  </sql>
+  <select id="selectByExample" parameterType="com.phd.entity.LeaveExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from leave
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.phd.entity.LeaveExample">
+    delete from leave
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.phd.entity.Leave">
+    insert into leave (lid, sid, lstime, 
+      letime, ltype, lcontent, 
+      aid, lstatus)
+    values (#{lid,jdbcType=INTEGER}, #{sid,jdbcType=INTEGER}, #{lstime,jdbcType=DATE}, 
+      #{letime,jdbcType=DATE}, #{ltype,jdbcType=CHAR}, #{lcontent,jdbcType=VARCHAR}, 
+      #{aid,jdbcType=INTEGER}, #{lstatus,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.phd.entity.Leave">
+    insert into leave
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lid != null">
+        lid,
+      </if>
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="lstime != null">
+        lstime,
+      </if>
+      <if test="letime != null">
+        letime,
+      </if>
+      <if test="ltype != null">
+        ltype,
+      </if>
+      <if test="lcontent != null">
+        lcontent,
+      </if>
+      <if test="aid != null">
+        aid,
+      </if>
+      <if test="lstatus != null">
+        lstatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lid != null">
+        #{lid,jdbcType=INTEGER},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="lstime != null">
+        #{lstime,jdbcType=DATE},
+      </if>
+      <if test="letime != null">
+        #{letime,jdbcType=DATE},
+      </if>
+      <if test="ltype != null">
+        #{ltype,jdbcType=CHAR},
+      </if>
+      <if test="lcontent != null">
+        #{lcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="aid != null">
+        #{aid,jdbcType=INTEGER},
+      </if>
+      <if test="lstatus != null">
+        #{lstatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.phd.entity.LeaveExample" resultType="java.lang.Long">
+    select count(*) from leave
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update leave
+    <set>
+      <if test="record.lid != null">
+        lid = #{record.lid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sid != null">
+        sid = #{record.sid,jdbcType=INTEGER},
+      </if>
+      <if test="record.lstime != null">
+        lstime = #{record.lstime,jdbcType=DATE},
+      </if>
+      <if test="record.letime != null">
+        letime = #{record.letime,jdbcType=DATE},
+      </if>
+      <if test="record.ltype != null">
+        ltype = #{record.ltype,jdbcType=CHAR},
+      </if>
+      <if test="record.lcontent != null">
+        lcontent = #{record.lcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aid != null">
+        aid = #{record.aid,jdbcType=INTEGER},
+      </if>
+      <if test="record.lstatus != null">
+        lstatus = #{record.lstatus,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update leave
+    set lid = #{record.lid,jdbcType=INTEGER},
+      sid = #{record.sid,jdbcType=INTEGER},
+      lstime = #{record.lstime,jdbcType=DATE},
+      letime = #{record.letime,jdbcType=DATE},
+      ltype = #{record.ltype,jdbcType=CHAR},
+      lcontent = #{record.lcontent,jdbcType=VARCHAR},
+      aid = #{record.aid,jdbcType=INTEGER},
+      lstatus = #{record.lstatus,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
