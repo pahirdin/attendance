@@ -38,7 +38,7 @@
     <div class="layui-card-body">
         搜索ID：
         <div class="layui-inline">
-            <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+            <input class="layui-input" name="demoReload" id="demoReload" autocomplete="off">
         </div>
         <button class="layui-btn" data-type="reload">搜索</button>
     </div>
@@ -83,9 +83,9 @@
                             curr: 1 //重新从第 1 页开始
                         }
                         ,where: {
-                            key: {
+
                                 id: demoReload.val()
-                            }
+
                         }
                     }, 'data');
                 }

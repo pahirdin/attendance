@@ -64,7 +64,7 @@ public class SystemSetupController {
         return "systemSetup/studentInfoImport.html";
     }
     @RequestMapping("/getStudentInfo")
-    public @ResponseBody Result studentInfoImport(Model model,Integer page, Integer limit){
+    public @ResponseBody Result studentInfoImport(Model model,Integer page, Integer limit,String id){
         AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
         return new Result(systemSetupServiceImpl.findAllStudent(page,limit,admin.getAid()));
     }
