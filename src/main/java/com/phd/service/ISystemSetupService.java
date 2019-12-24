@@ -9,4 +9,6 @@ import com.phd.entity.Classes;
  */
 public interface ISystemSetupService {
     PageInfo<Classes> findAllClasses(Integer page, Integer limit, Integer aid);
+
+    PageInfo findAllStudent(Integer page, Integer limit, Integer aid);
 }

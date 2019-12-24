@@ -49,8 +49,6 @@ public class SystemSetupController {
     Result classInfoImport(Integer college,Integer major,String className,Integer page, Integer limit){
         //从shiro 获取当前登录用户信息
         AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
-        PageInfo<Classes> info = systemSetupServiceImpl.findAllClasses(page,limit,admin.getAid());
-        MyPageInfo<Classes> classesMyPageInfo = new MyPageInfo<>(info);
         Result result = new Result(systemSetupServiceImpl.findAllClasses(page,limit,admin.getAid()));
         return result;
     }
@@ -61,9 +59,13 @@ public class SystemSetupController {
         return majorByCoid;
     }
 
-    @RequestMapping("/classTest")
-    public String test(Integer college,Integer major,String className){
-
-        return "systemSetup/classInfoImport.html";
+    @RequestMapping("/studentInfoImport")
+    public String studentInfoImport(Model model){
+        return "systemSetup/studentInfoImport.html";
+    }
+    @RequestMapping("/getStudentInfo")
+    public @ResponseBody Result studentInfoImport(Model model,Integer page, Integer limit){
+        AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
+        return new Result(systemSetupServiceImpl.findAllStudent(page,limit,admin.getAid()));
     }
 }
