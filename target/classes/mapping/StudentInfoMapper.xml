@@ -219,4 +219,44 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+
+  <resultMap id="queryStudenInfoByParamMap" type="com.phd.entity.StudentInfo">
+    <result column="sid" jdbcType="INTEGER" property="sid" />
+    <result column="sno" jdbcType="CHAR" property="sno" />
+    <result column="sname" jdbcType="CHAR" property="sname" />
+    <result column="spwd" jdbcType="CHAR" property="spwd" />
+    <result column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="stel" jdbcType="CHAR" property="stel" />
+    <result column="sdor" jdbcType="CHAR" property="sdor" />
+    <result column="sptel" jdbcType="CHAR" property="sptel" />
+    <result column="coid" jdbcType="INTEGER" property="coid" />
+    <association property="college" javaType="com.phd.entity.College">
+      <result column="coname" property="coname" />
+    </association>
+    <association property="classes" javaType="com.phd.entity.Classes">
+        <id column="cid" property="cid" />
+        <result column="mid" property="mid" />
+        <result column="cname" property="cname" />
+      <result column="mname" property="mname" />
+      <result column="coid" property="coid" />
+      <result column="coname" property="coname" />
+      <result column="coname" property="coname" />
+    </association>
+  </resultMap>
+  <select id="queryStudenInfoByParam" resultMap="queryStudenInfoByParamMap">
+    SELECT STU.SID,STU.SNO,STU.SNAME,STU.CID,STU.STEL,STU.SDOR,STU.COID
+         ,CLS.CNAME,CLS.MID,MA.MNAME,CO.CONAME
+    FROM STUDENTINFO STU,CLASSES CLS,MAJOR MA,COLLEGE CO
+    WHERE STU.CID=CLS.CID AND MA.MID=CLS.MID AND CO.COID=STU.COID
+      <if test=" sno != null and sno != '' ">
+        AND STU.SNO=#{sno}
+      </if>
+    <if test=" college != null and college != '' ">
+      AND CO.COID=#{college}
+    </if>
+    <if test=" major != null and major != '' ">
+      AND MA.MID=#{major}
+    </if>
+    ORDER BY STU.SNO
+  </select>
 </mapper>

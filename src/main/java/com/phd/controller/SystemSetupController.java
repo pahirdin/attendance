@@ -1,10 +1,8 @@
 package com.phd.controller;
 
-import com.github.pagehelper.PageInfo;
 import com.phd.entity.*;
 import com.phd.service.ICommomService;
 import com.phd.service.ISystemSetupService;
-import com.phd.utils.MyPageInfo;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,26 +44,29 @@ public class SystemSetupController {
      */
     @RequestMapping("/getClassInfo")
     public  @ResponseBody
-    Result classInfoImport(Integer college,Integer major,String className,Integer page, Integer limit){
+    Result<Classes> classInfoImport(Integer college,Integer major,String className,Integer page, Integer limit){
         //从shiro 获取当前登录用户信息
         AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
-        Result result = new Result(systemSetupServiceImpl.findAllClasses(page,limit,admin.getAid()));
+        Result<Classes> result = new Result<>(systemSetupServiceImpl.findAllClasses(page,limit,admin.getAid()));
         return result;
     }
 
     @RequestMapping("/getMajorByCoid")
     public @ResponseBody List<Major> getMajor(Integer coid) {
-        List<Major> majorByCoid = this.commomServiceImpl.getMajorByCoid(coid);
-        return majorByCoid;
+        return this.commomServiceImpl.getMajorByCoid(coid);
     }
 
     @RequestMapping("/studentInfoImport")
     public String studentInfoImport(Model model){
+        List<College> changelist = this.commomServiceImpl.findAllCollege();
+        model.addAttribute("college", changelist);
         return "systemSetup/studentInfoImport.html";
     }
     @RequestMapping("/getStudentInfo")
-    public @ResponseBody Result studentInfoImport(Model model,Integer page, Integer limit,String id){
+    public @ResponseBody
+    Result<StudentInfo> studentInfoImport(Model model, Integer page, Integer limit, String sno, Integer college, Integer major ){
         AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
-        return new Result(systemSetupServiceImpl.findAllStudent(page,limit,admin.getAid()));
+        Result stuResult = new Result(this.systemSetupServiceImpl.findAllStudent(page, limit, admin.getAid(),sno,college,major));
+        return  stuResult;
     }
 }

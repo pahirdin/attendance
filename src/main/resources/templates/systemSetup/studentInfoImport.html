@@ -35,20 +35,36 @@
         <div class="layui-row layui-col-space15">
             <div class="layui-col-md12">
                 <div class="layui-card">
-    <div class="layui-card-body">
-        搜索ID：
-        <div class="layui-inline">
-            <input class="layui-input" name="demoReload" id="demoReload" autocomplete="off">
-        </div>
-        <button class="layui-btn" data-type="reload">搜索</button>
-    </div>
+                    <div class="layui-card-body">
+                        <div class="layui-form layui-col-space5">
+                            <div class="layui-input-inline">
+                                <select name="college" id="college" lay-filter="sales"  lay-search="">
+                                    <option value="">请选择学院</option>
+                                    <option th:each="c,stat:${college}" th:value="${c.coid}" th:text="${c.coname}"></option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline">
+                                <select name="major" id="major" lay-search="">
+                                    <!--                                <option th:each="m,stat:${js_type}" th:value="${m.mid}" th:text="${m.mname}"></option>-->
+                                </select>
+                            </div>
+                            学号：
+                            <div class="layui-inline">
+                                <input class="layui-input" name="demoReload" id="demoReload" autocomplete="off">
+                            </div>
+                            <button class="layui-btn" data-type="reload">搜索</button>
+                        </div>
+                    </div>
 
-    <div class="layui-card-body"><table class="layui-hide" id="LAY_table_user"></table></div>
-
+                        <!--表格-->
+                    <div class="layui-card-body"><table class="layui-hide" id="LAY_table_user"></table></div>
                 </div>
             </div>
         </div>
     </div>
+    <script type="text/html" id="indexTpl">
+        {{d.LAY_TABLE_INDEX+1}}
+    </script>
     <script  th:inline="none">
         layui.use('table', function(){
             var table = layui.table;
@@ -59,23 +75,37 @@
                 ,url: '/getStudentInfo'
                 ,cols: [[
                     // {checkbox: true, fixed: true}
-                    {field:'sid', title: 'ID',  sort: true, fixed: true}
-                    ,{field:'sno', title: '学号'}
+                    // {field: 'd.listInfo.user_phone', title: '用户账号',templet:'<div>{{d.listInfo?d.listInfo.user_phone:""}}</div>'}
+                    {title: '编号',templet: '#indexTpl'}
+                    ,{field:'sid', title: 'ID',  sort: true, fixed: true}
+                    ,{field:'sno', title: '学号', sort: true}
                     ,{field:'sname', title: '姓名', sort: true}
-                    ,{field:'cid', title: '班级id'}
-                    ,{field:'stel', title: '手机号'}
-                    ,{field:'sdor', title: '宿舍', sort: true}
-                    ,{field:'sptel', title: '家长手机号', sort: true}
                     ,{field:'coid', title: '学院id', width:80}
+                    ,{field:'classes.coname', title: '学院',templet:'<div>{{d.classes.coname}}</div>'}
+                    ,{field:'classes.mname', title: '专业',templet:'<div>{{d.classes.mname}}</div>'}
+                    ,{field:'cid', title: '班级id'}
+                    ,{field:'classes.cname', title: '班级',templet:'<div>{{d.classes.cname}}</div>'}
+                    ,{field:'stel', title: '手机号'}
+                    ,{field:'sdor', title: '宿舍'}
+                    ,{field:'sptel', title: '家长手机号'}
+
                 ]]
                 ,id: 'testReload'
                 ,page: true
-                // ,height: 310
+                ,height: 430
+                ,done:function(res,curr,count){
+                    // 隐藏列
+                    $("[data-field='sid']").css("display","none");
+                    $("[data-field='cid']").css("display","none");
+                    $("[data-field='coid']").css("display","none");
+                }
             });
 
             var $ = layui.$, active = {
                 reload: function(){
                     var demoReload = $('#demoReload');
+                    var college = $('#college');
+                    var major = $('#major');
 
                     //执行重载
                     table.reload('testReload', {
@@ -83,9 +113,9 @@
                             curr: 1 //重新从第 1 页开始
                         }
                         ,where: {
-
-                                id: demoReload.val()
-
+                            sno: demoReload.val()
+                            ,college:college.val()
+                            ,major:major.val()
                         }
                     }, 'data');
                 }
@@ -96,6 +126,43 @@
                 active[type] ? active[type].call(this) : '';
             });
         });
+
+
+        function myData(coid) {
+            var data1;
+            $.ajax({
+                url: '/getMajorByCoid',
+                type: "post",
+                data: {action: 'js_type', coid: coid},
+                async: false,
+                success: function (data) {
+                    data1 = data;
+                    //data1 = JSON.parse(data);
+                    //console.log(data1);
+                },
+                error: function () {
+                    layer.msg('读取数据失败！');
+                }
+            });
+            return data1;
+        }
+
+        layui.use('form',
+            function() {
+                var form = layui.form;
+                form.on('select(sales)', function(data){
+                    $("#major").empty();
+                    console.log(data);
+                    if("x" == data.value) {return;}
+                    var data = myData(data.value);
+                    $.each(data,function (index,da){
+                        $("#major").append("<option value='"+da.mid+"'>"+da.mname+"</option>");
+                    });
+                    form.render('select');
+                    // $("#major").find("option").remove();
+                    //console.log(data);
+                });
+            });
     </script>
 
 </body>

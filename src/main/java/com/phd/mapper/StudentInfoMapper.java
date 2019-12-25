@@ -19,4 +19,6 @@ public interface StudentInfoMapper {
     int updateByExampleSelective(@Param("record") StudentInfo record, @Param("example") StudentInfoExample example);
 
     int updateByExample(@Param("record") StudentInfo record, @Param("example") StudentInfoExample example);
+
+    List<StudentInfo> queryStudenInfoByParam(@Param("sno") String sno,@Param("college") Integer college,@Param("major") Integer major);
 }

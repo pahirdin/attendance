@@ -37,14 +37,15 @@ public class SystemSetupServiceImpl implements ISystemSetupService {
     }
 
     @Override
-    public PageInfo findAllStudent(Integer page, Integer limit, Integer aid) {
+    public PageInfo findAllStudent(Integer page, Integer limit, Integer aid, String sno, Integer college, Integer major) {
         page = page == null ? 1 : page;
         limit = limit == null ? 3 : limit;
         //在帮助类中传入分页参数
         PageHelper.startPage(page, limit);
-        StudentInfoExample studentInfoExample = new StudentInfoExample();
-        StudentInfoExample.Criteria criteria = studentInfoExample.createCriteria();
-        List<StudentInfo> list = studentInfoMapper.selectByExample(null);
+//        StudentInfoExample studentInfoExample = new StudentInfoExample();
+//        StudentInfoExample.Criteria criteria = studentInfoExample.createCriteria();
+//        List<StudentInfo> list = studentInfoMapper.selectByExample(null);
+        List<StudentInfo> list = studentInfoMapper.queryStudenInfoByParam(sno,college,major);
         PageInfo<StudentInfo> pagelist = new PageInfo<StudentInfo>(list);
         return pagelist;
     }

@@ -19,6 +19,26 @@ public class StudentInfo {
 
     private Integer coid;
 
+    private Classes classes;
+
+    private College college;
+
+    public Classes getClasses() {
+        return classes;
+    }
+
+    public void setClasses(Classes classes) {
+        this.classes = classes;
+    }
+
+    public College getCollege() {
+        return college;
+    }
+
+    public void setCollege(College college) {
+        this.college = college;
+    }
+
     public Integer getSid() {
         return sid;
     }
