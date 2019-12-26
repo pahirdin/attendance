@@ -73,9 +73,15 @@
             table.render({
                 elem: '#LAY_table_user'
                 ,url: '/getStudentInfo'
+                // ,defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+                //     title: '提示'
+                //     ,layEvent: 'LAYTABLE_TIPS'
+                //     ,icon: 'layui-icon-tips'
+                // }]
+                ,defaultToolbar: ['filter', 'print', 'exports']
+                ,toolbar: true
                 ,cols: [[
                     // {checkbox: true, fixed: true}
-                    // {field: 'd.listInfo.user_phone', title: '用户账号',templet:'<div>{{d.listInfo?d.listInfo.user_phone:""}}</div>'}
                     {title: '编号',templet: '#indexTpl'}
                     ,{field:'sid', title: 'ID',  sort: true, fixed: true}
                     ,{field:'sno', title: '学号', sort: true}
