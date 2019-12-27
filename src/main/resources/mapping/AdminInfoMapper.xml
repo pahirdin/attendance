@@ -216,4 +216,19 @@
   <select id="selectRoleByName" resultType="map" parameterType="java.lang.String">
     SELECT * FROM ROLE WHERE ROLE_NAME = #{ano}
   </select>
+
+    <select id="queryAdminInfoByParam" resultType="com.phd.entity.AdminInfo">
+      SELECT A.AID,A.ANAME,A.ATEL,A.ANO,A.COID,C.CONAME FROM ADMININFO A,COLLEGE C
+    WHERE
+    C.COID=A.COID
+    <if test="param3 != null and param3 != '' ">
+      AND (A.ANAME LIKE #{param3} OR A.ANO LIKE #{param3})
+    </if>
+    <if test="param1 != null and param1 != ''">
+      AND A.COID = #{param1}
+    </if>
+    <if test="param2 != null and param2 != ''">
+      AND EXISTS (SELECT 1 FROM ROLE R WHERE R.ROLE_NAME=A.ANO AND R.ROLE_DESCRIPTION= #{param2})
+    </if>
+    </select>
 </mapper>

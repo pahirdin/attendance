@@ -1,8 +1,10 @@
 package com.phd.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.phd.entity.*;
 import com.phd.service.ICommomService;
 import com.phd.service.ISystemSetupService;
+import com.phd.utils.StaticUtils;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,9 +66,30 @@ public class SystemSetupController {
     }
     @RequestMapping("/getStudentInfo")
     public @ResponseBody
-    Result<StudentInfo> studentInfoImport(Model model, Integer page, Integer limit, String sno, Integer college, Integer major ){
+    Result<StudentInfo> studentInfoImport(Integer page, Integer limit, String sno, Integer college, Integer major ){
         AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
-        Result stuResult = new Result(this.systemSetupServiceImpl.findAllStudent(page, limit, admin.getAid(),sno,college,major));
-        return  stuResult;
+        return new Result<>(this.systemSetupServiceImpl.findAllStudent(page, limit, admin.getAid(),sno,college,major));
+    }
+
+    /**
+     * 管理员管理页面初始化
+     */
+    @RequestMapping("/adminInfoImport")
+    public String adminInfoImport(Model model) {
+        List<College> changelist = this.commomServiceImpl.findAllCollege();
+        model.addAttribute("college", changelist);
+        model.addAttribute("roleMap",StaticUtils.getRole());
+        return "systemSetup/adminInfoImport.html";
+    }
+
+    /**
+     * 管理员管理页面 数据表格
+     */
+    @RequestMapping("/getAdminInfo")
+    public @ResponseBody
+    Result<AdminInfo> getAdminInfo(Integer page,Integer limit,Integer college,String role,String name) {
+        AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
+        PageInfo<AdminInfo> pageInfo =  this.systemSetupServiceImpl.findAllAdminInfo(page,limit,college,role,name,admin.getAid());
+        return new Result<>(pageInfo);
     }
 }

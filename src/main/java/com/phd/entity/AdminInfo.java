@@ -15,7 +15,17 @@ public class AdminInfo {
 
     private String apwd;
 
-    private String coid;
+    private Integer coid;
+
+    private String coname;
+
+    public String getConame() {
+        return coname;
+    }
+
+    public void setConame(String coname) {
+        this.coname = coname == null ? null : coname.trim();
+    }
 
     private List<Role> roleList;
 
@@ -75,11 +85,11 @@ public class AdminInfo {
         this.apwd = apwd == null ? null : apwd.trim();
     }
 
-    public String getCoid() {
+    public Integer getCoid() {
         return coid;
     }
 
-    public void setCoid(String coid) {
-        this.coid = coid == null ? null : coid.trim();
+    public void setCoid(Integer coid) {
+        this.coid = coid;
     }
 }
