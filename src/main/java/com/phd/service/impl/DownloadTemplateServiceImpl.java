@@ -26,10 +26,10 @@ public class DownloadTemplateServiceImpl implements IDownloadTemplateService {
         ExcelData data = new ExcelData();
         data.setName("adminTmp");
         List<String> titles = new ArrayList();
-        titles.add("管理员姓名");
-        titles.add("管理员手机号");
-        titles.add("管理员工号");
-        titles.add("密码");
+        titles.add("姓名");
+        titles.add("手机号");
+        titles.add("工号");
+        titles.add("员密码");
         data.setTitles(titles);
 
         List<List<Object>> rows = new ArrayList();
