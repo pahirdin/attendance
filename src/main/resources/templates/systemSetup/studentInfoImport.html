@@ -80,20 +80,21 @@
                 // }]
                 ,defaultToolbar: ['filter', 'print', 'exports']
                 ,toolbar: true
+                ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
                 ,cols: [[
                     // {checkbox: true, fixed: true}
-                    {title: '编号',templet: '#indexTpl'}
+                    {title: '编号',width:'11%',templet: '#indexTpl'}
                     ,{field:'sid', title: 'ID',  fixed: true}
-                    ,{field:'sno', title: '学号'}
-                    ,{field:'sname', title: '姓名'}
-                    ,{field:'coid', title: '学院id'}
-                    ,{field:'classes.coname', title: '学院',templet:'<div>{{d.classes.coname}}</div>'}
-                    ,{field:'classes.mname', title: '专业',templet:'<div>{{d.classes.mname}}</div>'}
+                    ,{field:'sno',width:'11%', title: '学号'}
+                    ,{field:'sname',width:'11%', title: '姓名'}
+                    ,{field:'coid',width:'11%', title: '学院id'}
+                    ,{field:'classes.coname',width:'11%', title: '学院',templet:'<div>{{d.classes.coname}}</div>'}
+                    ,{field:'classes.mname',width:'11%', title: '专业',templet:'<div>{{d.classes.mname}}</div>'}
                     ,{field:'cid', title: '班级id'}
-                    ,{field:'classes.cname', title: '班级',templet:'<div>{{d.classes.cname}}</div>'}
-                    ,{field:'stel', title: '手机号'}
-                    ,{field:'sdor', title: '宿舍'}
-                    ,{field:'sptel', title: '家长手机号'}
+                    ,{field:'classes.cname',width:'11%', title: '班级',templet:'<div>{{d.classes.cname}}</div>'}
+                    ,{field:'stel',width:'11%', title: '手机号'}
+                    ,{field:'sdor',width:'11%', title: '宿舍'}
+                    ,{field:'sptel',width:'11%', title: '家长手机号'}
 
                 ]]
                 ,id: 'testReload'
