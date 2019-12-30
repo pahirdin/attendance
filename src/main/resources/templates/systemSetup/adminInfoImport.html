@@ -59,6 +59,10 @@
 
                         <!--表格-->
                     <div class="layui-card-body"><table class="layui-hide" id="LAY_table_user"></table></div>
+
+                    <button type="button" class="layui-btn" id="filename">
+                        <i class="layui-icon">&#xe67c;</i>上传文件
+                    </button>
                 </div>
             </div>
         </div>
@@ -122,6 +126,27 @@
             $('.layui-card-body .layui-btn').on('click', function(){
                 var type = $(this).data('type');
                 active[type] ? active[type].call(this) : '';
+            });
+        });
+    </script>
+    <script>
+        layui.use('upload', function(){
+            var upload = layui.upload;
+
+            //执行实例
+            var uploadInst = upload.render({
+                elem: '#filename' //绑定元素
+                ,url: '/upload' //上传接口
+                ,accept: 'file' //允许上传的文件类型
+                ,done: function(res){
+                    //上传完毕回调
+                    alert(res.msg);
+                    alert(res);
+                }
+                ,error: function(){
+                    //请求异常回调
+                    alert("错误");
+                }
             });
         });
     </script>
