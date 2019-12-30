@@ -1,4 +1,4 @@
-package com.phd.transaction;
+package com.phd.constant;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;

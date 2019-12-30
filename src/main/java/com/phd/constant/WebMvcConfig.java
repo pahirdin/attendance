@@ -1,4 +1,4 @@
-package com.phd.transaction;
+package com.phd.constant;
 
 
 import org.springframework.context.annotation.Bean;

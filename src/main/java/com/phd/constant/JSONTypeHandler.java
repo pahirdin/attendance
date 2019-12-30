@@ -1,4 +1,4 @@
-package com.phd.transaction;
+package com.phd.constant;
 
 import com.phd.utils.JSONUtils;
 import org.apache.commons.lang3.StringUtils;

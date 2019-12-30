@@ -1,4 +1,4 @@
-package com.phd.transaction;
+package com.phd.constant;
 
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.LocaleResolver;
