@@ -134,6 +134,27 @@
                 window.location.href="/downAddAdminTmp";
             });
 
+            $('#add').on('click',function () {
+                var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+                //多窗口模式，层叠置顶
+                layer.open({
+                    type: 2 //此处以iframe举例
+                    ,title:'新增管理员'
+                    ,area: ['600px', '800px']
+                    ,shade: 0
+                    ,maxmin: true
+                    ,content: '/jumpAddAdmin'
+                    ,btn: [ '关闭弹窗'] //只是为了演示
+                    ,btn2: function(){
+                        layer.closeAll();
+                    }
+
+                    ,zIndex: layer.zIndex //重点1
+                    ,success: function(layero){
+                        layer.setTop(layero); //重点2
+                    }
+                });
+            });
 
         });
     </script>
@@ -163,7 +184,7 @@
     <script type="text/html" id="toolbarDemo">
         <div class="layui-btn-container">
             <button class="layui-btn layui-btn-sm" lay-event="muban" id="muban">下载模板</button>
-            <button class="layui-btn layui-btn-sm" lay-event="add">批量新增</button>
+            <button class="layui-btn layui-btn-sm" lay-event="add" id="add">批量新增</button>
         </div>
     </script>
 </body>

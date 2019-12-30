@@ -2,6 +2,7 @@ package com.phd.controller;
 
 import com.phd.constant.ExcelConstant;
 import com.phd.entity.AdminInfo;
+import com.phd.entity.College;
 import com.phd.entity.ExcelData;
 import com.phd.service.ICommomService;
 import com.phd.service.IImportService;
@@ -9,6 +10,7 @@ import com.phd.service.ISystemSetupService;
 import com.phd.utils.ExcelUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,6 +33,8 @@ public class ImportController {
 
     @Autowired
     private IImportService importServiceImpl;
+    @Autowired
+    private ICommomService commomServiceImpl;
 
 
     @RequestMapping("/upload")
@@ -100,5 +104,15 @@ public class ImportController {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 管理员管理页面跳转新增页面初始化
+     */
+    @RequestMapping("/jumpAddAdmin")
+    public String jumpAddAdmin(Model model){
+        List<College> changelist = this.commomServiceImpl.findAllCollege();
+        model.addAttribute("college", changelist);
+        return "systemSetup/addAdmin.html";
     }
 }
