@@ -4,6 +4,7 @@ import com.phd.entity.AdminInfo;
 import com.phd.entity.ExcelData;
 import com.phd.mapper.AdminInfoMapper;
 import com.phd.service.IImportService;
+import com.phd.utils.CommonUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -13,9 +14,12 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author pahaied
@@ -26,65 +30,26 @@ public class ImportServiceImpl implements IImportService {
     @Autowired
     private AdminInfoMapper adminInfoMapper;
     @Override
-    public List<List<Object>> getBankListByExcel(InputStream inputStream, String originalFilename) throws Exception  {
-        List list = new ArrayList<>();
-        //创建Excel工作薄
-        Workbook work = this.getWorkbook(inputStream, originalFilename);
-        if (null == work) {
-            throw new Exception("创建Excel工作薄为空！");
+    public Map<String,Object> getBankListByExcel(InputStream inputStream, String originalFilename, String recordId) throws Exception  {
+        Map<String,Object> map = new HashMap<>();
+        //获取文件内容
+        List<List<Object>> fileList = CommonUtil.getFileList(inputStream, originalFilename);
+        ArrayList<AdminInfo> infos = new ArrayList<>();
+        //转实体集合
+        for(List<Object> list : fileList) {
+            AdminInfo adminInfo = new AdminInfo();
+            //这里缺少校验
+            adminInfo.setAname(String.valueOf(list.get(0)));
+            adminInfo.setAtel(String.valueOf(list.get(1)));
+            adminInfo.setAno(String.valueOf(list.get(2)));
+            adminInfo.setApwd(String.valueOf(list.get(3)));
+            infos.add(adminInfo);
         }
-        Sheet sheet = null;
-        Row row = null;
-        Cell cell = null;
-
-        for (int i = 0; i < work.getNumberOfSheets(); i++) {
-            sheet = work.getSheetAt(i);
-            if (sheet == null) {
-                continue;
-            }
-
-            for (int j = sheet.getFirstRowNum(); j <= sheet.getLastRowNum(); j++) {
-                row = sheet.getRow(j);
-                if (row == null || row.getFirstCellNum() == j) {
-                    continue;
-                }
-
-                List<Object> li = new ArrayList<>();
-                for (int y = row.getFirstCellNum(); y < row.getLastCellNum(); y++) {
-                    cell = row.getCell(y);
-                    li.add(cell);
-                }
-                list.add(li);
-            }
-        }
-        work.close();
-        return list;
+        map.put("tol",infos.size());
+        map.put("erro","");
+        map.put("recordid",recordId);
+        return  map;
     }
-
-
-
-    /**
-     * 判断文件格式
-     *
-     * @param inStr
-     * @param fileName
-     * @return
-     * @throws Exception
-     */
-    public Workbook getWorkbook(InputStream inStr, String fileName) throws Exception {
-        Workbook workbook = null;
-        String fileType = fileName.substring(fileName.lastIndexOf("."));
-        if (".xls".equals(fileType)) {
-            workbook = new HSSFWorkbook(inStr);
-        } else if (".xlsx".equals(fileType)) {
-            workbook = new XSSFWorkbook(inStr);
-        } else {
-            throw new Exception("请上传excel文件！");
-        }
-        return workbook;
-    }
-
-
 
     @Override
     public ExcelData getExcelData() {
@@ -110,4 +75,7 @@ public class ImportServiceImpl implements IImportService {
         data.setRows(rows);
         return data;
     }
+
+
+
 }

@@ -7,6 +7,7 @@ import com.phd.entity.ExcelData;
 import com.phd.service.ICommomService;
 import com.phd.service.IImportService;
 import com.phd.service.ISystemSetupService;
+import com.phd.utils.CommonUtil;
 import com.phd.utils.ExcelUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,10 +20,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author pahaied
@@ -37,29 +35,39 @@ public class ImportController {
     private ICommomService commomServiceImpl;
 
 
-    @RequestMapping("/upload")
+    /**
+     * 管理员管理页面 上传文件新增管理员信息
+     * @param request
+     * @return 返回map 成功或失败数据
+     * @throws Exception
+     */
+    @RequestMapping("/addadmin")
     @ResponseBody
-    public Map<String,String> uploadExcel(HttpServletRequest request) throws Exception {
+    public Map<String,Object> uploadExcel(HttpServletRequest request) throws Exception {
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 
         MultipartFile file = multipartRequest.getFile("file");
-        HashMap<String, String> map = new HashMap<>();
-        if (file.isEmpty()) {
-            map.put("msg","失败");
+        HashMap<String, Object> map = new HashMap<>();
+        //生成流水号
+        String recordId = CommonUtil.getUUID();
+        if (file != null && file.isEmpty()) {
+            map.put("msg","未识别文件内容");
+            map.put("code","0");
+            return map;
+        }else {
+            map.put("msg","成功");
         }
-        map.put("msg","成功");
-        InputStream inputStream = file.getInputStream();
-        List<List<Object>> list = importServiceImpl.getBankListByExcel(inputStream, file.getOriginalFilename());
-        inputStream.close();
 
-        for (int i = 0; i < list.size(); i++) {
-            List<Object> lo = list.get(i);
-            //TODO 随意发挥
-            System.out.println(lo);
-
+        InputStream inputStream = file != null ? file.getInputStream() : null;
+        Map<String,Object> param = importServiceImpl.getBankListByExcel(inputStream, file.getOriginalFilename(),recordId);
+        if (inputStream != null) {
+            inputStream.close();
         }
+
         map.put("code","0");
         map.put("data","");
+        map.put("tol",param.get("tol"));
+        map.put("erro",param.get("erro"));
         return map;
 
     }
@@ -106,13 +114,4 @@ public class ImportController {
         }
     }
 
-    /**
-     * 管理员管理页面跳转新增页面初始化
-     */
-    @RequestMapping("/jumpAddAdmin")
-    public String jumpAddAdmin(Model model){
-        List<College> changelist = this.commomServiceImpl.findAllCollege();
-        model.addAttribute("college", changelist);
-        return "systemSetup/addAdmin.html";
-    }
 }

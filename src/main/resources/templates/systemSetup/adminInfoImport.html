@@ -5,7 +5,7 @@
     <title>管理员信息管理</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+<!--    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />-->
     <link rel="stylesheet" th:href="@{/X-admin/css/font.css}">
     <link rel="stylesheet" th:href="@{/X-admin/css/xadmin.css}">
     <link rel="stylesheet" th:href="@{/X-admin/css/theme5.css}">
@@ -59,10 +59,6 @@
 
                         <!--表格-->
                     <div class="layui-card-body"><table class="layui-hide" id="LAY_table_user"></table></div>
-
-                    <button type="button" class="layui-btn" id="filename">
-                        <i class="layui-icon">&#xe67c;</i>上传文件
-                    </button>
                 </div>
             </div>
         </div>
@@ -133,58 +129,41 @@
             $('#muban').on('click',function () {
                 window.location.href="/downAddAdminTmp";
             });
-
-            $('#add').on('click',function () {
-                var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
-                //多窗口模式，层叠置顶
-                layer.open({
-                    type: 2 //此处以iframe举例
-                    ,title:'新增管理员'
-                    ,area: ['600px', '800px']
-                    ,shade: 0
-                    ,maxmin: true
-                    ,content: '/jumpAddAdmin'
-                    ,btn: [ '关闭弹窗'] //只是为了演示
-                    ,btn2: function(){
-                        layer.closeAll();
+            //上传文件新增
+            layui.use('upload', function(){
+                var upload = layui.upload; //得到 upload 对象
+                //执行实例
+                var uploadInst = upload.render({
+                    elem: '#filename' //绑定元素
+                    ,url: '/addadmin' //上传接口
+                    ,accept: 'file' //允许上传的文件类型
+                    ,done: function(res){
+                        //上传完毕回调
+                        layer.open({
+                            title: '结果'
+                            ,content: '解析到的数据'+res.tol+'条，成功'+res.tol+'条，失败'+res.erro+'条,<a href="/test2">点击下载失败原因</a>'
+                        });
                     }
-
-                    ,zIndex: layer.zIndex //重点1
-                    ,success: function(layero){
-                        layer.setTop(layero); //重点2
+                    ,error: function(){
+                        //请求异常回调
                     }
                 });
             });
+            $('#add').on('click',function () {
 
-        });
-    </script>
-<!--    下载excel  示例-->
-    <script>
-        layui.use('upload', function(){
-            var upload = layui.upload;
-
-            //执行实例
-            var uploadInst = upload.render({
-                elem: '#filename' //绑定元素
-                ,url: '/upload' //上传接口
-                ,accept: 'file' //允许上传的文件类型
-                ,done: function(res){
-                    //上传完毕回调
-                    alert(res.msg);
-                    alert(res);
-                }
-                ,error: function(){
-                    //请求异常回调
-                    alert("错误");
-                }
             });
+
         });
     </script>
+
 <!--表头工具栏-->
     <script type="text/html" id="toolbarDemo">
         <div class="layui-btn-container">
             <button class="layui-btn layui-btn-sm" lay-event="muban" id="muban">下载模板</button>
-            <button class="layui-btn layui-btn-sm" lay-event="add" id="add">批量新增</button>
+<!--            <button class="layui-btn layui-btn-sm" lay-event="add" id="add">批量新增</button>-->
+            <button type="button" class="layui-btn" id="filename">批量新增
+<!--                <i class="layui-icon">&#xe67c;</i>-->
+            </button>
         </div>
     </script>
 </body>
