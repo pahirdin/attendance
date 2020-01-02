@@ -44,7 +44,7 @@ public class DownloadTemplateServiceImpl implements IDownloadTemplateService {
         row2.add("15675120314");
         row2.add("lisi123");
         row2.add("123456");
-        row1.add("计算机与信息科学学院");
+        row2.add("计算机与信息科学学院");
         rows.add(row2);
 
         List<Object> row3 = new ArrayList<>();
@@ -52,7 +52,7 @@ public class DownloadTemplateServiceImpl implements IDownloadTemplateService {
         row3.add("15675120314");
         row3.add("pahaied");
         row3.add("123456");
-        row1.add("计算机与信息科学学院");
+        row3.add("计算机与信息科学学院");
         rows.add(row3);
 
         data.setRows(rows);
