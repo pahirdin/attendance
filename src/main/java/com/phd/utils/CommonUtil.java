@@ -21,11 +21,17 @@ import java.util.UUID;
 public class CommonUtil {
 
     public static String getUUID() {
-        UUID uuid = UUID.randomUUID();
-        //015ef458-d274-4ac2-a32d-19cc9c079631
-        String str = uuid.toString();
-        //015ef458d2744ac2a32d19cc9c079631
-        return str.substring(0, 8) + str.substring(9, 13) + str.substring(14, 18) + str.substring(19, 23) + str.substring(24);
+        //最大支持1-9个集群机器部署
+        int machineId = 1;
+        int hashCodeV = UUID.randomUUID().toString().hashCode();
+        //有可能是负数
+        if(hashCodeV < 0) {
+            hashCodeV = - hashCodeV;
+        }
+        // 0 代表前面补充0
+        // 4 代表长度为4
+        // d 代表参数为正数型
+        return machineId + String.format("%015d", hashCodeV);
     }
 
     public static List<List<Object>> getFileList(InputStream inputStream, String originalFilename) throws Exception {

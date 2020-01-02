@@ -3,7 +3,7 @@
 <mapper namespace="com.phd.mapper.CheckTempMapper">
   <resultMap id="BaseResultMap" type="com.phd.entity.CheckTemp">
     <result column="tid" jdbcType="INTEGER" property="tid" />
-    <result column="tno" jdbcType="INTEGER" property="tno" />
+    <result column="tno" jdbcType="VARCHAR" property="tno" />
     <result column="tname" jdbcType="VARCHAR" property="tname" />
     <result column="tpwd" jdbcType="VARCHAR" property="tpwd" />
     <result column="ttel" jdbcType="VARCHAR" property="ttel" />
@@ -108,7 +108,7 @@
       spare4, spare5, recordid, 
       checcode, checkinfo, tmpid
       )
-    values (#{tid,jdbcType=INTEGER}, #{tno,jdbcType=INTEGER}, #{tname,jdbcType=VARCHAR}, 
+    values (#{tid,jdbcType=INTEGER}, #{tno,jdbcType=VARCHAR}, #{tname,jdbcType=VARCHAR}, 
       #{tpwd,jdbcType=VARCHAR}, #{ttel,jdbcType=VARCHAR}, #{coname,jdbcType=VARCHAR}, 
       #{spare1,jdbcType=INTEGER}, #{spare2,jdbcType=INTEGER}, #{spare3,jdbcType=VARCHAR}, 
       #{spare4,jdbcType=VARCHAR}, #{spare5,jdbcType=VARCHAR}, #{recordid,jdbcType=VARCHAR}, 
@@ -169,7 +169,7 @@
         #{tid,jdbcType=INTEGER},
       </if>
       <if test="tno != null">
-        #{tno,jdbcType=INTEGER},
+        #{tno,jdbcType=VARCHAR},
       </if>
       <if test="tname != null">
         #{tname,jdbcType=VARCHAR},
@@ -225,7 +225,7 @@
         tid = #{record.tid,jdbcType=INTEGER},
       </if>
       <if test="record.tno != null">
-        tno = #{record.tno,jdbcType=INTEGER},
+        tno = #{record.tno,jdbcType=VARCHAR},
       </if>
       <if test="record.tname != null">
         tname = #{record.tname,jdbcType=VARCHAR},
@@ -274,7 +274,7 @@
   <update id="updateByExample" parameterType="map">
     update checktemp
     set tid = #{record.tid,jdbcType=INTEGER},
-      tno = #{record.tno,jdbcType=INTEGER},
+      tno = #{record.tno,jdbcType=VARCHAR},
       tname = #{record.tname,jdbcType=VARCHAR},
       tpwd = #{record.tpwd,jdbcType=VARCHAR},
       ttel = #{record.ttel,jdbcType=VARCHAR},
@@ -291,5 +291,34 @@
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+
+  <insert id="insertBatch"  parameterType="java.util.List"  useGeneratedKeys="false">
+    insert into checktemp (tid, tno, tname,
+      tpwd, ttel, coname,
+      recordid,
+      checcode, checkinfo, tmpid
+      )
+    values
+    <foreach collection="list"  item="item" index="index" separator=",">
+      (
+      #{item.tid},
+      #{item.tno},
+      #{item.tname},
+      #{item.tpwd},
+      #{item.ttel},
+      #{item.coname},
+      #{item.recordid},
+      #{item.checcode},
+      #{item.checkinfo},
+      nextval('checktemp$seq')
+      )
+    </foreach>
+  </insert>
+
+  <update id="updateByBatch"  parameterType="java.util.List">
+    <foreach collection="list" separator=";" item="item">
+      update checktemp set checkinfo=#{item.checkinfo},checcode=#{item.checcode} where tmpid=#{item.tmpid}
+    </foreach>
   </update>
 </mapper>

@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class CheckTemp {
     private Integer tid;
 
-    private Integer tno;
+    private String tno;
 
     private String tname;
 
@@ -41,12 +41,12 @@ public class CheckTemp {
         this.tid = tid;
     }
 
-    public Integer getTno() {
+    public String getTno() {
         return tno;
     }
 
-    public void setTno(Integer tno) {
-        this.tno = tno;
+    public void setTno(String tno) {
+        this.tno = tno == null ? null : tno.trim();
     }
 
     public String getTname() {

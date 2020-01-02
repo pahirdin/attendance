@@ -1,8 +1,7 @@
 package com.phd.service.impl;
 
-import com.phd.entity.College;
-import com.phd.entity.Major;
-import com.phd.entity.MajorExample;
+import com.phd.entity.*;
+import com.phd.mapper.CheckTempMapper;
 import com.phd.mapper.CollegeMapper;
 import com.phd.mapper.MajorMapper;
 import com.phd.service.ICommomService;
@@ -21,6 +20,8 @@ public class CommomServiceImpl implements ICommomService {
     private CollegeMapper collegeMapper;
     @Autowired
     private MajorMapper majorMapper;
+    @Autowired
+    private CheckTempMapper checkTempMapper;
     @Override
     public List<College> findAllCollege() {
         return this.collegeMapper.selectByExample(null);
@@ -32,5 +33,18 @@ public class CommomServiceImpl implements ICommomService {
         MajorExample.Criteria criteria = majorExample.createCriteria();
         criteria.andCoidEqualTo(coid);
         return this.majorMapper.selectByExample(majorExample);
+    }
+
+    @Override
+    public List<CheckTemp> queryTempListByRecordId(String recordId) {
+        CheckTempExample checkTempExample = new CheckTempExample();
+        CheckTempExample.Criteria criteria = checkTempExample.createCriteria();
+        criteria.andRecordidEqualTo(recordId);
+        return checkTempMapper.selectByExample(checkTempExample);
+    }
+
+    @Override
+    public void saveTempTable(List<CheckTemp> tempList) {
+        checkTempMapper.updateByBatch(tempList);
     }
 }

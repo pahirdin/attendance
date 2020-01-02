@@ -68,6 +68,7 @@ public class ImportController {
         map.put("data","");
         map.put("tol",param.get("tol"));
         map.put("erro",param.get("erro"));
+        map.put("suc",param.get("suc"));
         return map;
 
     }

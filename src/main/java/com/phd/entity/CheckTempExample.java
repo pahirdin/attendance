@@ -175,52 +175,62 @@ public class CheckTempExample {
             return (Criteria) this;
         }
 
-        public Criteria andTnoEqualTo(Integer value) {
+        public Criteria andTnoEqualTo(String value) {
             addCriterion("tno =", value, "tno");
             return (Criteria) this;
         }
 
-        public Criteria andTnoNotEqualTo(Integer value) {
+        public Criteria andTnoNotEqualTo(String value) {
             addCriterion("tno <>", value, "tno");
             return (Criteria) this;
         }
 
-        public Criteria andTnoGreaterThan(Integer value) {
+        public Criteria andTnoGreaterThan(String value) {
             addCriterion("tno >", value, "tno");
             return (Criteria) this;
         }
 
-        public Criteria andTnoGreaterThanOrEqualTo(Integer value) {
+        public Criteria andTnoGreaterThanOrEqualTo(String value) {
             addCriterion("tno >=", value, "tno");
             return (Criteria) this;
         }
 
-        public Criteria andTnoLessThan(Integer value) {
+        public Criteria andTnoLessThan(String value) {
             addCriterion("tno <", value, "tno");
             return (Criteria) this;
         }
 
-        public Criteria andTnoLessThanOrEqualTo(Integer value) {
+        public Criteria andTnoLessThanOrEqualTo(String value) {
             addCriterion("tno <=", value, "tno");
             return (Criteria) this;
         }
 
-        public Criteria andTnoIn(List<Integer> values) {
+        public Criteria andTnoLike(String value) {
+            addCriterion("tno like", value, "tno");
+            return (Criteria) this;
+        }
+
+        public Criteria andTnoNotLike(String value) {
+            addCriterion("tno not like", value, "tno");
+            return (Criteria) this;
+        }
+
+        public Criteria andTnoIn(List<String> values) {
             addCriterion("tno in", values, "tno");
             return (Criteria) this;
         }
 
-        public Criteria andTnoNotIn(List<Integer> values) {
+        public Criteria andTnoNotIn(List<String> values) {
             addCriterion("tno not in", values, "tno");
             return (Criteria) this;
         }
 
-        public Criteria andTnoBetween(Integer value1, Integer value2) {
+        public Criteria andTnoBetween(String value1, String value2) {
             addCriterion("tno between", value1, value2, "tno");
             return (Criteria) this;
         }
 
-        public Criteria andTnoNotBetween(Integer value1, Integer value2) {
+        public Criteria andTnoNotBetween(String value1, String value2) {
             addCriterion("tno not between", value1, value2, "tno");
             return (Criteria) this;
         }
