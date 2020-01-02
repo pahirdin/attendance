@@ -25,4 +25,6 @@ public interface CheckTempMapper {
     void insertBatch(ArrayList<CheckTemp> infos);
 
     void updateByBatch(List<CheckTemp> tempList);
+
+    int moveTempToAdminInfoTable(String recordId);
 }

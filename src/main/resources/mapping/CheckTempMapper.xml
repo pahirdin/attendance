@@ -321,4 +321,11 @@
       update checktemp set checkinfo=#{item.checkinfo},checcode=#{item.checcode} where tmpid=#{item.tmpid}
     </foreach>
   </update>
+
+    <insert id="moveTempToAdminInfoTable" parameterType="java.lang.String">
+      insert into admininfo (aid, aname, alevel,
+      atel, ano, apwd, coid
+      )
+        select nextval('admininfo$seq'),tname,checcode,ttel,tno,tpwd,spare1 from checktemp where recordid=#{recordid} AND  checcode=1
+    </insert>
 </mapper>

@@ -2,7 +2,6 @@ package com.phd.service.impl;
 
 import com.phd.entity.AdminInfo;
 import com.phd.entity.CheckTemp;
-import com.phd.entity.CheckTempExample;
 import com.phd.entity.ExcelData;
 import com.phd.mapper.AdminInfoMapper;
 import com.phd.mapper.CheckTempMapper;
@@ -10,17 +9,12 @@ import com.phd.service.ICommomService;
 import com.phd.service.IImportService;
 import com.phd.utils.CommonUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,6 +26,7 @@ import java.util.Map;
  * @date 2019/12/30 9:48
  */
 @Service
+//@Transactional
 public class ImportServiceImpl implements IImportService {
     @Autowired
     private AdminInfoMapper adminInfoMapper;
@@ -53,7 +48,8 @@ public class ImportServiceImpl implements IImportService {
         List<CheckTemp> succlist = new ArrayList<>();
         //校验并保存临时表
         checkInfos(tempList, succlist);
-
+        //临时表数据搬到管理员表
+        int suc = checkTempMapper.moveTempToAdminInfoTable(recordId);
         map.put("tol",infos.size());
         map.put("erro",infos.size()-succlist.size());
         map.put("recordid",recordId);
@@ -65,12 +61,10 @@ public class ImportServiceImpl implements IImportService {
         HashMap<String, String> nos = new HashMap<>();
         for(CheckTemp temp : tempList) {
             boolean tag = true;
-            if(tag) {
-                if(nos.containsKey(temp.getTno())) {
-                    tag = false;
-                    temp.setCheckinfo("该工号重复");
-                    temp.setCheccode(2);
-                }
+            if(nos.containsKey(temp.getTno())) {
+                tag = false;
+                temp.setCheckinfo("该工号重复");
+                temp.setCheccode(2);
             }
             if(tag) {
                 String tname = temp.getTname();
@@ -109,11 +103,13 @@ public class ImportServiceImpl implements IImportService {
             temp.setTname(String.valueOf(list.get(1)));
             temp.setTtel(String.valueOf(list.get(2)));
             String pwd = "".equals(String.valueOf(list.get(3))) ? "123456" : String.valueOf(list.get(3));
-            Object md = new SimpleHash("MD5",pwd,null,1024);
+            Object md = new Md5Hash(pwd).toString();
+
             temp.setTpwd(md.toString());
             temp.setConame(String.valueOf(list.get(4)));
             temp.setRecordid(recordId);
             temp.setCheccode(0);
+            temp.setSpare1(1);
             infos.add(temp);
         }
         //插入临时表
@@ -122,20 +118,18 @@ public class ImportServiceImpl implements IImportService {
 
     @Override
     public ExcelData getExcelData() {
-        int rowIndex = 0;
         List<AdminInfo> list = adminInfoMapper.selectByExample(null);
         ExcelData data = new ExcelData();
         data.setName("hello");
-        List<String> titles = new ArrayList();
+        List<String> titles = new ArrayList<>();
         titles.add("ID");
         titles.add("userName");
         titles.add("password");
         data.setTitles(titles);
 
-        List<List<Object>> rows = new ArrayList();
-        for(int i = 0, length = list.size();i<length;i++){
-            AdminInfo userInfo = list.get(i);
-            List<Object> row = new ArrayList();
+        List<List<Object>> rows = new ArrayList<>();
+        for (AdminInfo userInfo : list) {
+            ArrayList<Object> row = new ArrayList<>();
             row.add(userInfo.getAid());
             row.add(userInfo.getAname());
             row.add(userInfo.getAno());
