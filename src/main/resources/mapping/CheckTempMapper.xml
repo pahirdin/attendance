@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phd.mapper.CheckTempMapper">
+  <resultMap id="BaseResultMap" type="com.phd.entity.CheckTemp">
+    <result column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="tno" jdbcType="INTEGER" property="tno" />
+    <result column="tname" jdbcType="VARCHAR" property="tname" />
+    <result column="tpwd" jdbcType="VARCHAR" property="tpwd" />
+    <result column="ttel" jdbcType="VARCHAR" property="ttel" />
+    <result column="coname" jdbcType="VARCHAR" property="coname" />
+    <result column="spare1" jdbcType="INTEGER" property="spare1" />
+    <result column="spare2" jdbcType="INTEGER" property="spare2" />
+    <result column="spare3" jdbcType="VARCHAR" property="spare3" />
+    <result column="spare4" jdbcType="VARCHAR" property="spare4" />
+    <result column="spare5" jdbcType="VARCHAR" property="spare5" />
+    <result column="recordid" jdbcType="VARCHAR" property="recordid" />
+    <result column="checcode" jdbcType="INTEGER" property="checcode" />
+    <result column="checkinfo" jdbcType="VARCHAR" property="checkinfo" />
+    <result column="tmpid" jdbcType="NUMERIC" property="tmpid" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    tid, tno, tname, tpwd, ttel, coname, spare1, spare2, spare3, spare4, spare5, recordid, 
+    checcode, checkinfo, tmpid
+  </sql>
+  <select id="selectByExample" parameterType="com.phd.entity.CheckTempExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from checktemp
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.phd.entity.CheckTempExample">
+    delete from checktemp
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.phd.entity.CheckTemp">
+    insert into checktemp (tid, tno, tname, 
+      tpwd, ttel, coname, 
+      spare1, spare2, spare3, 
+      spare4, spare5, recordid, 
+      checcode, checkinfo, tmpid
+      )
+    values (#{tid,jdbcType=INTEGER}, #{tno,jdbcType=INTEGER}, #{tname,jdbcType=VARCHAR}, 
+      #{tpwd,jdbcType=VARCHAR}, #{ttel,jdbcType=VARCHAR}, #{coname,jdbcType=VARCHAR}, 
+      #{spare1,jdbcType=INTEGER}, #{spare2,jdbcType=INTEGER}, #{spare3,jdbcType=VARCHAR}, 
+      #{spare4,jdbcType=VARCHAR}, #{spare5,jdbcType=VARCHAR}, #{recordid,jdbcType=VARCHAR}, 
+      #{checcode,jdbcType=INTEGER}, #{checkinfo,jdbcType=VARCHAR}, #{tmpid,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.phd.entity.CheckTemp">
+    insert into checktemp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="tno != null">
+        tno,
+      </if>
+      <if test="tname != null">
+        tname,
+      </if>
+      <if test="tpwd != null">
+        tpwd,
+      </if>
+      <if test="ttel != null">
+        ttel,
+      </if>
+      <if test="coname != null">
+        coname,
+      </if>
+      <if test="spare1 != null">
+        spare1,
+      </if>
+      <if test="spare2 != null">
+        spare2,
+      </if>
+      <if test="spare3 != null">
+        spare3,
+      </if>
+      <if test="spare4 != null">
+        spare4,
+      </if>
+      <if test="spare5 != null">
+        spare5,
+      </if>
+      <if test="recordid != null">
+        recordid,
+      </if>
+      <if test="checcode != null">
+        checcode,
+      </if>
+      <if test="checkinfo != null">
+        checkinfo,
+      </if>
+      <if test="tmpid != null">
+        tmpid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="tno != null">
+        #{tno,jdbcType=INTEGER},
+      </if>
+      <if test="tname != null">
+        #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="tpwd != null">
+        #{tpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="ttel != null">
+        #{ttel,jdbcType=VARCHAR},
+      </if>
+      <if test="coname != null">
+        #{coname,jdbcType=VARCHAR},
+      </if>
+      <if test="spare1 != null">
+        #{spare1,jdbcType=INTEGER},
+      </if>
+      <if test="spare2 != null">
+        #{spare2,jdbcType=INTEGER},
+      </if>
+      <if test="spare3 != null">
+        #{spare3,jdbcType=VARCHAR},
+      </if>
+      <if test="spare4 != null">
+        #{spare4,jdbcType=VARCHAR},
+      </if>
+      <if test="spare5 != null">
+        #{spare5,jdbcType=VARCHAR},
+      </if>
+      <if test="recordid != null">
+        #{recordid,jdbcType=VARCHAR},
+      </if>
+      <if test="checcode != null">
+        #{checcode,jdbcType=INTEGER},
+      </if>
+      <if test="checkinfo != null">
+        #{checkinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="tmpid != null">
+        #{tmpid,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.phd.entity.CheckTempExample" resultType="java.lang.Long">
+    select count(*) from checktemp
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update checktemp
+    <set>
+      <if test="record.tid != null">
+        tid = #{record.tid,jdbcType=INTEGER},
+      </if>
+      <if test="record.tno != null">
+        tno = #{record.tno,jdbcType=INTEGER},
+      </if>
+      <if test="record.tname != null">
+        tname = #{record.tname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tpwd != null">
+        tpwd = #{record.tpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ttel != null">
+        ttel = #{record.ttel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.coname != null">
+        coname = #{record.coname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spare1 != null">
+        spare1 = #{record.spare1,jdbcType=INTEGER},
+      </if>
+      <if test="record.spare2 != null">
+        spare2 = #{record.spare2,jdbcType=INTEGER},
+      </if>
+      <if test="record.spare3 != null">
+        spare3 = #{record.spare3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spare4 != null">
+        spare4 = #{record.spare4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spare5 != null">
+        spare5 = #{record.spare5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordid != null">
+        recordid = #{record.recordid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checcode != null">
+        checcode = #{record.checcode,jdbcType=INTEGER},
+      </if>
+      <if test="record.checkinfo != null">
+        checkinfo = #{record.checkinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tmpid != null">
+        tmpid = #{record.tmpid,jdbcType=NUMERIC},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update checktemp
+    set tid = #{record.tid,jdbcType=INTEGER},
+      tno = #{record.tno,jdbcType=INTEGER},
+      tname = #{record.tname,jdbcType=VARCHAR},
+      tpwd = #{record.tpwd,jdbcType=VARCHAR},
+      ttel = #{record.ttel,jdbcType=VARCHAR},
+      coname = #{record.coname,jdbcType=VARCHAR},
+      spare1 = #{record.spare1,jdbcType=INTEGER},
+      spare2 = #{record.spare2,jdbcType=INTEGER},
+      spare3 = #{record.spare3,jdbcType=VARCHAR},
+      spare4 = #{record.spare4,jdbcType=VARCHAR},
+      spare5 = #{record.spare5,jdbcType=VARCHAR},
+      recordid = #{record.recordid,jdbcType=VARCHAR},
+      checcode = #{record.checcode,jdbcType=INTEGER},
+      checkinfo = #{record.checkinfo,jdbcType=VARCHAR},
+      tmpid = #{record.tmpid,jdbcType=NUMERIC}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
