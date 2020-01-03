@@ -321,8 +321,14 @@
       update checktemp set checkinfo=#{item.checkinfo},checcode=#{item.checcode},spare1=#{item.spare1} where tmpid=#{item.tmpid}
     </foreach>
   </update>
+  <update id="checkAdminNoRepeatByRecordId"  parameterType="java.lang.String">
+    UPDATE CHECKTEMP AS T SET CHECCODE=2,CHECKINFO='该工号已存在' WHERE RECORDID=#{recordid} AND EXISTS(
+      SELECT 1 FROM ADMININFO A
+      WHERE A.ANO = T.TNO
+)
+  </update>
 
-    <insert id="moveTempToAdminInfoTable" parameterType="java.lang.String">
+  <insert id="moveTempToAdminInfoTable" parameterType="java.lang.String">
       insert into admininfo (aid, aname, alevel,
       atel, ano, apwd, coid
       )

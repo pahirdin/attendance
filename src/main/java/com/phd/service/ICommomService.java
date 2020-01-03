@@ -6,7 +6,6 @@ import com.phd.entity.Major;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author pahaied
@@ -35,9 +34,10 @@ public interface ICommomService {
     /**
      * 根据流水号查询临时表
      * @param recordId
+     * @param checkcode
      * @return List<CheckTemp>
      */
-    List<CheckTemp> queryTempListByRecordId(String recordId);
+    List<CheckTemp> queryTempListByRecordId(String recordId, Integer checkcode);
 
     /**
      * 保存临时表数据

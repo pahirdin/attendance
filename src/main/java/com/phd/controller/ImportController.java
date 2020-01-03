@@ -47,15 +47,13 @@ public class ImportController {
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 
         MultipartFile file = multipartRequest.getFile("file");
-        HashMap<String, Object> map = new HashMap<>();
         //生成流水号
         String recordId = CommonUtil.getUUID();
         if (file != null && file.isEmpty()) {
+            HashMap<String, Object> map = new HashMap<>();
             map.put("msg","未识别文件内容");
             map.put("code","0");
             return map;
-        }else {
-            map.put("msg","成功");
         }
 
         InputStream inputStream = file != null ? file.getInputStream() : null;
@@ -64,12 +62,10 @@ public class ImportController {
             inputStream.close();
         }
 
-        map.put("code","0");
-        map.put("data","");
-        map.put("tol",param.get("tol"));
-        map.put("erro",param.get("erro"));
-        map.put("suc",param.get("suc"));
-        return map;
+        param.put("code","0");
+        param.put("data","");
+        param.put("msg","");
+        return param;
 
     }
 

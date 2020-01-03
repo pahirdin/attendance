@@ -43,11 +43,11 @@ public class ImportServiceImpl implements IImportService {
         //插入临时表
         insertTmpByAdminFileList(recordId, fileList, infos);
         //获取需要操作的数据
-        List<CheckTemp> tempList = commomServiceImpl.queryTempListByRecordId(recordId);
-        //成功的数据
-        List<CheckTemp> succlist = new ArrayList<>();
+        List<CheckTemp> tempList = commomServiceImpl.queryTempListByRecordId(recordId,0);
         //校验并保存临时表
-        checkInfos(tempList, succlist);
+        checkInfos(tempList,recordId);
+        //成功的数据
+        List<CheckTemp> succlist = commomServiceImpl.queryTempListByRecordId(recordId,1);
         //临时表数据搬到管理员表
         int suc = checkTempMapper.moveTempToAdminInfoTable(recordId);
         map.put("tol",infos.size());
@@ -57,7 +57,7 @@ public class ImportServiceImpl implements IImportService {
         return  map;
     }
 
-    public void checkInfos(List<CheckTemp> tempList, List<CheckTemp> succlist) {
+    public void checkInfos(List<CheckTemp> tempList, String recordId) {
         HashMap<Integer,String> college = commomServiceImpl.queryAllCollege();
         Map<String, String> nos = new HashMap<>();
         for(CheckTemp temp : tempList) {
@@ -93,11 +93,11 @@ public class ImportServiceImpl implements IImportService {
             if(tag) {
                 nos.put(temp.getTno(),temp.getTno());
                 temp.setCheccode(1);
-                temp.setSpare1(Integer.valueOf(CommonUtil.getKey(college,temp.getConame())));
-                succlist.add(temp);
+                temp.setSpare1(CommonUtil.getKey(college,temp.getConame()));
             }
         }
         commomServiceImpl.saveTempTable(tempList);
+        this.checkTempMapper.checkAdminNoRepeatByRecordId(recordId);
     }
 
 

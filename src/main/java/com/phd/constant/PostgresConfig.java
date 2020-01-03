@@ -16,7 +16,7 @@ import javax.sql.DataSource;
  * @date 2019/12/4 21:34
  */
 @Configuration
-@MapperScan(basePackages = "zsh.demos.postgres.dao.mapper", sqlSessionFactoryRef = "pgSqlSessionFactory")
+@MapperScan(basePackages = "com.phd.mapper", sqlSessionFactoryRef = "pgSqlSessionFactory")
 public class PostgresConfig {
 
     @Value("${mybatis.mapper-locations}")

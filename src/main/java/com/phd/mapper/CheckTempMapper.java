@@ -27,4 +27,10 @@ public interface CheckTempMapper {
     void updateByBatch(List<CheckTemp> tempList);
 
     int moveTempToAdminInfoTable(String recordId);
+
+    /**
+     * 根据流水号校验掉重复的工号
+     * @param recordId
+     */
+    int checkAdminNoRepeatByRecordId(String recordId);
 }

@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -46,10 +44,13 @@ public class CommomServiceImpl implements ICommomService {
     }
 
     @Override
-    public List<CheckTemp> queryTempListByRecordId(String recordId) {
+    public List<CheckTemp> queryTempListByRecordId(String recordId, Integer checkcode) {
         CheckTempExample checkTempExample = new CheckTempExample();
         CheckTempExample.Criteria criteria = checkTempExample.createCriteria();
         criteria.andRecordidEqualTo(recordId);
+        if(null != checkcode) {
+            criteria.andCheccodeEqualTo(checkcode);
+        }
         return checkTempMapper.selectByExample(checkTempExample);
     }
 
