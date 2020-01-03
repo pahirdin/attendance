@@ -51,7 +51,7 @@ public class ImportController {
         String recordId = CommonUtil.getUUID();
         if (file != null && file.isEmpty()) {
             HashMap<String, Object> map = new HashMap<>();
-            map.put("msg","未识别文件内容");
+            map.put("allerro","0");
             map.put("code","0");
             return map;
         }
@@ -100,12 +100,13 @@ public class ImportController {
 //        return RetResponse.makeOKRsp(Integer.valueOf(rowIndex));
 //    }
 
-    @RequestMapping("/test2")
-    public void test2(HttpServletResponse response){
+    @RequestMapping("/geterror")
+    public void test2(HttpServletResponse response,String recordid){
+        recordid = recordid == null ? "0000000000000000" : recordid;
 //        ExcelData data = getExcelData();
-        ExcelData data = importServiceImpl.getExcelData();
+        ExcelData data = importServiceImpl.getExcelData(recordid);
         try{
-            ExcelUtils.exportExcel(response,"aaaaaaa",data);
+            ExcelUtils.exportExcel(response,"错误【ERROR】",data);
         }catch (Exception e){
             e.printStackTrace();
         }

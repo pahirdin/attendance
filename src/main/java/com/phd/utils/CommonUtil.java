@@ -9,11 +9,14 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import javax.security.auth.login.LoginException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author pahaied
@@ -107,5 +110,34 @@ public class CommonUtil {
         //这个key肯定是最后一个满足该条件的key.
     }
 
+    public static Boolean isTelNumber(String telNum) {
+        String regex = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17[013678])|(18[0,5-9]))\\d{8}$";
+        if (telNum.length() != 11) {
+            return false;
+        } else {
+            Pattern p = Pattern.compile(regex);
+            Matcher m = p.matcher(telNum);
+            boolean isMatch = m.matches();
+            if (isMatch) {
+                return true;
+            }else {
+                return false;
+            }
+        }
+    }
 
-}
+
+    /**
+     * 判断是否含有特殊字符
+     *
+     * @param str
+     * @return true为包含，false为不包含
+     */
+    public static boolean isSpecialChar(String str) {
+        String regEx = "[ _`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]|\n|\r|\t";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(str);
+        return m.find();
+    }
+
+    }

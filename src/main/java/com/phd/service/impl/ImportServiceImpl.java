@@ -2,6 +2,7 @@ package com.phd.service.impl;
 
 import com.phd.entity.AdminInfo;
 import com.phd.entity.CheckTemp;
+import com.phd.entity.CheckTempExample;
 import com.phd.entity.ExcelData;
 import com.phd.mapper.AdminInfoMapper;
 import com.phd.mapper.CheckTempMapper;
@@ -10,7 +11,6 @@ import com.phd.service.IImportService;
 import com.phd.utils.CommonUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.hash.Md5Hash;
-import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,13 +47,17 @@ public class ImportServiceImpl implements IImportService {
         //校验并保存临时表
         checkInfos(tempList,recordId);
         //成功的数据
-        List<CheckTemp> succlist = commomServiceImpl.queryTempListByRecordId(recordId,1);
+//        List<CheckTemp> succlist = commomServiceImpl.queryTempListByRecordId(recordId,1);
+
         //临时表数据搬到管理员表
         int suc = checkTempMapper.moveTempToAdminInfoTable(recordId);
+        if(infos.size() == 0) {
+            map.put("allerro","0");
+        }
         map.put("tol",infos.size());
-        map.put("erro",infos.size()-succlist.size());
+        map.put("erro",infos.size()-suc);
         map.put("recordid",recordId);
-        map.put("suc",succlist.size());
+        map.put("suc",suc);
         return  map;
     }
 
@@ -84,6 +88,20 @@ public class ImportServiceImpl implements IImportService {
                 }
             }
             if(tag) {
+                if (CommonUtil.isSpecialChar(temp.getTno())) {
+                    tag = false;
+                    temp.setCheckinfo("工号含有特殊字符");
+                    temp.setCheccode(2);
+                }
+            }
+            if (tag) {
+                if(!CommonUtil.isTelNumber(temp.getTtel())) {
+                    tag = false;
+                    temp.setCheckinfo("手机号格式不正确");
+                    temp.setCheccode(2);
+                }
+            }
+            if(tag) {
                 if(!college.values().contains(temp.getConame())) {
                     tag = false;
                     temp.setCheckinfo("未匹配到学院");
@@ -104,6 +122,9 @@ public class ImportServiceImpl implements IImportService {
     private void insertTmpByAdminFileList(String recordId, List<List<Object>> fileList, ArrayList<CheckTemp> infos) {
         //转实体集合
         for(List<Object> list : fileList) {
+            if(list.size() < 4) {
+                break;
+            }
             CheckTemp temp = new CheckTemp();
             if(StringUtils.isBlank(String.valueOf(list.get(0)))) {
                 break;
@@ -121,26 +142,30 @@ public class ImportServiceImpl implements IImportService {
             infos.add(temp);
         }
         //插入临时表
-        checkTempMapper.insertBatch(infos);
+        if(!infos.isEmpty()) {
+            checkTempMapper.insertBatch(infos);
+        }
     }
 
     @Override
-    public ExcelData getExcelData() {
-        List<AdminInfo> list = adminInfoMapper.selectByExample(null);
+    public ExcelData getExcelData(String recordid) {
+        CheckTempExample checkTempExample = new CheckTempExample();
+        CheckTempExample.Criteria criteria = checkTempExample.createCriteria();
+        criteria.andRecordidEqualTo(recordid);
+        criteria.andCheccodeEqualTo(2);
+        List<CheckTemp> list = checkTempMapper.selectByExample(checkTempExample);
         ExcelData data = new ExcelData();
-        data.setName("hello");
+        data.setName("error");
         List<String> titles = new ArrayList<>();
-        titles.add("ID");
-        titles.add("userName");
-        titles.add("password");
+        titles.add("账号");
+        titles.add("错误原因");
         data.setTitles(titles);
 
         List<List<Object>> rows = new ArrayList<>();
-        for (AdminInfo userInfo : list) {
+        for (CheckTemp checkTemp : list) {
             ArrayList<Object> row = new ArrayList<>();
-            row.add(userInfo.getAid());
-            row.add(userInfo.getAname());
-            row.add(userInfo.getAno());
+            row.add(checkTemp.getTno());
+            row.add(checkTemp.getCheckinfo());
             rows.add(row);
         }
         data.setRows(rows);

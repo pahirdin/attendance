@@ -137,12 +137,27 @@
                     elem: '#filename' //绑定元素
                     ,url: '/addadmin' //上传接口
                     ,accept: 'file' //允许上传的文件类型
+                    // ,exts: 'xls|excel|xlsx' //只允许上传压缩文件
+                    ,exts: 'xls|excel' //只允许上传压缩文件
                     ,done: function(res){
                         //上传完毕回调
+                        if (res.allerro === '0') {
+                            // {time:3000,icon:5}
+                            layer.open({
+                                title: '错误'
+                                ,content: '&nbsp;&nbsp;未识别文件内容'
+                                ,icon:5
+                            });
+
+                        }else {
                         layer.open({
                             title: '结果'
-                            ,content: '解析到的数据'+res.tol+'条，成功'+res.suc+'条，失败'+res.erro+'条,<a href="/test2">点击下载失败原因</a>'
+                            ,content: '<div class="layui-card"><div class="layui-card-body" style="font-size: 20px;font-weight: 300;">' +
+                                '&nbsp;&nbsp;解析到的数据'+res.tol+'条，成功'+res.suc+'条，失败'+res.erro+'条,' +
+                                '<a class="layui-bg-red" href="/geterror?recordid='+res.recordid+'">点击下载失败原因</a></div></div>'
                         });
+                        }
+
                     }
                     ,error: function(){
                         //请求异常回调
