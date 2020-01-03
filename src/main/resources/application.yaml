@@ -4,6 +4,7 @@ server:
 logging:
   level:
     com.phd.mapper: debug
+  config: classpath:log4j2.yml # 指定log4j配置文件的位置
   #path: "D:/test/test.log"
 spring:
   datasource:

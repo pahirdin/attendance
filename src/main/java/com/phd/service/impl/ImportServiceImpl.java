@@ -26,7 +26,7 @@ import java.util.Map;
  * @date 2019/12/30 9:48
  */
 @Service
-//@Transactional
+@Transactional
 public class ImportServiceImpl implements IImportService {
     @Autowired
     private AdminInfoMapper adminInfoMapper;
@@ -58,7 +58,8 @@ public class ImportServiceImpl implements IImportService {
     }
 
     public void checkInfos(List<CheckTemp> tempList, List<CheckTemp> succlist) {
-        HashMap<String, String> nos = new HashMap<>();
+        HashMap<Integer,String> college = commomServiceImpl.queryAllCollege();
+        Map<String, String> nos = new HashMap<>();
         for(CheckTemp temp : tempList) {
             boolean tag = true;
             if(nos.containsKey(temp.getTno())) {
@@ -83,8 +84,16 @@ public class ImportServiceImpl implements IImportService {
                 }
             }
             if(tag) {
+                if(!college.values().contains(temp.getConame())) {
+                    tag = false;
+                    temp.setCheckinfo("未匹配到学院");
+                    temp.setCheccode(2);
+                }
+            }
+            if(tag) {
                 nos.put(temp.getTno(),temp.getTno());
                 temp.setCheccode(1);
+                temp.setSpare1(Integer.valueOf(CommonUtil.getKey(college,temp.getConame())));
                 succlist.add(temp);
             }
         }
@@ -109,7 +118,6 @@ public class ImportServiceImpl implements IImportService {
             temp.setConame(String.valueOf(list.get(4)));
             temp.setRecordid(recordId);
             temp.setCheccode(0);
-            temp.setSpare1(1);
             infos.add(temp);
         }
         //插入临时表

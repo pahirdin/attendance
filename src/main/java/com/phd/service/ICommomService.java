@@ -4,7 +4,9 @@ import com.phd.entity.CheckTemp;
 import com.phd.entity.College;
 import com.phd.entity.Major;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author pahaied
@@ -13,20 +15,27 @@ import java.util.List;
 public interface ICommomService {
     /**
      * 获取所有学业
-     * @return
+     * @return List<College>
      */
     List<College> findAllCollege();
+    /**
+     * 获取所有学业
+     * @return Map<String, String>
+     */
+    HashMap<Integer, String> queryAllCollege();
+
 
     /**
      * 根据学院获取专业
-     * @return
+     * @param coid 学院id
+     * @return List<Major>
      */
     List<Major> getMajorByCoid(Integer coid);
 
     /**
      * 根据流水号查询临时表
      * @param recordId
-     * @return
+     * @return List<CheckTemp>
      */
     List<CheckTemp> queryTempListByRecordId(String recordId);
 
@@ -35,4 +44,5 @@ public interface ICommomService {
      * @param tempList
      */
     void saveTempTable(List<CheckTemp> tempList);
+
 }

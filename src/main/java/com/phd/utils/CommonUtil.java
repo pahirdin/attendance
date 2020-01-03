@@ -11,6 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -93,6 +94,18 @@ public class CommonUtil {
         return workbook;
     }
 
+
+      public static Integer getKey(HashMap<Integer,String> map, String value) {
+        Integer key = null;
+        //Map,HashMap并没有实现Iteratable接口.不能用于增强for循环.
+        for (Integer getKey : map.keySet()) {
+            if (map.get(getKey).equals(value)) {
+                key = getKey;
+            }
+        }
+          return key;
+        //这个key肯定是最后一个满足该条件的key.
+    }
 
 
 }

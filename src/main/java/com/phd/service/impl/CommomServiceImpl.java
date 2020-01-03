@@ -8,7 +8,11 @@ import com.phd.service.ICommomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * @author pahaied
@@ -25,6 +29,12 @@ public class CommomServiceImpl implements ICommomService {
     @Override
     public List<College> findAllCollege() {
         return this.collegeMapper.selectByExample(null);
+    }
+
+    @Override
+    public HashMap<Integer, String> queryAllCollege() {
+        List<College> colleges = this.collegeMapper.selectByExample(null);
+        return (HashMap<Integer, String>) colleges.stream().collect(Collectors.toMap(College:: getCoid, College::getConame, (key1, key2) -> key2));
     }
 
     @Override
@@ -47,4 +57,5 @@ public class CommomServiceImpl implements ICommomService {
     public void saveTempTable(List<CheckTemp> tempList) {
         checkTempMapper.updateByBatch(tempList);
     }
+
 }

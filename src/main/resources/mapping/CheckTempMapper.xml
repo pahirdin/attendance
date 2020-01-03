@@ -318,7 +318,7 @@
 
   <update id="updateByBatch"  parameterType="java.util.List">
     <foreach collection="list" separator=";" item="item">
-      update checktemp set checkinfo=#{item.checkinfo},checcode=#{item.checcode} where tmpid=#{item.tmpid}
+      update checktemp set checkinfo=#{item.checkinfo},checcode=#{item.checcode},spare1=#{item.spare1} where tmpid=#{item.tmpid}
     </foreach>
   </update>
 
