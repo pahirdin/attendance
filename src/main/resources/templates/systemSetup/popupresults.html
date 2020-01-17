@@ -1,0 +1,41 @@
+<html  class="x-admin-sm" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>弹窗</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />-->
+    <link rel="stylesheet" th:href="@{/X-admin/css/font.css}">
+    <link rel="stylesheet" th:href="@{/X-admin/css/xadmin.css}">
+    <link rel="stylesheet" th:href="@{/X-admin/css/theme5.css}">
+    <script th:src="@{/X-admin/lib/layui/layui.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{/X-admin/js/xadmin.js}"></script>
+    <script th:src="@{/X-admin/js/jquery.min.js}" charset="utf-8"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div th:if="${type} eq '1'">
+<div class="layui-card">
+    <div class="layui-card-body" style="font-size: 20px;font-weight: 300;">
+    &nbsp;&nbsp;解析到的数据'<span th:text="${tol}"></span>条，成功<span th:text="${suc}"></span>条，失败<span th:text="${erro}"></span>条。
+    </div>
+</div>
+</div>
+<div th:if="${type} eq '0'">
+    <div class="layui-card">&nbsp;&nbsp;未识别文件内容</div>
+</div>
+
+<div th:if="${type} eq '2'">
+    <div class="layui-card">
+        <div class="layui-card-body" style="font-size: 20px;font-weight: 300;">
+        &nbsp;&nbsp;解析到的数据'<span th:text="${tol}"></span>条，成功<span th:text="${suc}"></span>条，失败<span th:text="${erro}"></span>条,
+             <a class="layui-bg-red" th:href="${url}">点击下载失败原因</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
