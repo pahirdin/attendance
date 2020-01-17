@@ -37,9 +37,9 @@ public class ImportController {
 
     /**
      * 管理员管理页面 上传文件新增管理员信息
-     * @param request
+     * @param request request
      * @return 返回map 成功或失败数据
-     * @throws Exception
+     * @throws Exception 错误
      */
     @RequestMapping("/addadmin")
     @ResponseBody
@@ -57,7 +57,7 @@ public class ImportController {
         }
 
         InputStream inputStream = file != null ? file.getInputStream() : null;
-        Map<String,Object> param = importServiceImpl.getBankListByExcel(inputStream, file.getOriginalFilename(),recordId);
+        Map<String,Object> param = importServiceImpl.getAdminListByExcel(inputStream, file.getOriginalFilename(),recordId);
         if (inputStream != null) {
             inputStream.close();
         }
@@ -67,6 +67,31 @@ public class ImportController {
         param.put("msg","");
         return param;
 
+    }
+
+    @RequestMapping("/addStudent")
+    @ResponseBody()
+    public Map<String,Object> addStudent(HttpServletRequest request) throws Exception {
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+        MultipartFile file = multipartRequest.getFile("file");
+        //生成流水号
+        String recordId = CommonUtil.getUUID();
+        if (file != null && file.isEmpty()) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("allerro","0");
+            map.put("code","0");
+            return map;
+        }
+        InputStream inputStream = file != null ? file.getInputStream() : null;
+        Map<String,Object> param = importServiceImpl.getStudentListByExcel(inputStream, file.getOriginalFilename(),recordId);
+        if (inputStream != null) {
+            inputStream.close();
+        }
+
+        param.put("code","0");
+        param.put("data","");
+        param.put("msg","");
+        return param;
     }
 
 

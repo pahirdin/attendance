@@ -35,7 +35,7 @@ public class ImportServiceImpl implements IImportService {
     @Autowired
     private ICommomService commomServiceImpl;
     @Override
-    public Map<String,Object> getBankListByExcel(InputStream inputStream, String originalFilename, String recordId) throws Exception  {
+    public Map<String,Object> getAdminListByExcel(InputStream inputStream, String originalFilename, String recordId) throws Exception  {
         Map<String,Object> map = new HashMap<>();
         //获取文件内容
         List<List<Object>> fileList = CommonUtil.getFileList(inputStream, originalFilename);
@@ -45,7 +45,7 @@ public class ImportServiceImpl implements IImportService {
         //获取需要操作的数据
         List<CheckTemp> tempList = commomServiceImpl.queryTempListByRecordId(recordId,0);
         //校验并保存临时表
-        checkInfos(tempList,recordId);
+        checkAdminInfos(tempList,recordId);
         //成功的数据
 //        List<CheckTemp> succlist = commomServiceImpl.queryTempListByRecordId(recordId,1);
 
@@ -61,7 +61,7 @@ public class ImportServiceImpl implements IImportService {
         return  map;
     }
 
-    public void checkInfos(List<CheckTemp> tempList, String recordId) {
+    public void checkAdminInfos(List<CheckTemp> tempList, String recordId) {
         HashMap<Integer,String> college = commomServiceImpl.queryAllCollege();
         Map<String, String> nos = new HashMap<>();
         for(CheckTemp temp : tempList) {
@@ -172,6 +172,141 @@ public class ImportServiceImpl implements IImportService {
         return data;
     }
 
+    /**
+     * 新增学生信息
+     * @param inputStream 文件内容
+     * @param originalFilename 文件名
+     * @param recordId 流水号
+     * @return map
+     * @throws Exception 错误
+     */
+    @Override
+    public Map<String, Object> getStudentListByExcel(InputStream inputStream, String originalFilename, String recordId) throws Exception {
+        Map<String,Object> map = new HashMap<>();
+        //获取文件内容
+        List<List<Object>> fileList = CommonUtil.getFileList(inputStream, originalFilename);
+        ArrayList<CheckTemp> infos = new ArrayList<>();
+        //插入临时表
+        insertTmpByStudentFileList(recordId, fileList, infos);
+        //获取需要操作的数据
+        List<CheckTemp> tempList = commomServiceImpl.queryTempListByRecordId(recordId,0);
+        //校验并保存临时表
+        checkStudetInfos(tempList,recordId);
+        //成功的数据
+//        List<CheckTemp> succlist = commomServiceImpl.queryTempListByRecordId(recordId,1);
+
+        //临时表数据搬到管理员表
+        int suc = checkTempMapper.moveTempToAdminInfoTable(recordId);
+        if(infos.size() == 0) {
+            map.put("allerro","0");
+        }
+        map.put("tol",infos.size());
+        map.put("erro",infos.size()-suc);
+        map.put("recordid",recordId);
+        map.put("suc",suc);
+        return  map;
+    }
+
+    private void checkStudetInfos(List<CheckTemp> tempList, String recordId) {
+        HashMap<Integer,String> college = commomServiceImpl.queryAllCollege();
+        Map<String, String> nos = new HashMap<>();
+        for(CheckTemp temp : tempList) {
+            boolean tag = true;
+            if(nos.containsKey(temp.getTno())) {
+                tag = false;
+                temp.setCheckinfo("该学号重复");
+                temp.setCheccode(2);
+            }
+            if(tag) {
+                String tname = temp.getTname();
+                if("null".equals(tname)) {
+                    tag = false;
+                    temp.setCheccode(2);
+                    temp.setCheckinfo("未填写学生姓名");
+                }
+            }
+            if(tag) {
+                String ttel = temp.getTtel();
+                if("null".equals(ttel)) {
+                    tag = false;
+                    temp.setCheckinfo("未填写手机号");
+                    temp.setCheccode(2);
+                }
+            }
+            if(tag) {
+                if (CommonUtil.isSpecialChar(temp.getTno())) {
+                    tag = false;
+                    temp.setCheckinfo("学号含有特殊字符");
+                    temp.setCheccode(2);
+                }
+            }
+            if (tag) {
+                if(!CommonUtil.isTelNumber(temp.getTtel())) {
+                    tag = false;
+                    temp.setCheckinfo("手机号格式不正确");
+                    temp.setCheccode(2);
+                }
+            }
+            if(tag) {
+                if(!college.values().contains(temp.getConame())) {
+                    tag = false;
+                    temp.setCheckinfo("未匹配到学院");
+                    temp.setCheccode(2);
+                }
+            }
+            if(tag) {
+                if("null".equals(temp.getSpare4())) {
+                    tag = false;
+                    temp.setCheckinfo("未填写班级");
+                    temp.setCheccode(2);
+                }
+            }
+            if(tag) {
+                nos.put(temp.getTno(),temp.getTno());
+                temp.setCheccode(1);
+                temp.setSpare1(CommonUtil.getKey(college,temp.getConame()));
+            }
+
+        }
+        commomServiceImpl.saveTempTable(tempList);
+        this.checkTempMapper.checkAdminNoRepeatByRecordId(recordId);
+    }
+
+    private void insertTmpByStudentFileList(String recordId, List<List<Object>> fileList, ArrayList<CheckTemp> infos) {
+        //转实体集合
+        for(List<Object> list : fileList) {
+            if(list.size() < 7) {
+                break;
+            }
+            CheckTemp temp = new CheckTemp();
+            if(StringUtils.isBlank(String.valueOf(list.get(0)))) {
+                break;
+            }
+            //学号
+            temp.setTno(String.valueOf(list.get(0)));
+            //姓名
+            temp.setTname(String.valueOf(list.get(1)));
+            //学院
+            temp.setConame(String.valueOf(list.get(2)));
+            //专业
+            temp.setSpare3(String.valueOf(list.get(3)));
+            //班级
+            temp.setSpare4(String.valueOf(list.get(4)));
+            //手机号
+            temp.setTtel(String.valueOf(5));
+            //宿舍
+            temp.setSpare5(String.valueOf(6));
+            //家长手机号
+            temp.setSpare6(String.valueOf(7));
+            temp.setRecordid(recordId);
+            temp.setCheccode(0);
+            infos.add(temp);
+        }
+        //插入临时表
+        if(!infos.isEmpty()) {
+            checkTempMapper.insertBatch(infos);
+        }
+    }
 
 
 }

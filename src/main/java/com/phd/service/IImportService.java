@@ -10,7 +10,30 @@ import java.util.Map;
  * @date 2019/12/30 9:47
  */
 public interface IImportService {
-    Map<String,Object> getBankListByExcel(InputStream inputStream, String originalFilename, String recordId) throws Exception;
+    /**
+     * 新增管理员信息
+     * @param inputStream 文件内容
+     * @param originalFilename 文件名
+     * @param recordId 流水号
+     * @return map
+     * @throws Exception 错误
+     */
+    Map<String,Object> getAdminListByExcel(InputStream inputStream, String originalFilename, String recordId) throws Exception;
 
+    /**
+     * 获取错误信息
+     * @param recordid 流水号
+     * @return excel内容
+     */
     ExcelData getExcelData(String recordid);
+
+    /**
+     * 新增学生信息
+     * @param inputStream 文件内容
+     * @param originalFilename 文件名
+     * @param recordId 流水号
+     * @return map
+     *  @throws Exception 错误
+     */
+    Map<String, Object> getStudentListByExcel(InputStream inputStream, String originalFilename, String recordId) throws Exception;
 }
