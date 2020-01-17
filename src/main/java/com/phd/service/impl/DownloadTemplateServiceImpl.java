@@ -58,4 +58,57 @@ public class DownloadTemplateServiceImpl implements IDownloadTemplateService {
         data.setRows(rows);
         return data;
     }
+
+    @Override
+    public ExcelData getStudentTmpExcelData() {
+        ExcelData data = new ExcelData();
+        data.setName("studentTmp");
+        List<String> titles = new ArrayList<>();
+        titles.add("学号");
+        titles.add("姓名");
+        titles.add("学院");
+        titles.add("专业");
+        titles.add("班级");
+        titles.add("手机号");
+        titles.add("宿舍");
+        titles.add("家长手机号");
+        data.setTitles(titles);
+
+        List<List<Object>> rows = new ArrayList<>();
+        List<Object> row1 = new ArrayList<>();
+        row1.add("16020440218");
+        row1.add("张三");
+        row1.add("计算机与信息科学学院");
+        row1.add("软件工程");
+        row1.add("1601班");
+        row1.add("15675120314");
+        row1.add("B6-404");
+        row1.add("13579278004");
+        rows.add(row1);
+
+        List<Object> row2 = new ArrayList<>();
+        row2.add("16020440219");
+        row2.add("李四");
+        row2.add("计算机与信息科学学院");
+        row2.add("软件工程");
+        row2.add("1602班");
+        row2.add("15675120314");
+        row2.add("B6-404");
+        row2.add("13579278004");
+        rows.add(row2);
+
+        List<Object> row3 = new ArrayList<>();
+        row3.add("16020440220");
+        row3.add("帕海尔丁·牙生");
+        row3.add("计算机与信息科学学院");
+        row3.add("软件工程");
+        row3.add("1603班");
+        row3.add("15675120314");
+        row3.add("B6-404");
+        row3.add("13579278004");
+        rows.add(row3);
+
+        data.setRows(rows);
+        return data;
+    }
 }

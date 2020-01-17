@@ -12,4 +12,10 @@ public interface IDownloadTemplateService {
      * @return
      */
     ExcelData getAdminTmpExcelData();
+
+    /**
+     * 学生信息新增模板
+     * @return
+     */
+    ExcelData getStudentTmpExcelData();
 }

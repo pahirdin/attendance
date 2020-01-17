@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -30,6 +31,21 @@ public class DownloadTemplateController {
         ExcelData data = downloadTemplateServiceImpl.getAdminTmpExcelData();
         try{
             ExcelUtils.exportExcel(response,"管理员新增模板",data);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 学生新增模板下载
+     * @param response response
+     */
+    @RequestMapping("/downAddStudentTmp")
+    @ResponseBody
+    public void downAddStudentTmp(HttpServletResponse response) {
+        ExcelData data = downloadTemplateServiceImpl.getStudentTmpExcelData();
+        try{
+            ExcelUtils.exportExcel(response,"学生信息新增模板",data);
         }catch (Exception e){
             e.printStackTrace();
         }

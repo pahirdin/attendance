@@ -80,6 +80,7 @@
                 // }]
                 ,defaultToolbar: ['filter', 'print', 'exports']
                 ,toolbar: true
+                ,toolbar: '#toolbarDemo' //表头工具栏
                 ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
                 ,cols: [[
                     // {checkbox: true, fixed: true}
@@ -132,6 +133,38 @@
                 var type = $(this).data('type');
                 active[type] ? active[type].call(this) : '';
             });
+
+            $('#muban').on('click',function () {
+                window.location.href="/downAddStudentTmp";
+            });
+            //上传文件新增
+            layui.use('upload', function(){
+                var upload = layui.upload; //得到 upload 对象
+                //执行实例
+                var uploadInst = upload.render({
+                    elem: '#filename' //绑定元素
+                    ,url: '/addadmin' //上传接口
+                    ,accept: 'file' //允许上传的文件类型
+                    // ,exts: 'xls|excel|xlsx' //只允许上传压缩文件
+                    ,exts: 'xls|excel' //只允许上传压缩文件
+                    ,done: function(res){
+                        //上传完毕回调
+                        layer.open({
+                            type:2
+                            ,title: '结果'
+                            ,content: '/popupresults?tol='+res.tol+'&suc='+res.suc+'&erro='+res.erro+'&recordid='+res.recordid
+                        });
+
+
+                    }
+                    ,error: function(){
+                        //请求异常回调
+                    }
+                });
+            });
+            $('#add').on('click',function () {
+
+            });
         });
 
 
@@ -171,6 +204,15 @@
                 });
             });
     </script>
-
+    <!--表头工具栏-->
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-container">
+            <button class="layui-btn layui-btn-sm" lay-event="muban" id="muban">下载模板</button>
+            <!--            <button class="layui-btn layui-btn-sm" lay-event="add" id="add">批量新增</button>-->
+            <button type="button" class="layui-btn" id="filename">批量新增
+                <!--                <i class="layui-icon">&#xe67c;</i>-->
+            </button>
+        </div>
+    </script>
 </body>
 </html>
