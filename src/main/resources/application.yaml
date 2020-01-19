@@ -15,8 +15,11 @@ spring:
   mvc:
     servlet:
       load-on-startup: 1
-
+  redis:
+    host: 127.0.0.1
+    port: 6379
 mybatis:
   type-handlers-package: zsh.demos.postgres.mybatis.typehandler
   mapper-locations: classpath:mapping/*.xml
+
 

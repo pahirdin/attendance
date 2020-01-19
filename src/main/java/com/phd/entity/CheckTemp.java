@@ -27,6 +27,8 @@ public class CheckTemp {
 
     private String spare6;
 
+    private Integer spare7;
+
     private String recordid;
 
     private Integer checcode;
@@ -95,8 +97,16 @@ public class CheckTemp {
         return spare2;
     }
 
+    public Integer getSpare7() {
+        return spare7;
+    }
+
     public void setSpare2(Integer spare2) {
         this.spare2 = spare2;
+    }
+
+    public void setSpare7(Integer spare7) {
+        this.spare7 = spare7;
     }
 
     public String getSpare3() {

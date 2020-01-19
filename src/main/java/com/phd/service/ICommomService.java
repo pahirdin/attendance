@@ -33,15 +33,15 @@ public interface ICommomService {
 
     /**
      * 根据流水号查询临时表
-     * @param recordId
-     * @param checkcode
+     * @param recordId 流水号
+     * @param checkcode 成功标识
      * @return List<CheckTemp>
      */
     List<CheckTemp> queryTempListByRecordId(String recordId, Integer checkcode);
 
     /**
      * 保存临时表数据
-     * @param tempList
+     * @param tempList 管理员临时信息
      */
     void saveTempTable(List<CheckTemp> tempList);
 

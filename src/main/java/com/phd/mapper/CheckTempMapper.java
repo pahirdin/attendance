@@ -33,4 +33,8 @@ public interface CheckTempMapper {
      * @param recordId
      */
     int checkAdminNoRepeatByRecordId(String recordId);
+
+    int checkStudentNoRepeatByRecordId(String recordId);
+
+    int moveTempToStudentInfoTable(String recordId);
 }

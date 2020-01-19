@@ -295,9 +295,9 @@
 
   <insert id="insertBatch"  parameterType="java.util.List"  useGeneratedKeys="false">
     insert into checktemp (tid, tno, tname,
-      tpwd, ttel, coname,
-      recordid,
-      checcode, checkinfo, tmpid
+    tpwd, ttel, coname,
+    spare1,spare2,spare3,spare4,spare5,spare6,spare7,
+    recordid,checcode, checkinfo, tmpid
       )
     values
     <foreach collection="list"  item="item" index="index" separator=",">
@@ -308,6 +308,13 @@
       #{item.tpwd},
       #{item.ttel},
       #{item.coname},
+      #{item.spare1},
+      #{item.spare2},
+      #{item.spare3},
+      #{item.spare4},
+      #{item.spare5},
+      #{item.spare6},
+      #{item.spare7},
       #{item.recordid},
       #{item.checcode},
       #{item.checkinfo},
@@ -327,6 +334,11 @@
       WHERE A.ANO = T.TNO
 )
   </update>
+  <update id="checkStudentNoRepeatByRecordId"  parameterType="java.lang.String">
+    UPDATE CHECKTEMP AS T SET CHECCODE=2,CHECKINFO='该学号已存在' WHERE RECORDID=#{recordid} AND EXISTS(
+      SELECT 1 FROM STUDENTINFO A
+      WHERE A.SNO = T.TNO
+  </update>
 
   <insert id="moveTempToAdminInfoTable" parameterType="java.lang.String">
       insert into admininfo (aid, aname, alevel,
@@ -334,4 +346,7 @@
       )
         select nextval('admininfo$seq'),tname,checcode,ttel,tno,tpwd,spare1 from checktemp where recordid=#{recordid} AND  checcode=1
     </insert>
+  <insert id="moveTempToStudentInfoTable" parameterType="java.lang.String">
+        insert into studentinfo (sid,sno,sname,spwd,cid,stel,sdor,sptel,coid)
+  </insert>
 </mapper>

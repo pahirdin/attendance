@@ -1,13 +1,11 @@
 package com.phd.service.impl;
 
-import com.phd.entity.AdminInfo;
-import com.phd.entity.CheckTemp;
-import com.phd.entity.CheckTempExample;
-import com.phd.entity.ExcelData;
+import com.phd.entity.*;
 import com.phd.mapper.AdminInfoMapper;
 import com.phd.mapper.CheckTempMapper;
 import com.phd.service.ICommomService;
 import com.phd.service.IImportService;
+import com.phd.service.IRedisService;
 import com.phd.utils.CommonUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.hash.Md5Hash;
@@ -34,6 +32,8 @@ public class ImportServiceImpl implements IImportService {
     private CheckTempMapper checkTempMapper;
     @Autowired
     private ICommomService commomServiceImpl;
+    @Autowired
+    private IRedisService redisServiceImpl;
     @Override
     public Map<String,Object> getAdminListByExcel(InputStream inputStream, String originalFilename, String recordId) throws Exception  {
         Map<String,Object> map = new HashMap<>();
@@ -195,8 +195,8 @@ public class ImportServiceImpl implements IImportService {
         //成功的数据
 //        List<CheckTemp> succlist = commomServiceImpl.queryTempListByRecordId(recordId,1);
 
-        //临时表数据搬到管理员表
-        int suc = checkTempMapper.moveTempToAdminInfoTable(recordId);
+        //临时表数据搬到学生信息表
+        int suc = checkTempMapper.moveTempToStudentInfoTable(recordId);
         if(infos.size() == 0) {
             map.put("allerro","0");
         }
@@ -218,6 +218,13 @@ public class ImportServiceImpl implements IImportService {
                 temp.setCheccode(2);
             }
             if(tag) {
+                if (CommonUtil.isSpecialChar(temp.getTno())) {
+                    tag = false;
+                    temp.setCheckinfo("学号含有特殊字符");
+                    temp.setCheccode(2);
+                }
+            }
+            if(tag) {
                 String tname = temp.getTname();
                 if("null".equals(tname)) {
                     tag = false;
@@ -233,17 +240,17 @@ public class ImportServiceImpl implements IImportService {
                     temp.setCheccode(2);
                 }
             }
-            if(tag) {
-                if (CommonUtil.isSpecialChar(temp.getTno())) {
-                    tag = false;
-                    temp.setCheckinfo("学号含有特殊字符");
-                    temp.setCheccode(2);
-                }
-            }
             if (tag) {
                 if(!CommonUtil.isTelNumber(temp.getTtel())) {
                     tag = false;
                     temp.setCheckinfo("手机号格式不正确");
+                    temp.setCheccode(2);
+                }
+            }
+            if (tag) {
+                if ("null".equals(temp.getConame())) {
+                    tag = false;
+                    temp.setCheckinfo("未填写学院");
                     temp.setCheccode(2);
                 }
             }
@@ -252,6 +259,25 @@ public class ImportServiceImpl implements IImportService {
                     tag = false;
                     temp.setCheckinfo("未匹配到学院");
                     temp.setCheccode(2);
+                }else {
+                    temp.setSpare1(CommonUtil.getKey(college,temp.getConame()));
+                }
+            }
+            if(tag) {
+                if("null".equals(temp.getSpare3())) {
+                    tag = false;
+                    temp.setCheckinfo("未填写专业");
+                    temp.setCheccode(2);
+                }
+            }
+            if(tag) {
+                Integer majorId = redisServiceImpl.getMajorByName(temp.getSpare3(),temp.getSpare1());
+                if (majorId == null) {
+                    tag = false;
+                    temp.setCheckinfo("未匹配到专业");
+                    temp.setCheccode(2);
+                }else {
+                    temp.setSpare2(majorId);
                 }
             }
             if(tag) {
@@ -262,14 +288,22 @@ public class ImportServiceImpl implements IImportService {
                 }
             }
             if(tag) {
+                Integer cid = redisServiceImpl.getClassesIdByName(temp.getSpare4(),temp.getSpare2());
+                if (null == cid) {
+                    tag = false;
+                    temp.setCheckinfo("未匹配到班级");
+                    temp.setCheccode(2);
+                }else {
+                    temp.setSpare7(cid);
+                }
+            }
+            if(tag) {
                 nos.put(temp.getTno(),temp.getTno());
                 temp.setCheccode(1);
-                temp.setSpare1(CommonUtil.getKey(college,temp.getConame()));
             }
-
         }
         commomServiceImpl.saveTempTable(tempList);
-        this.checkTempMapper.checkAdminNoRepeatByRecordId(recordId);
+        this.checkTempMapper.checkStudentNoRepeatByRecordId(recordId);
     }
 
     private void insertTmpByStudentFileList(String recordId, List<List<Object>> fileList, ArrayList<CheckTemp> infos) {
