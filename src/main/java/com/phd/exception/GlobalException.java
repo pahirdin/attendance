@@ -21,10 +21,11 @@ public class GlobalException implements HandlerExceptionResolver {
         ModelAndView mv = new ModelAndView();
         //判断不同异常类型，做不同视图跳转
         if(ex instanceof ArithmeticException){
+            //这里有问题  跳不到指定页面
             mv.setViewName("error1.html");
         }
-
         if(ex instanceof NullPointerException){
+            //这里有问题  跳不到指定页面
             mv.setViewName("error2.html");
         }
         mv.addObject("error", ex.toString());
