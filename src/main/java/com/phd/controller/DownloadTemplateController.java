@@ -23,7 +23,7 @@ public class DownloadTemplateController {
     private IDownloadTemplateService downloadTemplateServiceImpl;
     /**
      * 管理员批量新增模板
-     * @param response
+     * @param response response
      */
     @RequestMapping(value = "/downAddAdminTmp")
     @ResponseBody
@@ -46,6 +46,21 @@ public class DownloadTemplateController {
         ExcelData data = downloadTemplateServiceImpl.getStudentTmpExcelData();
         try{
             ExcelUtils.exportExcel(response,"学生信息新增模板",data);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 班级信息新增模板下载
+     * @param response response
+     */
+    @RequestMapping("/downAddClassTmp")
+    @ResponseBody
+    public void downAddClassTmp(HttpServletResponse response) {
+        ExcelData data = downloadTemplateServiceImpl.getClassTmpExcelData();
+        try{
+            ExcelUtils.exportExcel(response,"班级信息新增模板",data);
         }catch (Exception e){
             e.printStackTrace();
         }

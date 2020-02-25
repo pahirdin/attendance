@@ -111,4 +111,38 @@ public class DownloadTemplateServiceImpl implements IDownloadTemplateService {
         data.setRows(rows);
         return data;
     }
+
+    @Override
+    public ExcelData getClassTmpExcelData() {
+        ExcelData data = new ExcelData();
+        data.setName("classTmp");
+        List<String> titles = new ArrayList<>();
+        titles.add("学业");
+        titles.add("专业");
+        titles.add("班级");
+        data.setTitles(titles);
+
+        List<List<Object>> rows = new ArrayList<>();
+        List<Object> row1 = new ArrayList<>();
+        row1.add("计算机与信息科学");
+        row1.add("软件工程");
+        row1.add("2005班");
+        rows.add(row1);
+
+        List<Object> row2 = new ArrayList<>();
+        row2.add("安全与环境工程学院");
+        row2.add("安全工程");
+        row2.add("2002班");
+        rows.add(row2);
+
+        List<Object> row3 = new ArrayList<>();
+        row3.add("经济与管理学院");
+        row3.add("会计学");
+        row3.add("2001班");
+
+        rows.add(row3);
+
+        data.setRows(rows);
+        return data;
+    }
 }

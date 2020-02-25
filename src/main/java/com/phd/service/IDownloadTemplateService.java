@@ -9,13 +9,19 @@ import com.phd.entity.ExcelData;
 public interface IDownloadTemplateService {
     /**
      * 管理员新增模板
-     * @return
+     * @return ExcelData
      */
     ExcelData getAdminTmpExcelData();
 
     /**
      * 学生信息新增模板
-     * @return
+     * @return ExcelData
      */
     ExcelData getStudentTmpExcelData();
+
+    /**
+     * 班级信息新增模板
+     * @return ExcelData
+     */
+    ExcelData getClassTmpExcelData();
 }
