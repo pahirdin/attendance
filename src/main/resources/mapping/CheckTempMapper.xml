@@ -350,4 +350,9 @@
         insert into studentinfo (sid,sno,sname,spwd,cid,stel,sdor,sptel,coid)
         select nextval('studentinfo$seq'),tno,tname,tpwd,spare7,ttel,spare5,spare6,spare1 from checktemp where recordid=#{recordid} AND  checcode=1
   </insert>
+
+  <insert id="addRolesByTemp" parameterType="java.lang.String">
+    insert into role(role_id,role_name,role_description)
+    select nextval('role$seq'),tno,'chushi' from checktemp where recordid=#{recordid} AND  checcode=1
+  </insert>
 </mapper>

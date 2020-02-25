@@ -19,6 +19,8 @@ public class AdminInfo {
 
     private String coname;
 
+    private String roles;
+
     public String getConame() {
         return coname;
     }
@@ -91,5 +93,13 @@ public class AdminInfo {
 
     public void setCoid(Integer coid) {
         this.coid = coid;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles == null ? "chushi" : roles.trim();
+    }
+
+    public String getRoles() {
+        return roles;
     }
 }

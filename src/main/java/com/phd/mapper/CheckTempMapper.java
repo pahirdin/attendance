@@ -37,4 +37,11 @@ public interface CheckTempMapper {
     int checkStudentNoRepeatByRecordId(String recordId);
 
     int moveTempToStudentInfoTable(String recordId);
+
+    /**
+     * 新增管理员后赋初始权
+     * @param recordId
+     * @return
+     */
+    int addRolesByTemp(String recordId);
 }

@@ -218,9 +218,10 @@
   </select>
 
     <select id="queryAdminInfoByParam" resultType="com.phd.entity.AdminInfo">
-      SELECT A.AID,A.ANAME,A.ATEL,A.ANO,A.COID,C.CONAME FROM ADMININFO A,COLLEGE C
+      SELECT A.AID,A.ANAME,A.ATEL,A.ANO,A.COID,C.CONAME,STRING_AGG(R.ROLE_DESCRIPTION, ',') ROLES FROM ADMININFO A,COLLEGE C,ROLE R
     WHERE
     C.COID=A.COID
+     AND A.ANO=R.ROLE_NAME
     <if test="param3 != null and param3 != '' ">
       AND (A.ANAME LIKE #{param3} OR A.ANO LIKE #{param3})
     </if>
@@ -230,5 +231,6 @@
     <if test="param2 != null and param2 != ''">
       AND EXISTS (SELECT 1 FROM ROLE R WHERE R.ROLE_NAME=A.ANO AND R.ROLE_DESCRIPTION= #{param2})
     </if>
+      GROUP BY A.ANO,A.AID, A.ANAME, A.ATEL, A.ANO, A.COID, C.CONAME
     </select>
 </mapper>

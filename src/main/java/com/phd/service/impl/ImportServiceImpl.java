@@ -51,6 +51,7 @@ public class ImportServiceImpl implements IImportService {
 
         //临时表数据搬到管理员表
         int suc = checkTempMapper.moveTempToAdminInfoTable(recordId);
+        int temp = checkTempMapper.addRolesByTemp(recordId);
         if(infos.size() == 0) {
             map.put("allerro","0");
         }

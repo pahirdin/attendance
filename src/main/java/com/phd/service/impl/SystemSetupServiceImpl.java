@@ -10,6 +10,7 @@ import com.phd.mapper.AdminInfoMapper;
 import com.phd.mapper.ClassesMapper;
 import com.phd.mapper.StudentInfoMapper;
 import com.phd.service.ISystemSetupService;
+import com.phd.utils.StaticUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,6 +56,9 @@ public class SystemSetupServiceImpl implements ISystemSetupService {
         name = name == null ? null : "%"+name.trim()+"%";
         PageHelper.startPage(page, limit);
         List<AdminInfo> list = this.adminInfoMapper.queryAdminInfoByParam(college,role,name);
+        for (AdminInfo admin : list) {
+          admin.setRoles(StaticUtils.getRoleNamesByRoleCodes(admin.getRoles()));
+        }
         return new PageInfo<>(list);
     }
 }
