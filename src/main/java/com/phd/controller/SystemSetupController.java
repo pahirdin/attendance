@@ -49,8 +49,7 @@ public class SystemSetupController {
     Result<Classes> classInfoImport(Integer college,Integer major,String className,Integer page, Integer limit){
         //从shiro 获取当前登录用户信息
         AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
-        Result<Classes> result = new Result<>(systemSetupServiceImpl.findAllClasses(page,limit,admin.getAid()));
-        return result;
+        return new Result<>(this.systemSetupServiceImpl.findAllClasses(page,limit,admin.getAid(),college,major,className));
     }
 
     @RequestMapping("/getMajorByCoid")

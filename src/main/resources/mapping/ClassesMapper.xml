@@ -154,5 +154,14 @@
 
   <select id="selectAllClasses" resultType="com.phd.entity.Classes">
     SELECT C.CID,C.MID,C.CNAME,M.MNAME,M.COID,CO.CONAME FROM CLASSES C,MAJOR M,COLLEGE CO  WHERE C.MID=M.MID AND M.COID=CO.COID
+    <if test="college != null">
+      AND CO.COID = #{college}
+    </if>
+    <if test="major != null">
+      AND C.MID = #{major}
+    </if>
+    <if test="className != null">
+      AND M.MNAME LIKE #{className}
+    </if>
   </select>
 </mapper>

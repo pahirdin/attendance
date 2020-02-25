@@ -35,114 +35,131 @@
     <div class="layui-row layui-col-space15">
         <div class="layui-col-md12">
             <div class="layui-card">
-                <div class="layui-card-body ">
-                    <form class="layui-form layui-col-space5" th:method="post" th:action="@{/getClassInfo}">
-                        <div class="layui-inline layui-show-xs-block"  th:method="post"  th:action="@{/getClassInfo}">
-                            <input class="layui-input" autocomplete="off" placeholder="开始日" name="start" id="start"></div>
-                        <div class="layui-inline layui-show-xs-block">
-                            <input class="layui-input" autocomplete="off" placeholder="截止日" name="end" id="end"></div>
-
-
+                <div class="layui-card-body">
+                    <div class="layui-form layui-col-space5">
                         <div class="layui-input-inline">
                             <select name="college" id="college" lay-filter="sales"  lay-search="">
-                                <option value="x">请选择学院</option>
+                                <option value="">请选择学院</option>
                                 <option th:each="c,stat:${college}" th:value="${c.coid}" th:text="${c.coname}"></option>
                             </select>
                         </div>
                         <div class="layui-input-inline">
                             <select name="major" id="major" lay-search="">
-<!--                                <option th:each="m,stat:${js_type}" th:value="${m.mid}" th:text="${m.mname}"></option>-->
+                                <!--                                <option th:each="m,stat:${js_type}" th:value="${m.mid}" th:text="${m.mname}"></option>-->
                             </select>
                         </div>
-                        <div class="layui-inline layui-show-xs-block">
-                            <input type="text" name="className" id="className" placeholder="请输入班级名" autocomplete="off" class="layui-input"></div>
-                        <div class="layui-inline layui-show-xs-block">
-                            <button class="layui-btn" type="submit">
-                                <i class="layui-icon">&#xe615;</i></button>
+                        专业：
+                        <div class="layui-inline">
+                            <input class="layui-input" name="className" id="className" autocomplete="off">
                         </div>
-                    </form>
+                        <button class="layui-btn" data-type="reload">搜索</button>
+                    </div>
                 </div>
-                <div class="layui-card-body ">
-                    <table class="layui-table" lay-data="{url:'/getClassInfo',page:true,toolbar: '#toolbarDemo',id:'test'}" lay-filter="test">
-                        <thead>
-                        <tr>
-                            <th lay-data="{field:'cid', sort: true}">班级ID</th>
-                            <th lay-data="{field:'coname', sort: true}">学院</th>
-                            <th lay-data="{field:'mname',  sort: true}">专业</th>
-                            <th lay-data="{field:'cname', sort: true}">班级</th>
-                        </thead>
-                    </table>
-                </div>
+
+                <!--表格-->
+                <div class="layui-card-body"><table class="layui-hide" id="LAY_table_user"></table></div>
             </div>
         </div>
     </div>
 </div>
-</body>
-<script type="text/html" id="toolbarDemo">
-    <div class = "layui-btn-container" >
-        <button class = "layui-btn layui-btn-sm" lay-event = "getCheckData" > 获取选中行数据 </button>
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button >
-        <button class = "layui-btn layui-btn-sm" lay-event = "isAll" > 验证是否全选</button>
-    </div >
+
+
+<script type="text/html" id="indexTpl">
+    {{d.LAY_TABLE_INDEX+1}}
 </script>
-
-<script>
-    layui.use('laydate',
-    function() {
-        var laydate = layui.laydate;
-
-        //执行一个laydate实例
-        laydate.render({
-            elem: '#start' //指定元素
-        });
-        //执行一个laydate实例
-        laydate.render({
-            elem: '#end' //指定元素
-        });
-
-    });</script>
-<script>
-    layui.use('table',
-    function() {
+<script  th:inline="none">
+    layui.use('table', function(){
         var table = layui.table;
-        //监听单元格编辑
-        table.on('edit(test)',
-            function(obj) {
-                var value = obj.value //得到修改后的值
-                    ,
-                    data = obj.data //得到所在行所有键值
-                    ,
-                    field = obj.field; //得到字段
-                layer.msg('[ID: ' + data.id + '] ' + field + ' 字段更改为：' + value);
+
+        //方法级渲染
+        table.render({
+            elem: '#LAY_table_user'
+            ,url: '/getClassInfo'
+            // ,defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+            //     title: '提示'
+            //     ,layEvent: 'LAYTABLE_TIPS'
+            //     ,icon: 'layui-icon-tips'
+            // }]
+            ,defaultToolbar: ['filter', 'print', 'exports']
+            ,toolbar: true
+            ,toolbar: '#toolbarDemo' //表头工具栏
+            ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+            ,cols: [[
+                // {checkbox: true, fixed: true}
+                {title: '编号',templet: '#indexTpl'}
+                ,{field:'cid', title: '班级ID'}
+                ,{field:'coname', title: '学院'}
+                ,{field:'mname', title: '专业'}
+                ,{field:'cname', title: '班级'}
+            ]]
+            ,id: 'testReload'
+            ,page: true
+            ,height: 700
+            ,done:function(res,curr,count){
+                // 隐藏列
+                $("[data-field='sid']").css("display","none");
+                $("[data-field='cid']").css("display","none");
+                $("[data-field='coid']").css("display","none");
+            }
+        });
+
+        var $ = layui.$, active = {
+            reload: function(){
+                var className = $('#className');
+                var college = $('#college');
+                var major = $('#major');
+
+                //执行重载
+                table.reload('testReload', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    ,where: {
+                        className: className.val()
+                        ,college:college.val()
+                        ,major:major.val()
+                    }
+                }, 'data');
+            }
+        };
+
+        $('.layui-card-body .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
+        $('#muban').on('click',function () {
+            window.location.href="/downAddStudentTmp";
+        });
+        //上传文件新增
+        layui.use('upload', function(){
+            var upload = layui.upload; //得到 upload 对象
+            //执行实例
+            var uploadInst = upload.render({
+                elem: '#filename' //绑定元素
+                ,url: '/addStudent' //上传接口
+                ,accept: 'file' //允许上传的文件类型
+                // ,exts: 'xls|excel|xlsx' //只允许上传压缩文件
+                ,exts: 'xls|excel' //只允许上传压缩文件
+                ,done: function(res){
+                    //上传完毕回调
+                    layer.open({
+                        type:2
+                        ,title: '结果'
+                        ,content: '/popupresults?tol='+res.tol+'&suc='+res.suc+'&erro='+res.erro+'&recordid='+res.recordid
+                    });
+
+
+                }
+                ,error: function(){
+                    //请求异常回调
+                }
             });
+        });
+        $('#add').on('click',function () {
 
-        //头工具栏事件
-        // table.on('toolbar(test)',
-        //     function(obj) {
-        //         var checkStatus = table.checkStatus(obj.config.id);
-        //         switch (obj.event) {
-        //             case 'getCheckData':
-        //                 var data = checkStatus.data;
-        //                 layer.alert(JSON.stringify(data));
-        //                 break;
-        //             case 'getCheckLength':
-        //                 var data = checkStatus.data;
-        //                 layer.msg('选中了：' + data.length + ' 个');
-        //                 break;
-        //             case 'isAll':
-        //                 layer.msg(checkStatus.isAll ? '全选': '未全选');
-        //                 break;
-        //         };
-        //     });
-    });</script>
-<!--<script>var _hmt = _hmt || []; (function() {-->
-<!--    var hm = document.createElement("script");-->
-<!--    hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";-->
-<!--    var s = document.getElementsByTagName("script")[0];-->
-<!--    s.parentNode.insertBefore(hm, s);-->
-<!--})();</script>-->
-
-<script>
+        });
+    });
 
 
     function myData(coid) {
@@ -164,21 +181,33 @@
         return data1;
     }
 
-        layui.use('form',
-            function() {
-                var form = layui.form;
-                form.on('select(sales)', function(data){
-                    $("#major").empty();
-                    console.log(data);
-                    if("x" == data.value) {return;}
-                    var data = myData(data.value);
-                    $.each(data,function (index,da){
-                        $("#major").append("<option value='"+da.mid+"'>"+da.mname+"</option>");
-                    });
-                    form.render('select');
-                    // $("#major").find("option").remove();
-                    //console.log(data);
+    layui.use('form',
+        function() {
+            var form = layui.form;
+            form.on('select(sales)', function(data){
+                $("#major").empty();
+                console.log(data);
+                if("x" == data.value) {return;}
+                var data = myData(data.value);
+                $.each(data,function (index,da){
+                    $("#major").append("<option value='"+da.mid+"'>"+da.mname+"</option>");
                 });
-            });</script>
+                form.render('select');
+                // $("#major").find("option").remove();
+                //console.log(data);
+            });
+        });
 </script>
+<!--表头工具栏-->
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="muban" id="muban">下载模板</button>
+        <!--            <button class="layui-btn layui-btn-sm" lay-event="add" id="add">批量新增</button>-->
+        <button type="button" class="layui-btn" id="filename">批量新增
+            <!--                <i class="layui-icon">&#xe67c;</i>-->
+        </button>
+    </div>
+</script>
+</body>
+
 </html>

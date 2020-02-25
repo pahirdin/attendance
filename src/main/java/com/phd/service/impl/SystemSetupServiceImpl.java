@@ -29,12 +29,13 @@ public class SystemSetupServiceImpl implements ISystemSetupService {
     @Autowired
     private AdminInfoMapper adminInfoMapper;
     @Override
-    public PageInfo<Classes> findAllClasses(Integer page, Integer limit, Integer aid) {
+    public PageInfo<Classes> findAllClasses(Integer page, Integer limit, Integer aid,Integer college,Integer major,String className) {
         page = page == null ? 1 : page;
         limit = limit == null ? 3 : limit;
+        className = className == null ? null : "%"+className.trim()+"%";
         //在帮助类中传入分页参数
         PageHelper.startPage(page, limit);
-        List<Classes> list = classesMapper.selectAllClasses();
+        List<Classes> list = classesMapper.selectAllClasses(college,major,className);
         PageInfo<Classes> pagelist = new PageInfo<Classes>(list);
         return pagelist;
     }

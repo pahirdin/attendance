@@ -20,5 +20,5 @@ public interface ClassesMapper {
 
     int updateByExample(@Param("record") Classes record, @Param("example") ClassesExample example);
 
-    List<Classes> selectAllClasses();
+    List<Classes> selectAllClasses(@Param("college") Integer college,@Param("major") Integer major,@Param("className") String className);
 }

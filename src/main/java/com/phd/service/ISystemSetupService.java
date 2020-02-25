@@ -10,7 +10,7 @@ import com.phd.entity.StudentInfo;
  * @date 2019/12/13 11:16
  */
 public interface ISystemSetupService {
-    PageInfo<Classes> findAllClasses(Integer page, Integer limit, Integer aid);
+    PageInfo<Classes> findAllClasses(Integer page, Integer limit, Integer aid,Integer college,Integer major,String className);
 
     PageInfo<StudentInfo> findAllStudent(Integer page, Integer limit, Integer aid, String sno, Integer college, Integer major);
 

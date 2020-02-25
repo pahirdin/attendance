@@ -16,6 +16,7 @@ public class StaticUtils {
         map.put("任课老师权限","teacherInClass");
         map.put("院级权限","collegeAdmin");
         map.put("校级权限","schoolAdmin");
+        map.put("初始","chushi");
         return map;
     }
 
