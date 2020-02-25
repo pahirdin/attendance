@@ -69,6 +69,12 @@ public class ImportController {
 
     }
 
+    /**
+     * 学生信息管理页面-批量新增学生信息
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/addStudent")
     @ResponseBody()
     public Map<String,Object> addStudent(HttpServletRequest request) throws Exception {

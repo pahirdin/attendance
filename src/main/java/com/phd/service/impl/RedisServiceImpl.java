@@ -42,7 +42,7 @@ public class RedisServiceImpl implements IRedisService {
             criteria.andMnameEqualTo(majorName);
             criteria.andCoidEqualTo(coid);
             List<Major> majorList = majorMapper.selectByExample(majorExample);
-            if (majorList != null) {
+            if (majorList.size() != 0) {
                 Major major = majorList.get(0);
                 redisTemplate.boundHashOps("major").put(major.getCoid()+"|"+major.getMname(), major.getMid());
                 return major.getMid();
@@ -60,7 +60,7 @@ public class RedisServiceImpl implements IRedisService {
             criteria.andMidEqualTo(majorId);
             criteria.andCnameEqualTo(classesName);
             List<Classes> classes = classesMapper.selectByExample(classesExample);
-            if (classes != null) {
+            if (classes.size() != 0) {
                 Classes cbean = classes.get(0);
                 redisTemplate.boundHashOps("classes").put(cbean.getMid() + "|" + cbean.getCname(), cbean.getCid());
                 return  cbean.getCid();

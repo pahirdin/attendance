@@ -325,7 +325,7 @@
 
   <update id="updateByBatch"  parameterType="java.util.List">
     <foreach collection="list" separator=";" item="item">
-      update checktemp set checkinfo=#{item.checkinfo},checcode=#{item.checcode},spare1=#{item.spare1} where tmpid=#{item.tmpid}
+      update checktemp set checkinfo=#{item.checkinfo},checcode=#{item.checcode},spare1=#{item.spare1},spare7=#{item.spare7} where tmpid=#{item.tmpid}
     </foreach>
   </update>
   <update id="checkAdminNoRepeatByRecordId"  parameterType="java.lang.String">
@@ -337,7 +337,7 @@
   <update id="checkStudentNoRepeatByRecordId"  parameterType="java.lang.String">
     UPDATE CHECKTEMP AS T SET CHECCODE=2,CHECKINFO='该学号已存在' WHERE RECORDID=#{recordid} AND EXISTS(
       SELECT 1 FROM STUDENTINFO A
-      WHERE A.SNO = T.TNO
+      WHERE A.SNO = T.TNO)
   </update>
 
   <insert id="moveTempToAdminInfoTable" parameterType="java.lang.String">
@@ -348,5 +348,6 @@
     </insert>
   <insert id="moveTempToStudentInfoTable" parameterType="java.lang.String">
         insert into studentinfo (sid,sno,sname,spwd,cid,stel,sdor,sptel,coid)
+        select nextval('studentinfo$seq'),tno,tname,tpwd,spare7,ttel,spare5,spare6,spare1 from checktemp where recordid=#{recordid} AND  checcode=1
   </insert>
 </mapper>

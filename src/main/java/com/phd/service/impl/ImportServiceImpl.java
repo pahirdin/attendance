@@ -303,6 +303,7 @@ public class ImportServiceImpl implements IImportService {
             }
         }
         commomServiceImpl.saveTempTable(tempList);
+        //去掉已存在的学号
         this.checkTempMapper.checkStudentNoRepeatByRecordId(recordId);
     }
 
@@ -327,11 +328,16 @@ public class ImportServiceImpl implements IImportService {
             //班级
             temp.setSpare4(String.valueOf(list.get(4)));
             //手机号
-            temp.setTtel(String.valueOf(5));
+            temp.setTtel(String.valueOf(list.get(5)));
             //宿舍
-            temp.setSpare5(String.valueOf(6));
+            temp.setSpare5(String.valueOf(list.get(6)));
             //家长手机号
-            temp.setSpare6(String.valueOf(7));
+            temp.setSpare6(String.valueOf(list.get(7)));
+
+            String pwd = "123456";
+            Object md = new Md5Hash(pwd).toString();
+            temp.setTpwd(md.toString());
+
             temp.setRecordid(recordId);
             temp.setCheccode(0);
             infos.add(temp);
