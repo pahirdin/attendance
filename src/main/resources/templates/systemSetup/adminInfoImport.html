@@ -58,13 +58,16 @@
                     </div>
 
                         <!--表格-->
-                    <div class="layui-card-body"><table class="layui-hide" id="LAY_table_user"></table></div>
+                    <div class="layui-card-body"><table class="layui-hide" id="LAY_table_user"  lay-filter="test"></table></div>
                 </div>
             </div>
         </div>
     </div>
     <script type="text/html" id="indexTpl">
         {{d.LAY_TABLE_INDEX+1}}
+    </script>
+    <script type="text/html" id="barDemo">
+            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     </script>
     <script  th:inline="none">
 
@@ -92,6 +95,7 @@
                     ,{field:'atel', title: '手机号'}
                     ,{field:'coname', title: '学院'}
                     ,{field:'roles',title:'拥有权限',width:420}
+                    ,{fixed: 'right', title:'权限管理', toolbar: '#barDemo', width:150}
                 ]]
                 ,id: 'testReload'
                 ,page: true
@@ -101,7 +105,18 @@
                     $("[data-field='aid']").css("display","none");
                 }
             });
-            
+            //监听行工具事件
+            table.on('tool(test)', function(obj){
+                var data = obj.data;
+                if(obj.event === 'edit'){
+                    layer.open({
+                        type:2
+                        ,title: '结果'
+                        ,area:["400px","500px"]
+                        ,content: ['/editRoles?ano='+data.ano,'no']
+                    });
+                }
+            });
             var $ = layui.$, active = {
                 reload: function(){
                     var demoReload = $('#demoReload');
