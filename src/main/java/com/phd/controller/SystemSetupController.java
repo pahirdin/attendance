@@ -54,6 +54,9 @@ public class SystemSetupController {
 
     @RequestMapping("/getMajorByCoid")
     public @ResponseBody List<Major> getMajor(Integer coid) {
+        if(coid == null) {
+            return null;
+        }
         return this.commomServiceImpl.getMajorByCoid(coid);
     }
 
