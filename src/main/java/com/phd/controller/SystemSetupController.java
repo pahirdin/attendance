@@ -94,4 +94,19 @@ public class SystemSetupController {
         PageInfo<AdminInfo> pageInfo =  this.systemSetupServiceImpl.findAllAdminInfo(page,limit,college,role,name,admin.getAid());
         return new Result<>(pageInfo);
     }
+
+    /**
+     * 班级信息管理页面-删除班级
+     * @param cid 班级ID
+     * @return 返回错误或成功信息（200）
+     */
+    @RequestMapping("/deleteClassesInfo")
+    @ResponseBody
+    public String deleteClassesInfo(Integer cid) {
+        int cont = this.systemSetupServiceImpl.deleteClassesInfo(cid);
+        if(cont > 0 ) {
+            return "200";
+        }
+        return "数据库连接失败，请联系管理员....";
+    }
 }

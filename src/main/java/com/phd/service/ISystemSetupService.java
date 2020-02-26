@@ -15,4 +15,6 @@ public interface ISystemSetupService {
     PageInfo<StudentInfo> findAllStudent(Integer page, Integer limit, Integer aid, String sno, Integer college, Integer major);
 
     PageInfo<AdminInfo> findAllAdminInfo(Integer page, Integer limit, Integer college, String role,String name, Integer aid);
+
+    int deleteClassesInfo(Integer cid);
 }

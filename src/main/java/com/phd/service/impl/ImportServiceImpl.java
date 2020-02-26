@@ -291,7 +291,7 @@ public class ImportServiceImpl implements IImportService {
             if(tag) {
                 ClassesExample classesExample = new ClassesExample();
                 ClassesExample.Criteria criteria = classesExample.createCriteria();
-                criteria.andMidEqualTo(temp.getSpare1());
+                criteria.andMidEqualTo(temp.getSpare2());
                 criteria.andCnameEqualTo(temp.getSpare4());
                 List<Classes> classes = this.classesMapper.selectByExample(classesExample);
                 if(classes.size() != 0) {

@@ -2,10 +2,7 @@ package com.phd.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.phd.entity.AdminInfo;
-import com.phd.entity.Classes;
-import com.phd.entity.StudentInfo;
-import com.phd.entity.StudentInfoExample;
+import com.phd.entity.*;
 import com.phd.mapper.AdminInfoMapper;
 import com.phd.mapper.ClassesMapper;
 import com.phd.mapper.StudentInfoMapper;
@@ -61,5 +58,13 @@ public class SystemSetupServiceImpl implements ISystemSetupService {
           admin.setRoles(StaticUtils.getRoleNamesByRoleCodes(admin.getRoles()));
         }
         return new PageInfo<>(list);
+    }
+
+    @Override
+    public int deleteClassesInfo(Integer cid) {
+        ClassesExample classesExample = new ClassesExample();
+        ClassesExample.Criteria criteria = classesExample.createCriteria();
+        criteria.andCidEqualTo(cid);
+        return this.classesMapper.deleteByExample(classesExample);
     }
 }
