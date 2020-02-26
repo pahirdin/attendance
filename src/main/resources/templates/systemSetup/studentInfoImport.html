@@ -45,6 +45,7 @@
                             </div>
                             <div class="layui-input-inline">
                                 <select name="major" id="major" lay-search="">
+                                    <option value="">请选择专业</option>
                                     <!--                                <option th:each="m,stat:${js_type}" th:value="${m.mid}" th:text="${m.mname}"></option>-->
                                 </select>
                             </div>
@@ -195,6 +196,7 @@
                     console.log(data);
                     if("x" == data.value) {return;}
                     var data = myData(data.value);
+                    $("#major").append("<option value=''>请选择专业</option>");
                     $.each(data,function (index,da){
                         $("#major").append("<option value='"+da.mid+"'>"+da.mname+"</option>");
                     });

@@ -249,7 +249,7 @@
     FROM STUDENTINFO STU,CLASSES CLS,MAJOR MA,COLLEGE CO
     WHERE STU.CID=CLS.CID AND MA.MID=CLS.MID AND CO.COID=STU.COID
       <if test=" sno != null and sno != '' ">
-        AND STU.SNO=#{sno}
+        AND (STU.SNO LIKE #{sno} OR STU.SNAME like #{sno})
       </if>
     <if test=" college != null and college != '' ">
       AND CO.COID=#{college}

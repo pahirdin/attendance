@@ -9,6 +9,7 @@ import com.phd.service.ICommomService;
 import com.phd.service.IImportService;
 import com.phd.service.IRedisService;
 import com.phd.utils.CommonUtil;
+import net.sf.jsqlparser.expression.StringValue;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.InputStream;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,6 +42,15 @@ public class ImportServiceImpl implements IImportService {
     private MajorMapper majorMapper;
     @Autowired
     private ClassesMapper classesMapper;
+
+    /**
+     * 班级信息新增页面
+     * @param inputStream 文件内容
+     * @param originalFilename 文件名
+     * @param recordId 流水号
+     * @return Map<String,Object>
+     * @throws Exception Exception
+     */
     @Override
     public Map<String,Object> getAdminListByExcel(InputStream inputStream, String originalFilename, String recordId) throws Exception  {
         Map<String,Object> map = new HashMap<>();
@@ -392,6 +403,14 @@ public class ImportServiceImpl implements IImportService {
                     temp.setSpare1(CommonUtil.getKey(college,temp.getConame()));
                 }
             }
+//            if(tag) {
+//                MajorExample majorExample = new MajorExample();
+//                MajorExample.Criteria criteria = majorExample.createCriteria();
+//                criteria.andMnameEqualTo(temp.getSpare3());
+////                criteria.andMidEqualTo(temp.getSpare2());
+//                List<Major> majorList = this.majorMapper.selectByExample(majorExample);
+//                temp.setSpare1(majorList.get(0).getCoid());
+//            }
             if(tag) {
                 if("null".equals(temp.getSpare3())) {
                     tag = false;
@@ -447,7 +466,10 @@ public class ImportServiceImpl implements IImportService {
                 break;
             }
             //学号
-            temp.setTno(String.valueOf(list.get(0)));
+//            bd1.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString()
+            BigDecimal bd = new BigDecimal(String.valueOf(list.get(0)));
+            String s = bd.toPlainString();
+            temp.setTno(s);
             //姓名
             temp.setTname(String.valueOf(list.get(1)));
             //学院

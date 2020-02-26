@@ -41,6 +41,7 @@ public class SystemSetupServiceImpl implements ISystemSetupService {
     public PageInfo findAllStudent(Integer page, Integer limit, Integer aid, String sno, Integer college, Integer major) {
         page = page == null ? 1 : page;
         limit = limit == null ? 10 : limit;
+        sno = sno == null ? null : "%"+sno.trim()+"%";
         //在帮助类中传入分页参数
         PageHelper.startPage(page, limit);
         List<StudentInfo> list = studentInfoMapper.queryStudenInfoByParam(sno,college,major);
