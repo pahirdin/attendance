@@ -13,12 +13,12 @@ import java.util.List;
  */
 public interface ICommomService {
     /**
-     * 获取所有学业
+     * 获取所有学院
      * @return List<College>
      */
     List<College> findAllCollege();
     /**
-     * 获取所有学业
+     * 获取所有学院
      * @return Map<String, String>
      */
     HashMap<Integer, String> queryAllCollege();

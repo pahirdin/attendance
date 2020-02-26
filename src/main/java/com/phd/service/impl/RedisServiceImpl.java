@@ -30,7 +30,7 @@ public class RedisServiceImpl implements IRedisService {
      * 根据专业名和学院id查询专业id
      * 先从redis取 如果redis里没有查询数据库保存redis 再返回专业id
      * @param majorName 专业名
-     * @param coid 学业id
+     * @param coid 学院id
      * @return
      */
     @Override

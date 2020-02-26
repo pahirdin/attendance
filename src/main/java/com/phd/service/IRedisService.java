@@ -11,7 +11,7 @@ public interface IRedisService {
     /**
      * 根据专业名和学院id查询专业id
      * @param majorName 专业名
-     * @param coid 学业id
+     * @param coid 学院id
      * @return 返回专业ID
      */
     Integer getMajorByName(String majorName, Integer coid);

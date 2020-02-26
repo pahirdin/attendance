@@ -117,7 +117,7 @@ public class DownloadTemplateServiceImpl implements IDownloadTemplateService {
         ExcelData data = new ExcelData();
         data.setName("classTmp");
         List<String> titles = new ArrayList<>();
-        titles.add("学业");
+        titles.add("学院");
         titles.add("专业");
         titles.add("班级");
         data.setTitles(titles);
