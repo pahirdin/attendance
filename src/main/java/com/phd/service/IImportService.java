@@ -36,4 +36,14 @@ public interface IImportService {
      *  @throws Exception 错误
      */
     Map<String, Object> getStudentListByExcel(InputStream inputStream, String originalFilename, String recordId) throws Exception;
+
+    /**
+     * 批量新增班级信息
+     * @param inputStream 文件内容
+     * @param originalFilename 文件名
+     * @param recordId 流水号
+     * @return 结果map
+     * @throws Exception 错误
+     */
+    Map<String, Object> getClassListByExcel(InputStream inputStream, String originalFilename, String recordId) throws Exception;
 }

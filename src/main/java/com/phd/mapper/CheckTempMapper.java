@@ -30,7 +30,8 @@ public interface CheckTempMapper {
 
     /**
      * 根据流水号校验掉重复的工号
-     * @param recordId
+     * @param recordId 流水号
+     * @return 总数
      */
     int checkAdminNoRepeatByRecordId(String recordId);
 
@@ -40,8 +41,15 @@ public interface CheckTempMapper {
 
     /**
      * 新增管理员后赋初始权
-     * @param recordId
-     * @return
+     * @param recordId 流水号
+     * @return 总数
      */
     int addRolesByTemp(String recordId);
+
+    /**
+     * 根据流水号临时表搬到（新增）班级表
+     * @param recordId 流水号
+     * @return 总数
+     */
+    int moveTempToClassTable(String recordId);
 }

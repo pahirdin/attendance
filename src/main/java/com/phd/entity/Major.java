@@ -1,11 +1,15 @@
 package com.phd.entity;
 
 public class Major {
+    private Integer id;
+
     private Integer mid;
 
     private String mname;
 
     private Integer coid;
+
+    public Major() {}
 
     public Integer getMid() {
         return mid;
@@ -30,4 +34,8 @@ public class Major {
     public void setCoid(Integer coid) {
         this.coid = coid;
     }
+
+    public void setId(Integer id) {this.id = id;};
+
+    public Integer getId() {return id;}
 }

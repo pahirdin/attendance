@@ -3,6 +3,8 @@ package com.phd.service.impl;
 import com.phd.entity.*;
 import com.phd.mapper.AdminInfoMapper;
 import com.phd.mapper.CheckTempMapper;
+import com.phd.mapper.ClassesMapper;
+import com.phd.mapper.MajorMapper;
 import com.phd.service.ICommomService;
 import com.phd.service.IImportService;
 import com.phd.service.IRedisService;
@@ -34,6 +36,10 @@ public class ImportServiceImpl implements IImportService {
     private ICommomService commomServiceImpl;
     @Autowired
     private IRedisService redisServiceImpl;
+    @Autowired
+    private MajorMapper majorMapper;
+    @Autowired
+    private ClassesMapper classesMapper;
     @Override
     public Map<String,Object> getAdminListByExcel(InputStream inputStream, String originalFilename, String recordId) throws Exception  {
         Map<String,Object> map = new HashMap<>();
@@ -206,6 +212,128 @@ public class ImportServiceImpl implements IImportService {
         map.put("recordid",recordId);
         map.put("suc",suc);
         return  map;
+    }
+
+    @Override
+    public Map<String, Object> getClassListByExcel(InputStream inputStream, String originalFilename, String recordId) throws Exception {
+        Map<String, Object> map = new HashMap<>();
+        //获取文件内容
+        List<List<Object>> fileList = CommonUtil.getFileList(inputStream, originalFilename);
+        ArrayList<CheckTemp> infos = new ArrayList<>();
+        //数据入临时表
+        insertTmpByClassFileList(recordId,fileList,infos);
+        //获取临时表数据
+        List<CheckTemp> tempList = commomServiceImpl.queryTempListByRecordId(recordId,0);
+        //校验并保存临时表
+        checkClassInfo(tempList,recordId);
+        //根据校验通过的数据新增到班级表里
+        int suc = checkTempMapper.moveTempToClassTable(recordId);
+        if(infos.size() == 0) {
+            map.put("allerro","0");
+        }
+        map.put("tol",infos.size());
+        map.put("erro",infos.size()-suc);
+        map.put("recordid",recordId);
+        map.put("suc",suc);
+        return map;
+    }
+
+    private void checkClassInfo(List<CheckTemp> tempList, String recordId) {
+        HashMap<Integer,String> college = commomServiceImpl.queryAllCollege();
+        Map<String, String> repeat = new HashMap<>();
+        for(CheckTemp temp : tempList) {
+            boolean tag = true;
+            if(StringUtils.isEmpty(temp.getConame())) {
+                tag = false;
+                temp.setCheckinfo("未填写学院");
+                temp.setCheccode(2);
+            }
+            if(tag && StringUtils.isBlank(temp.getSpare3())) {
+                tag = false;
+                temp.setCheckinfo("未填写专业");
+                temp.setCheccode(2);
+            }
+            if(tag && StringUtils.isBlank(temp.getSpare4())) {
+                tag = false;
+                temp.setCheckinfo("未填写班级");
+                temp.setCheccode(2);
+            }
+            if(tag) {
+                if(repeat.containsKey(temp.getConame()+temp.getSpare3()+temp.getSpare4())) {
+                    tag = false;
+                    temp.setCheckinfo("该条数据重复");
+                    temp.setCheccode(2);
+                }
+            }
+            if(tag) {
+                if(!college.values().contains(temp.getConame())) {
+                    tag = false;
+                    temp.setCheckinfo("未匹配到学院");
+                    temp.setCheccode(2);
+                }else {
+                    temp.setSpare1(CommonUtil.getKey(college,temp.getConame()));
+                }
+            }
+            if(tag) {
+                Integer majorId = redisServiceImpl.getMajorByName(temp.getSpare3(),temp.getSpare1());
+                //查询专业是否存在 存在设置专业id  不存在新增专业 并设置专业id
+                if (majorId == null) {
+                    Major major = new Major();
+                    major.setCoid(temp.getSpare1());
+                    major.setMname(temp.getSpare3());
+                    //插入一条数据 并给major实体类的id 赋新增的主键
+                    this.majorMapper.insertOne(major);
+                    temp.setSpare2(major.getId());
+                }else {
+                    temp.setSpare2(majorId);
+                }
+            }
+            if(tag) {
+                ClassesExample classesExample = new ClassesExample();
+                ClassesExample.Criteria criteria = classesExample.createCriteria();
+                criteria.andMidEqualTo(temp.getSpare1());
+                criteria.andCnameEqualTo(temp.getSpare4());
+                List<Classes> classes = this.classesMapper.selectByExample(classesExample);
+                if(classes.size() != 0) {
+                    tag = false;
+                    temp.setCheckinfo("班级已存在");
+                    temp.setCheccode(2);
+                }
+            }
+            if(tag) {
+                repeat.put(temp.getConame()+temp.getSpare3()+temp.getSpare4(),temp.getConame()+temp.getSpare3()+temp.getSpare4());
+                temp.setCheccode(1);
+                temp.setSpare1(CommonUtil.getKey(college,temp.getConame()));
+            }
+        }
+        commomServiceImpl.saveTempTable(tempList);
+    }
+
+    private void insertTmpByClassFileList(String recordId, List<List<Object>> fileList, ArrayList<CheckTemp> infos) {
+        //转实体集合
+        for(List<Object> list : fileList) {
+            if(list.size() < 3) {
+                break;
+            }
+            CheckTemp temp = new CheckTemp();
+            if(StringUtils.isBlank(String.valueOf(list.get(0)))) {
+                break;
+            }
+            //学院
+            temp.setConame(String.valueOf(list.get(0)));
+            //专业
+            temp.setSpare3(String.valueOf(list.get(1)));
+            //班级
+            temp.setSpare4(String.valueOf(list.get(2)));
+
+            temp.setRecordid(recordId);
+            temp.setCheccode(0);
+            infos.add(temp);
+        }
+        //插入临时表
+        if(!infos.isEmpty()) {
+            checkTempMapper.insertBatch(infos);
+        }
     }
 
     private void checkStudetInfos(List<CheckTemp> tempList, String recordId) {

@@ -71,9 +71,9 @@ public class ImportController {
 
     /**
      * 学生信息管理页面-批量新增学生信息
-     * @param request
-     * @return
-     * @throws Exception
+     * @param request request
+     * @return map
+     * @throws Exception Exception
      */
     @RequestMapping("/addStudent")
     @ResponseBody()
@@ -100,36 +100,36 @@ public class ImportController {
         return param;
     }
 
+    /**
+     * 班级信息管理页面-批量新增班级信息
+     * @param request request
+     * @return map
+     * @throws Exception Exception
+     */
+    @RequestMapping("/addClasses")
+    @ResponseBody
+    public Map<String,Object> addClasses(HttpServletRequest request) throws Exception {
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+        MultipartFile file = multipartRequest.getFile("file");
+        //生成流水号
+        String recordId = CommonUtil.getUUID();
+        if (file != null && file.isEmpty()) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("allerro","0");
+            map.put("code","0");
+            return map;
+        }
+        InputStream inputStream = file != null ? file.getInputStream() : null;
+        Map<String,Object> param = importServiceImpl.getClassListByExcel(inputStream, file.getOriginalFilename(),recordId);
+        if (inputStream != null) {
+            inputStream.close();
+        }
 
-//    @RequestMapping("/test")
-//    public  RetResult<Integer> test(){
-//        int rowIndex = 0;
-//        List<UserInfo> list = userInfoService.selectAlla(0, 0);
-//        ExcelData data = new ExcelData();
-//        data.setName("hello");
-//        List<String> titles = new ArrayList();
-//        titles.add("ID");
-//        titles.add("userName");
-//        titles.add("password");
-//        data.setTitles(titles);
-//
-//        List<List<Object>> rows = new ArrayList();
-//        for(int i = 0, length = list.size();i<length;i++){
-//            UserInfo userInfo = list.get(i);
-//            List<Object> row = new ArrayList();
-//            row.add(userInfo.getId());
-//            row.add(userInfo.getUserName());
-//            row.add(userInfo.getPassword());
-//            rows.add(row);
-//        }
-//        data.setRows(rows);
-//        try{
-//            rowIndex = ExcelUtils.generateExcel(data, ExcelConstant.FILE_PATH + ExcelConstant.FILE_NAME);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//        return RetResponse.makeOKRsp(Integer.valueOf(rowIndex));
-//    }
+        param.put("code","0");
+        param.put("data","");
+        param.put("msg","");
+        return param;
+    }
 
     @RequestMapping("/geterror")
     public void test2(HttpServletResponse response,String recordid){

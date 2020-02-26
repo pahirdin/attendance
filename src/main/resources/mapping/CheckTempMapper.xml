@@ -325,7 +325,11 @@
 
   <update id="updateByBatch"  parameterType="java.util.List">
     <foreach collection="list" separator=";" item="item">
-      update checktemp set checkinfo=#{item.checkinfo},checcode=#{item.checcode},spare1=#{item.spare1},spare7=#{item.spare7} where tmpid=#{item.tmpid}
+      update checktemp set checkinfo=#{item.checkinfo},checcode=#{item.checcode},spare1=#{item.spare1},spare7=#{item.spare7}
+       <if test="item.spare2 != null">
+         ,spare2=#{item.spare2}
+       </if>
+       where tmpid=#{item.tmpid}
     </foreach>
   </update>
   <update id="checkAdminNoRepeatByRecordId"  parameterType="java.lang.String">
@@ -354,5 +358,10 @@
   <insert id="addRolesByTemp" parameterType="java.lang.String">
     insert into role(role_id,role_name,role_description)
     select nextval('role$seq'),tno,'chushi' from checktemp where recordid=#{recordid} AND  checcode=1
+  </insert>
+
+  <insert id="moveTempToClassTable" parameterType="java.lang.String">
+    insert into classes(cid,mid,cname)
+    select nextval('classes$seq'),spare2,spare4 from checktemp where recordid=#{recordid} AND  checcode=1
   </insert>
 </mapper>
