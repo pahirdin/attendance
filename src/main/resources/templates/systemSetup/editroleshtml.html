@@ -14,57 +14,259 @@
 
 </head>
 <body>
-
-                <form class="layui-form" action="" style="background-color: white;height: 420px">
+<div class="layui-fluid">
+    <div class="layui-row">
+        <form class="layui-form">
+            <input type="hidden" id="adminano" th:value="${ano}">
                     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 8px;">
-                        <legend>SUPPERUSED</legend>
+                        <legend th:text="${ano}"></legend>
                     </fieldset>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">姓名：</label> <div class="layui-form-mid" style="font-size: 18px;">帕海</div>
+                        <div class="layui-form-label layui-word-aux">
+                            <span class="" th:text="${name}"></span>
+                        </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">班主任权限</label>
-                        <div class="layui-input-block">
-                            <input type="checkbox" name="headmaster" lay-skin="switch" lay-text="ON|OFF">
+                        <div class="layui-input-inline">
+                            <input type="checkbox" name="headmaster" th:checked="${headmaster}"  lay-skin="switch" lay-filter="headmaster" lay-text="ON|OFF">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">
+                            班主任是学校中全面负责一个班学生的思想、学习、健康和生活等工作的教师，他是一个班的组织者、领导者和教育者，也是一个班中全体任课教师教学、教育工作的协调者
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">辅导员权限</label>
-                        <div class="layui-input-block">
-                            <input type="checkbox" checked="" name="instructor" lay-skin="switch" lay-filter="switchTest" lay-text="ON|OFF">
+                        <div class="layui-input-inline">
+                            <input type="checkbox"  th:checked="${instructor}" name="instructor" lay-skin="switch" lay-filter="instructor" lay-text="ON|OFF">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">
+                            辅导员是指从事学生的思想政治教育、学生日常管理、就业指导、心理健康以及学生党团建设等方面的工作的学校公职人员
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">任课老师权限</label>
-                        <div class="layui-input-block">
-                            <input type="checkbox" checked="false" name="teacherInClass" lay-skin="switch" lay-filter="switchTest" lay-text="ON|OFF">
+                        <div class="layui-input-inline">
+                            <input type="checkbox" th:checked="${teacherInClass}" name="teacherInClass" lay-skin="switch" lay-filter="teacherInClass" lay-text="ON|OFF">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">
+                            上课的一线教师
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">院级权限</label>
-                        <div class="layui-input-block">
-                            <input type="checkbox" checked="no" name="collegeAdmin" lay-skin="switch" lay-filter="switchTest" lay-text="ON|OFF">
+                        <div class="layui-input-inline">
+                            <input type="checkbox" th:checked="${collegeAdmin}" name="collegeAdmin" lay-skin="switch" lay-filter="collegeAdmin" lay-text="ON|OFF">
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">校级权限</label>
-                        <div class="layui-input-block">
-                            <input type="checkbox" checked="" name="schoolAdmin" lay-skin="switch" lay-filter="switchTest" lay-text="ON|OFF">
+                        <div class="layui-input-inline">
+                            <input type="checkbox" th:checked="${schoolAdmin}" name="schoolAdmin" lay-skin="switch" lay-filter="schoolAdmin" lay-text="ON|OFF">
                         </div>
                     </div>
                 </form>
+    </div></div>
 
     <script   th:inline="none">
         layui.use('form', function(){
             var form = layui.form;
+            var $ = layui.$;
 
-            //监听指定开关
-            form.on('switch', function(data){
+            //headmaster
+            form.on('switch(headmaster)', function(data){
+                var sno = $('#adminano').val();
                 // layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
                 //     offset: '6px'
                 // });
                 // layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+                if(this.checked){
+                    $.ajax({
+                        url:'/checkedAddRole',
+                        type:'get',
+                        data:{'rolename':'headmaster','sno':sno},//向服务端发送的id
+                        success:function(suc){
+                            if(suc==200){
+                                layer.close(index);
+                                layer.msg("赋权成功",{icon:1});
+                            }
+                            else{
+                                this.checked = false;
+                                layer.msg("赋权失败,原因"+suc,{icon:5},{time:5000});
+                            }
+                        }
+                    });
+                }else{
+                    $.ajax({
+                        url:'/checkedDelRole',
+                        type:'get',
+                        data:{'rolename':'headmaster','sno':sno},//向服务端发送的id
+                        success:function(suc){
+                            if(suc==200){
+                                layer.close(index);
+                                layer.msg("夺权成功",{icon:1});
+                            }
+                            else{
+                                this.checked = true;
+                                layer.msg("夺权失败,原因"+suc,{icon:5},{time:5000});
+                            }
+                        }
+                    });
+                }
+
             });
+
+            form.on('switch(instructor)', function(data){
+                var sno = $('#adminano').val();
+                if(this.checked){
+                    $.ajax({
+                        url:'/checkedAddRole',
+                        type:'get',
+                        data:{'rolename':'instructor','sno':sno},//向服务端发送的id
+                        success:function(suc){
+                            if(suc==200){
+                                layer.close(index);
+                                layer.msg("赋权成功",{icon:1});
+                            }
+                            else{
+                                this.checked = false;
+                                layer.msg("赋权失败,原因"+suc,{icon:5},{time:5000});
+                            }
+                        }
+                    });
+                }else{
+                    $.ajax({
+                        url:'/checkedDelRole',
+                        type:'get',
+                        data:{'rolename':'instructor','sno':sno},//向服务端发送的id
+                        success:function(suc){
+                            if(suc==200){
+                                layer.close(index);
+                                layer.msg("夺权成功",{icon:1});
+                            }
+                            else{
+                                this.checked = true;
+                                layer.msg("夺权失败,原因"+suc,{icon:5},{time:5000});
+                            }
+                        }
+                    });
+                }
+
+            });
+
+            form.on('switch(teacherInClass)', function(data){
+                var sno = $('#adminano').val();
+                if(this.checked){
+                    $.ajax({
+                        url:'/checkedAddRole',
+                        type:'get',
+                        data:{'rolename':'teacherInClass','sno':sno},//向服务端发送的id
+                        success:function(suc){
+                            if(suc==200){
+                                layer.close(index);
+                                layer.msg("赋权成功",{icon:1});
+                            }
+                            else{
+                                this.checked = false;
+                                layer.msg("赋权失败,原因"+suc,{icon:5},{time:5000});
+                            }
+                        }
+                    });
+                }else{
+                    $.ajax({
+                        url:'/checkedDelRole',
+                        type:'get',
+                        data:{'rolename':'teacherInClass','sno':sno},//向服务端发送的id
+                        success:function(suc){
+                            if(suc==200){
+                                layer.close(index);
+                                layer.msg("夺权成功",{icon:1});
+                            }
+                            else{
+                                this.checked = true;
+                                layer.msg("夺权失败,原因"+suc,{icon:5},{time:5000});
+                            }
+                        }
+                    });
+                }
+
+            });
+
+            form.on('switch(collegeAdmin)', function(data){
+                var sno = $('#adminano').val();
+                if(this.checked){
+                    $.ajax({
+                        url:'/checkedAddRole',
+                        type:'get',
+                        data:{'rolename':'collegeAdmin','sno':sno},//向服务端发送的id
+                        success:function(suc){
+                            if(suc==200){
+                                layer.close(index);
+                                layer.msg("赋权成功",{icon:1});
+                            }
+                            else{
+                                this.checked = false;
+                                layer.msg("赋权失败,原因"+suc,{icon:5},{time:5000});
+                            }
+                        }
+                    });
+                }else{
+                    $.ajax({
+                        url:'/checkedDelRole',
+                        type:'get',
+                        data:{'rolename':'collegeAdmin','sno':sno},//向服务端发送的id
+                        success:function(suc){
+                            if(suc==200){
+                                layer.close(index);
+                                layer.msg("夺权成功",{icon:1});
+                            }
+                            else{
+                                this.checked = true;
+                                layer.msg("夺权失败,原因"+suc,{icon:5},{time:5000});
+                            }
+                        }
+                    });
+                }
+
+            });
+
+            form.on('switch(schoolAdmin)', function(data){
+                var sno = $('#adminano').val();
+                if(this.checked){
+                    $.ajax({
+                        url:'/checkedAddRole',
+                        type:'get',
+                        data:{'rolename':'schoolAdmin','sno':sno},//向服务端发送的id
+                        success:function(suc){
+                            if(suc==200){
+                                layer.close(index);
+                                layer.msg("赋权成功",{icon:1});
+                            }
+                            else{
+                                this.checked = false;
+                                layer.msg("赋权失败,原因"+suc,{icon:5},{time:5000});
+                            }
+                        }
+                    });
+                }else{
+                    $.ajax({
+                        url:'/checkedDelRole',
+                        type:'get',
+                        data:{'rolename':'schoolAdmin','sno':sno},//向服务端发送的id
+                        success:function(suc){
+                            if(suc==200){
+                                layer.close(index);
+                                layer.msg("夺权成功",{icon:1});
+                            }
+                            else{
+                                this.checked = true;
+                                layer.msg("夺权失败,原因"+suc,{icon:5},{time:5000});
+                            }
+                        }
+                    });
+                }
+            });
+
             //各种基于事件的操作，下面会有进一步介绍
             form.render();
         });

@@ -1,6 +1,7 @@
 package com.phd.service.impl;
 
 import com.phd.entity.*;
+import com.phd.mapper.AdminInfoMapper;
 import com.phd.mapper.CheckTempMapper;
 import com.phd.mapper.CollegeMapper;
 import com.phd.mapper.MajorMapper;
@@ -24,6 +25,8 @@ public class CommomServiceImpl implements ICommomService {
     private MajorMapper majorMapper;
     @Autowired
     private CheckTempMapper checkTempMapper;
+    @Autowired
+    private AdminInfoMapper adminInfoMapper;
     @Override
     public List<College> findAllCollege() {
         return this.collegeMapper.selectByExample(null);
@@ -57,6 +60,11 @@ public class CommomServiceImpl implements ICommomService {
     @Override
     public void saveTempTable(List<CheckTemp> tempList) {
         checkTempMapper.updateByBatch(tempList);
+    }
+
+    @Override
+    public AdminInfo getAdminInfoByAno(String ano) {
+        return this.adminInfoMapper.selectByAdminByAid(ano);
     }
 
 }

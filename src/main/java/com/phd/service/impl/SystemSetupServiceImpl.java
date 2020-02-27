@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.phd.entity.*;
 import com.phd.mapper.AdminInfoMapper;
 import com.phd.mapper.ClassesMapper;
+import com.phd.mapper.RoleMapper;
 import com.phd.mapper.StudentInfoMapper;
 import com.phd.service.ISystemSetupService;
 import com.phd.utils.StaticUtils;
@@ -25,6 +26,8 @@ public class SystemSetupServiceImpl implements ISystemSetupService {
     private StudentInfoMapper studentInfoMapper;
     @Autowired
     private AdminInfoMapper adminInfoMapper;
+    @Autowired
+    private RoleMapper roleMapper;
     @Override
     public PageInfo<Classes> findAllClasses(Integer page, Integer limit, Integer aid,Integer college,Integer major,String className) {
         page = page == null ? 1 : page;
@@ -67,5 +70,35 @@ public class SystemSetupServiceImpl implements ISystemSetupService {
         ClassesExample.Criteria criteria = classesExample.createCriteria();
         criteria.andCidEqualTo(cid);
         return this.classesMapper.deleteByExample(classesExample);
+    }
+
+    @Override
+    public Boolean isGotRole(String ano, String rolename) {
+        return this.roleMapper.isGotRole(ano,rolename);
+    }
+
+    @Override
+    public void checkedDelRole(String roleName, String sno) {
+        RoleExample roleExample = new RoleExample();
+        RoleExample.Criteria criteria = roleExample.createCriteria();
+        criteria.andRoleDescriptionEqualTo(roleName);
+        criteria.andRoleNameEqualTo(sno);
+        this.roleMapper.deleteByExample(roleExample);
+
+        List<Role> roleList = this.roleMapper.selectAllByRolname(sno);
+        //如果没有一个权限则赋初始权
+        if(roleList.size() == 0) {
+            this.roleMapper.insert(new Role(sno,"chushi"));
+        }
+    }
+
+    @Override
+    public void checkedAddRole(String roleName, String sno) {
+        this.roleMapper.insert(new Role(sno,roleName));
+        RoleExample roleExample = new RoleExample();
+        RoleExample.Criteria criteria = roleExample.createCriteria();
+        criteria.andRoleDescriptionEqualTo("chushi");
+        criteria.andRoleNameEqualTo(sno);
+        this.roleMapper.deleteByExample(roleExample);
     }
 }

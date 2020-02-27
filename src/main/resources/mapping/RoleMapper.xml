@@ -91,7 +91,7 @@
   <insert id="insert" parameterType="com.phd.entity.Role">
     insert into role (role_id, role_name, role_description
       )
-    values (#{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{roleDescription,jdbcType=VARCHAR}
+    values ( nextval('role$seq'), #{role_name,jdbcType=VARCHAR}, #{role_description,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.phd.entity.Role">
@@ -155,5 +155,10 @@
 
   <select id="selectAllByRolname" resultMap="BaseResultMap" parameterType="java.lang.String">
     select role_id,role_name,role_description from role where role_name=#{sno}
+  </select>
+
+  <select id="isGotRole" resultType="java.lang.Boolean">
+    <![CDATA[ select count(role_id)
+        from role where role_name = #{ano} and role_description=#{rolename}]]>
   </select>
 </mapper>

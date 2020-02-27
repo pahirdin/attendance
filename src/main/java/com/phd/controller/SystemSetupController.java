@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 系统设置
@@ -108,5 +109,51 @@ public class SystemSetupController {
             return "200";
         }
         return "数据库连接失败，请联系管理员....";
+    }
+
+    /**
+     * 管理员信息页面 编辑权限跳转的弹窗
+     * @param ano 管理员工号
+     * @param model model
+     * @return 页面地址
+     */
+    @RequestMapping("/editRoles")
+    public String editRoles(String ano,Model model) {
+        AdminInfo adminInfo = this.commomServiceImpl.getAdminInfoByAno(ano);
+        model.addAttribute("ano", adminInfo.getAno());
+        model.addAttribute("name", adminInfo.getAname());
+        model.addAttribute("headmaster", this.systemSetupServiceImpl.isGotRole(ano,"headmaster"));
+        model.addAttribute("instructor",this.systemSetupServiceImpl.isGotRole(ano,"instructor"));
+        model.addAttribute("teacherInClass",this.systemSetupServiceImpl.isGotRole(ano,"teacherInClass"));
+        model.addAttribute("collegeAdmin",this.systemSetupServiceImpl.isGotRole(ano,"collegeAdmin"));
+        model.addAttribute("schoolAdmin", this.systemSetupServiceImpl.isGotRole(ano,"schoolAdmin"));
+        model.addAttribute("chushi", this.systemSetupServiceImpl.isGotRole(ano,"chushi"));
+        return "/systemSetup/editroleshtml.html";
+    }
+
+    /**
+     * 删除管理员对应的权限
+     * @param rolename 权限名
+     * @param sno 管理员账号
+     * @return 成功标识
+     */
+    @RequestMapping("/checkedDelRole")
+    @ResponseBody
+    public String checkedDelRole(String rolename,String sno) {
+        this.systemSetupServiceImpl.checkedDelRole(rolename,sno);
+        return "200";
+    }
+
+    /**
+     * 新增管理员对应的权限
+     * @param rolename 权限名
+     * @param sno 管理员权限
+     * @return 成功标识
+     */
+    @RequestMapping("/checkedAddRole")
+    @ResponseBody
+    public String checkedAddRole(String rolename,String sno) {
+        this.systemSetupServiceImpl.checkedAddRole(rolename,sno);
+        return "200";
     }
 }

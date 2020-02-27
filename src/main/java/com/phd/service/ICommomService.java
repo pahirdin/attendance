@@ -1,5 +1,6 @@
 package com.phd.service;
 
+import com.phd.entity.AdminInfo;
 import com.phd.entity.CheckTemp;
 import com.phd.entity.College;
 import com.phd.entity.Major;
@@ -45,4 +46,10 @@ public interface ICommomService {
      */
     void saveTempTable(List<CheckTemp> tempList);
 
+    /**
+     * 根据工号查询管理员信息
+     * @param ano
+     * @return
+     */
+    AdminInfo getAdminInfoByAno(String ano);
 }

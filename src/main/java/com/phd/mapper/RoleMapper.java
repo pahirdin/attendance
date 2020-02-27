@@ -21,4 +21,6 @@ public interface RoleMapper {
     int updateByExample(@Param("record") Role record, @Param("example") RoleExample example);
 
     List<Role> selectAllByRolname(String ano);
+
+    Boolean isGotRole(@Param("ano") String ano,@Param("rolename") String rolename);
 }

@@ -52,15 +52,4 @@ public class JumpController {
         return "/systemSetup/popupresults.html";
     }
 
-    /**
-     * 管理员信息页面 编辑权限跳转的弹窗
-     * @param ano 管理员工号
-     * @param model model
-     * @return 页面地址
-     */
-    @RequestMapping("/editRoles")
-    public String editRoles(String ano,Model model) {
-        return "/systemSetup/editroleshtml.html";
-    }
-
 }
