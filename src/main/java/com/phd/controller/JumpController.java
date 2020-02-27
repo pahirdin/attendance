@@ -52,4 +52,9 @@ public class JumpController {
         return "/systemSetup/popupresults.html";
     }
 
+    @RequestMapping("/collegeadminsetupclasses")
+    public String collegeadminsetupclasses() {
+        return "/systemSetup/collegeadminsetupclasses.html";
+    }
+
 }
