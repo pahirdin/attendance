@@ -125,7 +125,8 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+
+    <update id="updateByExampleSelective" parameterType="map">
     update adminmanageclassesdetails
     <set>
       <if test="record.amcdid != null">
@@ -151,4 +152,14 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+
+
+  <select id="getClassInstructorNonSelect" resultType="com.phd.entity.ClassCode">
+    SELECT CID AS VALUE,CNAME TITLE FROM CLASSES A,MAJOR B WHERE 1=1
+    AND A.MID=B.MID
+    AND B.COID=#{coid}
+    AND NOT EXISTS
+    (SELECT 1 FROM ADMINMANAGECLASSESDETAILS C,ADMINMANAGECLASSES D WHERE C.CID=A.CID AND D.AMCID=C.AMCID AND D.AID=#{aid})
+
+  </select>
 </mapper>

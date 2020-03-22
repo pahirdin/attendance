@@ -3,6 +3,8 @@ package com.phd.mapper;
 import com.phd.entity.AdminManageClassesDetails;
 import com.phd.entity.AdminManageClassesDetailsExample;
 import java.util.List;
+
+import com.phd.entity.ClassCode;
 import org.apache.ibatis.annotations.Param;
 
 public interface AdminManageClassesDetailsMapper {
@@ -19,4 +21,6 @@ public interface AdminManageClassesDetailsMapper {
     int updateByExampleSelective(@Param("record") AdminManageClassesDetails record, @Param("example") AdminManageClassesDetailsExample example);
 
     int updateByExample(@Param("record") AdminManageClassesDetails record, @Param("example") AdminManageClassesDetailsExample example);
+
+    List<ClassCode> getClassInstructorNonSelect(@Param("aid") Integer aid,@Param("coid") Integer coid);
 }
