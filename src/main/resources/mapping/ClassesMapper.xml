@@ -153,7 +153,7 @@
   </update>
 
   <select id="selectAllClasses" resultType="com.phd.entity.Classes">
-    SELECT C.CID,C.MID,C.CNAME,M.MNAME,M.COID,CO.CONAME FROM CLASSES C,MAJOR M,COLLEGE CO  WHERE C.MID=M.MID AND M.COID=CO.COID
+    SELECT C.CID,C.MID,C.CNAME,C.MASTERID,C.INSID,M.MNAME,M.COID,CO.CONAME FROM CLASSES C,MAJOR M,COLLEGE CO  WHERE C.MID=M.MID AND M.COID=CO.COID
     <if test="college != null">
       AND CO.COID = #{college}
     </if>
@@ -163,5 +163,17 @@
     <if test="className != null">
       AND M.MNAME LIKE #{className}
     </if>
+  </select>
+
+  <update id="setClassesIns">
+    update CLASSES set insid=#{aid} where cid=#{cid}
+  </update>
+
+  <update id="setClassesMaster">
+    UPDATE CLASSES SET MASTERID=#{aid} WHERE cid=#{cid}
+  </update>
+
+  <select id="getClassecByMasterId" resultType="com.phd.entity.Classes">
+    SELECT CID FROM CLASSES WHERE MASTERID=#{aid}
   </select>
 </mapper>

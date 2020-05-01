@@ -9,6 +9,8 @@ import com.phd.mapper.RoleMapper;
 import com.phd.mapper.StudentInfoMapper;
 import com.phd.service.ISystemSetupService;
 import com.phd.utils.StaticUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +38,16 @@ public class SystemSetupServiceImpl implements ISystemSetupService {
         //在帮助类中传入分页参数
         PageHelper.startPage(page, limit);
         List<Classes> list = classesMapper.selectAllClasses(college,major,className);
+        for (Classes classes : list) {
+            if(null != classes.getInsid()){
+                String name = adminInfoMapper.getAnameByAid(classes.getInsid());
+                classes.setInsName(name);
+            }
+            if(null != classes.getMasterid()){
+                String name = adminInfoMapper.getAnameByAid(classes.getMasterid());
+                classes.setMasterName(name);
+            }
+        }
         PageInfo<Classes> pagelist = new PageInfo<Classes>(list);
         return pagelist;
     }
@@ -100,5 +112,24 @@ public class SystemSetupServiceImpl implements ISystemSetupService {
         criteria.andRoleDescriptionEqualTo("chushi");
         criteria.andRoleNameEqualTo(sno);
         this.roleMapper.deleteByExample(roleExample);
+    }
+
+    @Override
+    public int setClassesIns(Integer cid, AdminInfo admin) {
+        return this.classesMapper.setClassesIns(cid,admin.getAid());
+    }
+
+    @Override
+    public String setClassesMaster(Integer cid, AdminInfo admin) {
+        List<Classes> list = this.classesMapper.getClassecByMasterId(admin.getAid());
+        if (null != list && list.size()>0) {
+            return "202";
+        }
+        int count = this.classesMapper.setClassesMaster(cid,admin.getAid());
+        if (count > 0) {
+            return "200";
+        }else {
+            return "数据库连接失败，请联系管理员...";
+        }
     }
 }

@@ -233,4 +233,8 @@
     </if>
       GROUP BY A.ANO,A.AID, A.ANAME, A.ATEL, A.ANO, A.COID, C.CONAME
     </select>
+
+  <select id="getAnameByAid" resultType="java.lang.String">
+    select aname from admininfo where aid=#{aid}
+  </select>
 </mapper>

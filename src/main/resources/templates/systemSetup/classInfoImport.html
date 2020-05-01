@@ -69,7 +69,8 @@
     {{d.LAY_TABLE_INDEX+1}}
 </script>
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="edit">辅导员设置</a>
+    <a class="layui-btn layui-btn-xs" lay-event="fedit">辅导员设置</a>
+    <a class="layui-btn layui-btn-xs" lay-event="bedit">班主任设置</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 <script  th:inline="none">
@@ -96,7 +97,9 @@
                 ,{field:'coname', title: '学院'}
                 ,{field:'mname', title: '专业'}
                 ,{field:'cname', title: '班级'}
-                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+                ,{field:'masterName', title: '班主任'}
+                ,{field:'insName', title: '辅导员'}
+                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:300}
             ]]
             ,id: 'testReload'
             ,page: true
@@ -132,7 +135,7 @@
         table.on('tool(test)', function(obj){
             var data = obj.data;
             if(obj.event === 'del'){
-                layer.confirm('真的删除：'+data.mname+" "+data.cname+"班级吗?", function(index){
+                layer.confirm('确定删除 【'+data.cname+"】 班级吗?", function(index){
                     //向服务端发送删除指令
                     $.ajax({
                         url:'/deleteClassesInfo',
@@ -153,8 +156,53 @@
                 });
             }
             //辅导员设置打开弹窗
-            if(obj.event === 'edit') {
-                xadmin.open('辅导员设置','/editInstructorInClass?ano='+data.cid);
+            if(obj.event === 'fedit') {
+                layer.confirm('确定成为 【'+data.cname+"】 班级的辅导员吗?", function(index){
+                    //向服务端发送删除指令
+                    $.ajax({
+                        url:'/setClassesIns',
+                        type:'get',
+                        data:{'cid':data.cid},//向服务端发送删除的id
+                        success:function(suc){
+                            if(suc==200){
+                                obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+                                layer.close(index);
+                                layer.msg("设置成",{icon:1});
+                            }
+                            else if(suc==201){
+                                layer.msg("您不是辅导员",{icon:5},{time:5000});
+                            }else {
+                                layer.msg("失败,原因："+suc,{icon:5},{time:5000});
+                            }
+                        }
+                    });
+                    layer.close(index);
+                });
+            }
+            //班主任设置打开弹窗
+            if(obj.event === 'bedit') {
+                layer.confirm('确定成为 【'+data.cname+"】 班级的班主任吗?", function(index){
+                    //向服务端发送删除指令
+                    $.ajax({
+                        url:'/setClassesMaster',
+                        type:'get',
+                        data:{'cid':data.cid},//向服务端发送删除的id
+                        success:function(suc){
+                            if(suc==200){
+                                obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+                                layer.close(index);
+                                layer.msg("设置成",{icon:1});
+                            }else if(suc==201) {
+                                layer.msg("您不是班主任",{icon:5},{time:5000});
+                            }else if(suc==202){
+                                layer.msg("您已是别的班的班主任、请先失效",{icon:5},{time:5000});
+                            }else {
+                                layer.msg("失败,原因："+suc,{icon:5},{time:5000});
+                            }
+                        }
+                    });
+                    layer.close(index);
+                });
             }
         });
 

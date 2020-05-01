@@ -41,4 +41,8 @@ public interface ISystemSetupService {
      * @return 成功标识
      */
     void checkedAddRole(String roleName, String sno);
+
+    int setClassesIns(Integer cid, AdminInfo admin);
+
+    String setClassesMaster(Integer cid, AdminInfo admin);
 }

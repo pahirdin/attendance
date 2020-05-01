@@ -111,6 +111,42 @@ public class SystemSetupController {
         }
         return "数据库连接失败，请联系管理员....";
     }
+    /**
+     * 设置辅导员
+     * @param cid 班级ID
+     * @return 返回错误或成功信息（200）
+     */
+    @RequestMapping("/setClassesIns")
+    @ResponseBody
+    public String setClassesIns(Integer cid) {
+        AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
+        assert admin != null;
+        if(!admin.getAlevel().contains("3")) {
+            return "201";
+        }
+        int cont = this.systemSetupServiceImpl.setClassesIns(cid,admin);
+        if(cont > 0 ) {
+            return "200";
+        }
+        return "数据库连接失败，请联系管理员....";
+    }
+    /**
+     * 设置班主任
+     * @param cid 班级ID
+     * @return 返回错误或成功信息（200）
+     */
+    @RequestMapping("/setClassesMaster")
+    @ResponseBody
+    public String setClassesMaster(Integer cid) {
+        AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
+        assert admin != null;
+        if(!admin.getAlevel().contains("4")) {
+            return "201";
+        }
+        String cont = this.systemSetupServiceImpl.setClassesMaster(cid,admin);
+        return cont;
+    }
+
 
     /**
      * 管理员信息页面 编辑权限跳转的弹窗
