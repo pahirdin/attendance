@@ -6,6 +6,7 @@ import com.phd.service.ICommomService;
 import com.phd.service.ISystemSetupService;
 import com.phd.utils.StaticUtils;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,7 +49,8 @@ public class SystemSetupController {
     public  @ResponseBody
     Result<Classes> classInfoImport(Integer college,Integer major,String className,Integer page, Integer limit){
         //从shiro 获取当前登录用户信息
-        AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
+
+        AdminInfo admin = (AdminInfo)SecurityUtils.getSubject().getPrincipal();
         return new Result<>(this.systemSetupServiceImpl.findAllClasses(page,limit,admin.getAid(),college,major,className));
     }
 

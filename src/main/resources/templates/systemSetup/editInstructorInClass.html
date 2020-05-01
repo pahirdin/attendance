@@ -2,10 +2,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>班级信息导入</title>
+    <title>班级设置辅导员</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <!--    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />-->
     <link rel="stylesheet" th:href="@{/X-admin/css/font.css}">
     <link rel="stylesheet" th:href="@{/X-admin/css/xadmin.css}">
     <link rel="stylesheet" th:href="@{/X-admin/css/theme5.css}">
@@ -21,12 +21,12 @@
 
 <body>
 <div class="x-nav">
-            <span class="layui-breadcrumb">
-                <a href="">首页</a>
-                <a href="">演示</a>
-                <a>
-                    <cite>导航元素</cite></a>
-            </span>
+                <span class="layui-breadcrumb">
+                    <a href="">首页</a>
+                    <a href="">演示</a>
+                    <a>
+                        <cite>导航元素</cite></a>
+                </span>
     <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
         <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i>
     </a>
@@ -44,42 +44,40 @@
                             </select>
                         </div>
                         <div class="layui-input-inline">
-                            <select name="major" id="major" lay-search="">
-                                <option value="">请选择专业</option>
-                                <!--                                <option th:each="m,stat:${js_type}" th:value="${m.mid}" th:text="${m.mname}"></option>-->
+                            <select name="role" id="role" lay-filter="sales"  lay-search="">
+                                <option value="">请选择权限</option>
+                                <option th:each="map,stat:${roleMap}" th:value="${map.value}" th:text="${map.key}"></option>
                             </select>
                         </div>
-                        专业：
+                        姓名或工号：
                         <div class="layui-inline">
-                            <input class="layui-input" name="className" id="className" autocomplete="off">
+                            <input class="layui-input" name="demoReload" id="demoReload" autocomplete="off">
                         </div>
                         <button class="layui-btn" data-type="reload">搜索</button>
                     </div>
                 </div>
 
                 <!--表格-->
-                <div class="layui-card-body"><table class="layui-hide" id="LAY_table_user" lay-filter="test"></table></div>
+                <div class="layui-card-body"><table class="layui-hide" id="LAY_table_user"  lay-filter="test"></table></div>
             </div>
         </div>
     </div>
 </div>
-
-
 <script type="text/html" id="indexTpl">
     {{d.LAY_TABLE_INDEX+1}}
 </script>
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="edit">辅导员设置</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit" >编辑</a>
 </script>
 <script  th:inline="none">
+
     layui.use('table', function(){
         var table = layui.table;
 
         //方法级渲染
         table.render({
             elem: '#LAY_table_user'
-            ,url: '/getClassInfo'
+            ,url: '/getAdminInfo'
             // ,defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
             //     title: '提示'
             //     ,layEvent: 'LAYTABLE_TIPS'
@@ -88,32 +86,43 @@
             ,defaultToolbar: ['filter', 'print', 'exports']
             ,toolbar: true
             ,toolbar: '#toolbarDemo' //表头工具栏
-            ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
             ,cols: [[
                 // {checkbox: true, fixed: true}
                 {title: '编号',templet: '#indexTpl'}
-                ,{field:'cid', title: '班级ID'}
+                ,{field:'aid', title: 'ID',  fixed: true}
+                ,{field:'aname', title: '姓名'}
+                ,{field:'ano', title: '工号'}
+                ,{field:'atel', title: '手机号'}
                 ,{field:'coname', title: '学院'}
-                ,{field:'mname', title: '专业'}
-                ,{field:'cname', title: '班级'}
-                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+                ,{field:'roles',title:'拥有权限',width:420}
+                ,{fixed: 'right', title:'权限管理', toolbar: '#barDemo', width:150}
             ]]
             ,id: 'testReload'
             ,page: true
             ,height: 700
             ,done:function(res,curr,count){
                 // 隐藏列
-                $("[data-field='sid']").css("display","none");
-                $("[data-field='cid']").css("display","none");
-                $("[data-field='coid']").css("display","none");
+                $("[data-field='aid']").css("display","none");
             }
         });
-
+        //监听行工具事件
+        table.on('tool(test)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'edit'){
+                // layer.open({
+                //     type:2
+                //     ,title: '结果'
+                //     ,area:["400px","500px"]
+                //     ,content: ['/editRoles?ano='+data.ano,'no']
+                // });
+                xadmin.open('修改权限','/editRoles?ano='+data.ano);
+            }
+        });
         var $ = layui.$, active = {
             reload: function(){
-                var className = $('#className');
+                var demoReload = $('#demoReload');
                 var college = $('#college');
-                var major = $('#major');
+                var role = $('#role');
 
                 //执行重载
                 table.reload('testReload', {
@@ -121,42 +130,13 @@
                         curr: 1 //重新从第 1 页开始
                     }
                     ,where: {
-                        className: className.val()
+                        name: demoReload.val()
                         ,college:college.val()
-                        ,major:major.val()
+                        ,role:role.val()
                     }
                 }, 'data');
             }
         };
-        //监听行工具事件
-        table.on('tool(test)', function(obj){
-            var data = obj.data;
-            if(obj.event === 'del'){
-                layer.confirm('真的删除：'+data.mname+" "+data.cname+"班级吗?", function(index){
-                    //向服务端发送删除指令
-                    $.ajax({
-                        url:'/deleteClassesInfo',
-                        type:'get',
-                        data:{'cid':data.cid},//向服务端发送删除的id
-                        success:function(suc){
-                            if(suc==200){
-                                obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
-                                layer.close(index);
-                                layer.msg("删除成功",{icon:1});
-                            }
-                            else{
-                                layer.msg("删除失败,原因"+suc,{icon:5},{time:5000});
-                            }
-                        }
-                    });
-                    layer.close(index);
-                });
-            }
-            //辅导员设置打开弹窗
-            if(obj.event === 'edit') {
-                xadmin.open('辅导员设置','/editInstructorInClass?ano='+data.cid);
-            }
-        });
 
         $('.layui-card-body .layui-btn').on('click', function(){
             var type = $(this).data('type');
@@ -164,7 +144,7 @@
         });
 
         $('#muban').on('click',function () {
-            window.location.href="/downAddClassTmp";
+            window.location.href="/downAddAdminTmp";
         });
         //上传文件新增
         layui.use('upload', function(){
@@ -172,7 +152,7 @@
             //执行实例
             var uploadInst = upload.render({
                 elem: '#filename' //绑定元素
-                ,url: '/addClasses' //上传接口
+                ,url: '/addadmin' //上传接口
                 ,accept: 'file' //允许上传的文件类型
                 // ,exts: 'xls|excel|xlsx' //只允许上传压缩文件
                 ,exts: 'xls|excel' //只允许上传压缩文件
@@ -191,49 +171,13 @@
                 }
             });
         });
-
         $('#add').on('click',function () {
 
         });
+
     });
-
-
-    function myData(coid) {
-        var data1;
-        $.ajax({
-            url: '/getMajorByCoid',
-            type: "post",
-            data: {action: 'js_type', coid: coid},
-            async: false,
-            success: function (data) {
-                data1 = data;
-                //data1 = JSON.parse(data);
-                //console.log(data1);
-            },
-            error: function () {
-                layer.msg('读取数据失败！');
-            }
-        });
-        return data1;
-    }
-
-    layui.use('form',
-        function() {
-            var form = layui.form;
-            form.on('select(sales)', function(data){
-                $("#major").empty();
-                if("x" == data.value) {return;}
-                var data = myData(data.value);
-                $("#major").append("<option value=''>请选择专业</option>");
-                $.each(data,function (index,da){
-                    $("#major").append("<option value='"+da.mid+"'>"+da.mname+"</option>");
-                });
-                form.render('select');
-                // $("#major").find("option").remove();
-                //console.log(data);
-            });
-        });
 </script>
+
 <!--表头工具栏-->
 <script type="text/html" id="toolbarDemo">
     <div class="layui-btn-container">
@@ -244,9 +188,5 @@
         </button>
     </div>
 </script>
-<script   th:inline="none">
-
-</script>
 </body>
-
 </html>

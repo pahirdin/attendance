@@ -81,7 +81,7 @@
             async:false,
             success:function (data) {
                 data1=data;
-                console.log(data1);
+
             }
         });
         $.ajax({
@@ -91,15 +91,16 @@
             async: false,
             success:function(data) {
                 data2=data;
+                console.log(data2);
             }
         });
         //实例调用
         transfer.render({
             elem: '#test7'
-            ,title: ['候选文人', '获奖文人'] //自定义标题
+            ,title: ['全选', '全选'] //自定义标题
             ,data: data1
             ,id: 'key123' //定义唯一索引
-            ,value: ["1", "3", "5", "7"]
+            ,value: ['5', '5', '9']
         });
         //批量办法定事件
         util.event('lay-demoTransferActive', {
@@ -111,7 +112,7 @@
                 //实例重载
                 transfer.reload('key123', {
                     title: ['文人', '喜欢的文人']
-                    ,value: ['2', '5', '9']
+                    ,value: ['89', '5', '9']
                     ,showSearch: true
                 })
             }
