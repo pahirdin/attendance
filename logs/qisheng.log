@@ -1,0 +1,6 @@
+2020-05-05 20:06:09,654:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 15844 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-05 20:06:09,673:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-05 20:06:09,675:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-05 20:07:42,925:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 7152 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-05 20:07:42,941:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-05 20:07:42,942:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
