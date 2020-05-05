@@ -2,7 +2,6 @@ package com.phd.entity;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class SchoolAttendanceExample {
@@ -106,32 +105,6 @@ public class SchoolAttendanceExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
-        }
-
         public Criteria andSaidIsNull() {
             addCriterion("said is null");
             return (Criteria) this;
@@ -142,52 +115,52 @@ public class SchoolAttendanceExample {
             return (Criteria) this;
         }
 
-        public Criteria andSaidEqualTo(Integer value) {
+        public Criteria andSaidEqualTo(Long value) {
             addCriterion("said =", value, "said");
             return (Criteria) this;
         }
 
-        public Criteria andSaidNotEqualTo(Integer value) {
+        public Criteria andSaidNotEqualTo(Long value) {
             addCriterion("said <>", value, "said");
             return (Criteria) this;
         }
 
-        public Criteria andSaidGreaterThan(Integer value) {
+        public Criteria andSaidGreaterThan(Long value) {
             addCriterion("said >", value, "said");
             return (Criteria) this;
         }
 
-        public Criteria andSaidGreaterThanOrEqualTo(Integer value) {
+        public Criteria andSaidGreaterThanOrEqualTo(Long value) {
             addCriterion("said >=", value, "said");
             return (Criteria) this;
         }
 
-        public Criteria andSaidLessThan(Integer value) {
+        public Criteria andSaidLessThan(Long value) {
             addCriterion("said <", value, "said");
             return (Criteria) this;
         }
 
-        public Criteria andSaidLessThanOrEqualTo(Integer value) {
+        public Criteria andSaidLessThanOrEqualTo(Long value) {
             addCriterion("said <=", value, "said");
             return (Criteria) this;
         }
 
-        public Criteria andSaidIn(List<Integer> values) {
+        public Criteria andSaidIn(List<Long> values) {
             addCriterion("said in", values, "said");
             return (Criteria) this;
         }
 
-        public Criteria andSaidNotIn(List<Integer> values) {
+        public Criteria andSaidNotIn(List<Long> values) {
             addCriterion("said not in", values, "said");
             return (Criteria) this;
         }
 
-        public Criteria andSaidBetween(Integer value1, Integer value2) {
+        public Criteria andSaidBetween(Long value1, Long value2) {
             addCriterion("said between", value1, value2, "said");
             return (Criteria) this;
         }
 
-        public Criteria andSaidNotBetween(Integer value1, Integer value2) {
+        public Criteria andSaidNotBetween(Long value1, Long value2) {
             addCriterion("said not between", value1, value2, "said");
             return (Criteria) this;
         }
@@ -382,52 +355,52 @@ public class SchoolAttendanceExample {
             return (Criteria) this;
         }
 
-        public Criteria andSarateEqualTo(Float value) {
+        public Criteria andSarateEqualTo(Integer value) {
             addCriterion("sarate =", value, "sarate");
             return (Criteria) this;
         }
 
-        public Criteria andSarateNotEqualTo(Float value) {
+        public Criteria andSarateNotEqualTo(Integer value) {
             addCriterion("sarate <>", value, "sarate");
             return (Criteria) this;
         }
 
-        public Criteria andSarateGreaterThan(Float value) {
+        public Criteria andSarateGreaterThan(Integer value) {
             addCriterion("sarate >", value, "sarate");
             return (Criteria) this;
         }
 
-        public Criteria andSarateGreaterThanOrEqualTo(Float value) {
+        public Criteria andSarateGreaterThanOrEqualTo(Integer value) {
             addCriterion("sarate >=", value, "sarate");
             return (Criteria) this;
         }
 
-        public Criteria andSarateLessThan(Float value) {
+        public Criteria andSarateLessThan(Integer value) {
             addCriterion("sarate <", value, "sarate");
             return (Criteria) this;
         }
 
-        public Criteria andSarateLessThanOrEqualTo(Float value) {
+        public Criteria andSarateLessThanOrEqualTo(Integer value) {
             addCriterion("sarate <=", value, "sarate");
             return (Criteria) this;
         }
 
-        public Criteria andSarateIn(List<Float> values) {
+        public Criteria andSarateIn(List<Integer> values) {
             addCriterion("sarate in", values, "sarate");
             return (Criteria) this;
         }
 
-        public Criteria andSarateNotIn(List<Float> values) {
+        public Criteria andSarateNotIn(List<Integer> values) {
             addCriterion("sarate not in", values, "sarate");
             return (Criteria) this;
         }
 
-        public Criteria andSarateBetween(Float value1, Float value2) {
+        public Criteria andSarateBetween(Integer value1, Integer value2) {
             addCriterion("sarate between", value1, value2, "sarate");
             return (Criteria) this;
         }
 
-        public Criteria andSarateNotBetween(Float value1, Float value2) {
+        public Criteria andSarateNotBetween(Integer value1, Integer value2) {
             addCriterion("sarate not between", value1, value2, "sarate");
             return (Criteria) this;
         }
@@ -563,52 +536,52 @@ public class SchoolAttendanceExample {
         }
 
         public Criteria andSatimeEqualTo(Date value) {
-            addCriterionForJDBCDate("satime =", value, "satime");
+            addCriterion("satime =", value, "satime");
             return (Criteria) this;
         }
 
         public Criteria andSatimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("satime <>", value, "satime");
+            addCriterion("satime <>", value, "satime");
             return (Criteria) this;
         }
 
         public Criteria andSatimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("satime >", value, "satime");
+            addCriterion("satime >", value, "satime");
             return (Criteria) this;
         }
 
         public Criteria andSatimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("satime >=", value, "satime");
+            addCriterion("satime >=", value, "satime");
             return (Criteria) this;
         }
 
         public Criteria andSatimeLessThan(Date value) {
-            addCriterionForJDBCDate("satime <", value, "satime");
+            addCriterion("satime <", value, "satime");
             return (Criteria) this;
         }
 
         public Criteria andSatimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("satime <=", value, "satime");
+            addCriterion("satime <=", value, "satime");
             return (Criteria) this;
         }
 
         public Criteria andSatimeIn(List<Date> values) {
-            addCriterionForJDBCDate("satime in", values, "satime");
+            addCriterion("satime in", values, "satime");
             return (Criteria) this;
         }
 
         public Criteria andSatimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("satime not in", values, "satime");
+            addCriterion("satime not in", values, "satime");
             return (Criteria) this;
         }
 
         public Criteria andSatimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("satime between", value1, value2, "satime");
+            addCriterion("satime between", value1, value2, "satime");
             return (Criteria) this;
         }
 
         public Criteria andSatimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("satime not between", value1, value2, "satime");
+            addCriterion("satime not between", value1, value2, "satime");
             return (Criteria) this;
         }
 

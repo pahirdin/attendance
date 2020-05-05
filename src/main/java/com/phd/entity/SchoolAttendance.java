@@ -1,9 +1,11 @@
 package com.phd.entity;
 
-import java.util.Date;
+import lombok.Data;
 
+import java.util.Date;
+@Data
 public class SchoolAttendance {
-    private Integer said;
+    private Long said;
 
     private Integer cid;
 
@@ -11,7 +13,7 @@ public class SchoolAttendance {
 
     private Short sainum;
 
-    private Float sarate;
+    private Integer sarate;
 
     private Integer couid;
 
@@ -21,75 +23,10 @@ public class SchoolAttendance {
 
     private String saaddress;
 
-    public Integer getSaid() {
-        return said;
-    }
+    private String couname;
 
-    public void setSaid(Integer said) {
-        this.said = said;
-    }
+    private String cname;
 
-    public Integer getCid() {
-        return cid;
-    }
-
-    public void setCid(Integer cid) {
-        this.cid = cid;
-    }
-
-    public Short getSanum() {
-        return sanum;
-    }
-
-    public void setSanum(Short sanum) {
-        this.sanum = sanum;
-    }
-
-    public Short getSainum() {
-        return sainum;
-    }
-
-    public void setSainum(Short sainum) {
-        this.sainum = sainum;
-    }
-
-    public Float getSarate() {
-        return sarate;
-    }
-
-    public void setSarate(Float sarate) {
-        this.sarate = sarate;
-    }
-
-    public Integer getCouid() {
-        return couid;
-    }
-
-    public void setCouid(Integer couid) {
-        this.couid = couid;
-    }
-
-    public Short getSacode() {
-        return sacode;
-    }
-
-    public void setSacode(Short sacode) {
-        this.sacode = sacode;
-    }
-
-    public Date getSatime() {
-        return satime;
-    }
-
-    public void setSatime(Date satime) {
-        this.satime = satime;
-    }
-
-    public String getSaaddress() {
-        return saaddress;
-    }
-
-    public void setSaaddress(String saaddress) {
-        this.saaddress = saaddress == null ? null : saaddress.trim();
-    }
+    private Integer leaveCont;
+    private Integer attendaceCont;
 }

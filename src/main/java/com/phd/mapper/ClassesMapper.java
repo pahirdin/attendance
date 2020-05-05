@@ -27,4 +27,8 @@ public interface ClassesMapper {
     List<Classes> getClassecByMasterId(@Param("aid") String aid);
 
     int setClassesMaster(@Param("cid") Integer cid,@Param("aid") String aid);
+
+    String getCnameByCid(@Param("cid")Integer cid);
+
+    List<Classes> getClassesByCouid(@Param("couid") Integer couid);
 }
