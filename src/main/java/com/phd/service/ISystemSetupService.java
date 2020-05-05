@@ -10,11 +10,11 @@ import com.phd.entity.StudentInfo;
  * @date 2019/12/13 11:16
  */
 public interface ISystemSetupService {
-    PageInfo<Classes> findAllClasses(Integer page, Integer limit, Integer aid,Integer college,Integer major,String className);
+    PageInfo<Classes> findAllClasses(Integer page, Integer limit, String aid,Integer college,Integer major,String className);
 
-    PageInfo<StudentInfo> findAllStudent(Integer page, Integer limit, Integer aid, String sno, Integer college, Integer major);
+    PageInfo<StudentInfo> findAllStudent(Integer page, Integer limit, String aid, String sno, Integer college, Integer major);
 
-    PageInfo<AdminInfo> findAllAdminInfo(Integer page, Integer limit, Integer college, String role,String name, Integer aid);
+    PageInfo<AdminInfo> findAllAdminInfo(Integer page, Integer limit, Integer college, String role,String name, String aid);
 
     int deleteClassesInfo(Integer cid);
 

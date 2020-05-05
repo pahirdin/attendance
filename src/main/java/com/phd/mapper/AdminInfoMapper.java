@@ -29,5 +29,5 @@ public interface AdminInfoMapper {
 
     List<AdminInfo> queryAdminInfoByParam(Integer college, String role,String name);
 
-    String getAnameByAid(@Param("aid") Integer aid);
+    String getAnameByAid(@Param("aid") String aid);
 }

@@ -31,7 +31,7 @@ public class SystemSetupServiceImpl implements ISystemSetupService {
     @Autowired
     private RoleMapper roleMapper;
     @Override
-    public PageInfo<Classes> findAllClasses(Integer page, Integer limit, Integer aid,Integer college,Integer major,String className) {
+    public PageInfo<Classes> findAllClasses(Integer page, Integer limit, String aid,Integer college,Integer major,String className) {
         page = page == null ? 1 : page;
         limit = limit == null ? 3 : limit;
         className = className == null ? null : "%"+className.trim()+"%";
@@ -53,7 +53,7 @@ public class SystemSetupServiceImpl implements ISystemSetupService {
     }
 
     @Override
-    public PageInfo findAllStudent(Integer page, Integer limit, Integer aid, String sno, Integer college, Integer major) {
+    public PageInfo findAllStudent(Integer page, Integer limit, String aid, String sno, Integer college, Integer major) {
         page = page == null ? 1 : page;
         limit = limit == null ? 10 : limit;
         sno = sno == null ? null : "%"+sno.trim()+"%";
@@ -64,7 +64,7 @@ public class SystemSetupServiceImpl implements ISystemSetupService {
     }
 
     @Override
-    public PageInfo<AdminInfo> findAllAdminInfo(Integer page, Integer limit, Integer college, String role,String name, Integer aid) {
+    public PageInfo<AdminInfo> findAllAdminInfo(Integer page, Integer limit, Integer college, String role,String name, String aid) {
         page = page == null ? 1 : page;
         limit = limit == null ? 10 : limit;
         name = name == null ? null : "%"+name.trim()+"%";

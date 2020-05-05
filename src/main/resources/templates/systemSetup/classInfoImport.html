@@ -165,7 +165,6 @@
                         data:{'cid':data.cid},//向服务端发送删除的id
                         success:function(suc){
                             if(suc==200){
-                                obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
                                 layer.close(index);
                                 layer.msg("设置成",{icon:1});
                             }
@@ -189,7 +188,6 @@
                         data:{'cid':data.cid},//向服务端发送删除的id
                         success:function(suc){
                             if(suc==200){
-                                obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
                                 layer.close(index);
                                 layer.msg("设置成",{icon:1});
                             }else if(suc==201) {

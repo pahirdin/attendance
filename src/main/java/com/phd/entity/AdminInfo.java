@@ -1,9 +1,12 @@
 package com.phd.entity;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class AdminInfo {
-    private Integer aid;
+    private String aid;
 
     private String aname;
 
@@ -21,85 +24,5 @@ public class AdminInfo {
 
     private String roles;
 
-    public String getConame() {
-        return coname;
-    }
-
-    public void setConame(String coname) {
-        this.coname = coname == null ? null : coname.trim();
-    }
-
     private List<Role> roleList;
-
-    public List<Role> getRoleList() {
-        return roleList;
-    }
-
-    public void setRoleList(List<Role> roleList) {
-        this.roleList = roleList;
-    }
-
-    public Integer getAid() {
-        return aid;
-    }
-
-    public void setAid(Integer aid) {
-        this.aid = aid;
-    }
-
-    public String getAname() {
-        return aname;
-    }
-
-    public void setAname(String aname) {
-        this.aname = aname == null ? null : aname.trim();
-    }
-
-    public String getAlevel() {
-        return alevel;
-    }
-
-    public void setAlevel(String alevel) {
-        this.alevel = alevel == null ? null : alevel.trim();
-    }
-
-    public String getAtel() {
-        return atel;
-    }
-
-    public void setAtel(String atel) {
-        this.atel = atel == null ? null : atel.trim();
-    }
-
-    public String getAno() {
-        return ano;
-    }
-
-    public void setAno(String ano) {
-        this.ano = ano == null ? null : ano.trim();
-    }
-
-    public String getApwd() {
-        return apwd;
-    }
-
-    public void setApwd(String apwd) {
-        this.apwd = apwd == null ? null : apwd.trim();
-    }
-
-    public Integer getCoid() {
-        return coid;
-    }
-
-    public void setCoid(Integer coid) {
-        this.coid = coid;
-    }
-
-    public void setRoles(String roles) {
-        this.roles = roles == null ? "chushi" : roles.trim();
-    }
-
-    public String getRoles() {
-        return roles;
-    }
 }

@@ -22,9 +22,9 @@ public interface ClassesMapper {
 
     List<Classes> selectAllClasses(@Param("college") Integer college,@Param("major") Integer major,@Param("className") String className);
 
-    int setClassesIns(@Param("cid") Integer cid,@Param("aid") Integer aid);
+    int setClassesIns(@Param("cid") Integer cid,@Param("aid") String aid);
 
-    List<Classes> getClassecByMasterId(@Param("aid") Integer aid);
+    List<Classes> getClassecByMasterId(@Param("aid") String aid);
 
-    int setClassesMaster(@Param("cid") Integer cid,@Param("aid") Integer aid);
+    int setClassesMaster(@Param("cid") Integer cid,@Param("aid") String aid);
 }

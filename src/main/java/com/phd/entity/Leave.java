@@ -15,7 +15,7 @@ public class Leave {
 
     private String lcontent;
 
-    private Integer aid;
+    private String aid;
 
     private String lstatus;
 
@@ -67,11 +67,11 @@ public class Leave {
         this.lcontent = lcontent == null ? null : lcontent.trim();
     }
 
-    public Integer getAid() {
+    public String getAid() {
         return aid;
     }
 
-    public void setAid(Integer aid) {
+    public void setAid(String aid) {
         this.aid = aid;
     }
 

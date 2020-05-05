@@ -19,7 +19,7 @@ public class InstructorServiceImpl implements IInstructorService {
     private AdminManageClassesDetailsMapper adminManageClassesDetailsMapper;
     @Override
     public List<ClassCode> getClassInstructorNonSelect(AdminInfo admin) {
-        Integer aid = admin.getAid();
+        String aid = admin.getAid();
         Integer coid = admin.getCoid();
 
         return this.adminManageClassesDetailsMapper.getClassInstructorNonSelect(aid,coid);

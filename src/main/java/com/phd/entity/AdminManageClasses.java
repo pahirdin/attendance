@@ -3,7 +3,7 @@ package com.phd.entity;
 public class AdminManageClasses {
     private Integer amcid;
 
-    private Integer aid;
+    private String aid;
 
     public Integer getAmcid() {
         return amcid;
@@ -13,11 +13,11 @@ public class AdminManageClasses {
         this.amcid = amcid;
     }
 
-    public Integer getAid() {
+    public String getAid() {
         return aid;
     }
 
-    public void setAid(Integer aid) {
+    public void setAid(String aid) {
         this.aid = aid;
     }
 }
