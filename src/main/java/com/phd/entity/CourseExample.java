@@ -274,6 +274,16 @@ public class CourseExample {
             return (Criteria) this;
         }
 
+        public Criteria andAidLike(String value) {
+            addCriterion("aid like", value, "aid");
+            return (Criteria) this;
+        }
+
+        public Criteria andAidNotLike(String value) {
+            addCriterion("aid not like", value, "aid");
+            return (Criteria) this;
+        }
+
         public Criteria andAidIn(List<String> values) {
             addCriterion("aid in", values, "aid");
             return (Criteria) this;
