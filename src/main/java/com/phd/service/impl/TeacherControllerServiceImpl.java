@@ -30,12 +30,7 @@ public class TeacherControllerServiceImpl implements ITeacherControllerService {
         limit = limit == null ? 3 : limit;
         //在帮助类中传入分页参数
         PageHelper.startPage(page, limit);
-//        List<SchoolAttendance> list = this.schoolAttendanceMapper.queryClassAttendanceTeacher(couid,cid);
-        SchoolAttendanceExample schoolAttendanceExample = new SchoolAttendanceExample();
-        SchoolAttendanceExample.Criteria criteria = schoolAttendanceExample.createCriteria();
-        criteria.andCouidEqualTo(couid);
-        criteria.andCidEqualTo(cid);
-        List<SchoolAttendance> list = this.schoolAttendanceMapper.selectByExample(schoolAttendanceExample);
+        List<SchoolAttendance> list = this.schoolAttendanceMapper.queryClassAttendanceTeacher(couid,cid);
         for (SchoolAttendance schoolAttendance : list) {
             schoolAttendance.setCouname(courseMapper.getCounameByCouid(schoolAttendance.getCouid()));
             schoolAttendance.setCname(classesMapper.getCnameByCid(schoolAttendance.getCid()));

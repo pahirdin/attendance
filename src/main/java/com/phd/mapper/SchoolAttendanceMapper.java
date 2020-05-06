@@ -19,4 +19,6 @@ public interface SchoolAttendanceMapper {
     int updateByExampleSelective(@Param("record") SchoolAttendance record, @Param("example") SchoolAttendanceExample example);
 
     int updateByExample(@Param("record") SchoolAttendance record, @Param("example") SchoolAttendanceExample example);
+
+    List<SchoolAttendance> queryClassAttendanceTeacher(Integer couid, Integer cid);
 }

@@ -95,14 +95,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.phd.entity.SchoolAttendance">
-    insert into schoolattendance (said, cid, sanum, 
-      sainum, sarate, couid, 
-      sacode, satime, saaddress
-      )
-    values (#{said,jdbcType=BIGINT}, #{cid,jdbcType=INTEGER}, #{sanum,jdbcType=SMALLINT}, 
-      #{sainum,jdbcType=SMALLINT}, #{sarate,jdbcType=INTEGER}, #{couid,jdbcType=INTEGER}, 
-      #{sacode,jdbcType=SMALLINT}, #{satime,jdbcType=TIMESTAMP}, #{saaddress,jdbcType=VARCHAR}
-      )
+    insert into schoolattendance (said, cid, sanum,
+                                  sainum, sarate, couid,
+                                  sacode, satime, saaddress
+    )
+    values (#{said,jdbcType=BIGINT}, #{cid,jdbcType=INTEGER}, #{sanum,jdbcType=SMALLINT},
+            #{sainum,jdbcType=SMALLINT}, #{sarate,jdbcType=INTEGER}, #{couid,jdbcType=INTEGER},
+            #{sacode,jdbcType=SMALLINT}, #{satime,jdbcType=TIMESTAMP}, #{saaddress,jdbcType=VARCHAR}
+           )
   </insert>
   <insert id="insertSelective" parameterType="com.phd.entity.SchoolAttendance">
     insert into schoolattendance
@@ -209,236 +209,30 @@
   <update id="updateByExample" parameterType="map">
     update schoolattendance
     set said = #{record.said,jdbcType=BIGINT},
-      cid = #{record.cid,jdbcType=INTEGER},
-      sanum = #{record.sanum,jdbcType=SMALLINT},
-      sainum = #{record.sainum,jdbcType=SMALLINT},
-      sarate = #{record.sarate,jdbcType=INTEGER},
-      couid = #{record.couid,jdbcType=INTEGER},
-      sacode = #{record.sacode,jdbcType=SMALLINT},
-      satime = #{record.satime,jdbcType=TIMESTAMP},
-      saaddress = #{record.saaddress,jdbcType=VARCHAR}
+    cid = #{record.cid,jdbcType=INTEGER},
+    sanum = #{record.sanum,jdbcType=SMALLINT},
+    sainum = #{record.sainum,jdbcType=SMALLINT},
+    sarate = #{record.sarate,jdbcType=INTEGER},
+    couid = #{record.couid,jdbcType=INTEGER},
+    sacode = #{record.sacode,jdbcType=SMALLINT},
+    satime = #{record.satime,jdbcType=TIMESTAMP},
+    saaddress = #{record.saaddress,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <resultMap id="BaseResultMap" type="com.phd.entity.SchoolAttendance">
-    <result column="said" jdbcType="BIGINT" property="said" />
-    <result column="cid" jdbcType="INTEGER" property="cid" />
-    <result column="sanum" jdbcType="SMALLINT" property="sanum" />
-    <result column="sainum" jdbcType="SMALLINT" property="sainum" />
-    <result column="sarate" jdbcType="INTEGER" property="sarate" />
-    <result column="couid" jdbcType="INTEGER" property="couid" />
-    <result column="sacode" jdbcType="SMALLINT" property="sacode" />
-    <result column="satime" jdbcType="TIMESTAMP" property="satime" />
-    <result column="saaddress" jdbcType="VARCHAR" property="saaddress" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    said, cid, sanum, sainum, sarate, couid, sacode, satime, saaddress
-  </sql>
-  <select id="selectByExample" parameterType="com.phd.entity.SchoolAttendanceExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    'true' as QUERYID,
-    <include refid="Base_Column_List" />
-    from schoolattendance
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <delete id="deleteByExample" parameterType="com.phd.entity.SchoolAttendanceExample">
-    delete from schoolattendance
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.phd.entity.SchoolAttendance">
-    insert into schoolattendance (said, cid, sanum, 
-      sainum, sarate, couid, 
-      sacode, satime, saaddress
-      )
-    values (#{said,jdbcType=BIGINT}, #{cid,jdbcType=INTEGER}, #{sanum,jdbcType=SMALLINT}, 
-      #{sainum,jdbcType=SMALLINT}, #{sarate,jdbcType=INTEGER}, #{couid,jdbcType=INTEGER}, 
-      #{sacode,jdbcType=SMALLINT}, #{satime,jdbcType=TIMESTAMP}, #{saaddress,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.phd.entity.SchoolAttendance">
-    insert into schoolattendance
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="said != null">
-        said,
-      </if>
-      <if test="cid != null">
-        cid,
-      </if>
-      <if test="sanum != null">
-        sanum,
-      </if>
-      <if test="sainum != null">
-        sainum,
-      </if>
-      <if test="sarate != null">
-        sarate,
-      </if>
-      <if test="couid != null">
-        couid,
-      </if>
-      <if test="sacode != null">
-        sacode,
-      </if>
-      <if test="satime != null">
-        satime,
-      </if>
-      <if test="saaddress != null">
-        saaddress,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="said != null">
-        #{said,jdbcType=BIGINT},
-      </if>
-      <if test="cid != null">
-        #{cid,jdbcType=INTEGER},
-      </if>
-      <if test="sanum != null">
-        #{sanum,jdbcType=SMALLINT},
-      </if>
-      <if test="sainum != null">
-        #{sainum,jdbcType=SMALLINT},
-      </if>
-      <if test="sarate != null">
-        #{sarate,jdbcType=INTEGER},
-      </if>
-      <if test="couid != null">
-        #{couid,jdbcType=INTEGER},
-      </if>
-      <if test="sacode != null">
-        #{sacode,jdbcType=SMALLINT},
-      </if>
-      <if test="satime != null">
-        #{satime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="saaddress != null">
-        #{saaddress,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.phd.entity.SchoolAttendanceExample" resultType="java.lang.Long">
-    select count(*) from schoolattendance
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update schoolattendance
-    <set>
-      <if test="record.said != null">
-        said = #{record.said,jdbcType=BIGINT},
-      </if>
-      <if test="record.cid != null">
-        cid = #{record.cid,jdbcType=INTEGER},
-      </if>
-      <if test="record.sanum != null">
-        sanum = #{record.sanum,jdbcType=SMALLINT},
-      </if>
-      <if test="record.sainum != null">
-        sainum = #{record.sainum,jdbcType=SMALLINT},
-      </if>
-      <if test="record.sarate != null">
-        sarate = #{record.sarate,jdbcType=INTEGER},
-      </if>
-      <if test="record.couid != null">
-        couid = #{record.couid,jdbcType=INTEGER},
-      </if>
-      <if test="record.sacode != null">
-        sacode = #{record.sacode,jdbcType=SMALLINT},
-      </if>
-      <if test="record.satime != null">
-        satime = #{record.satime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.saaddress != null">
-        saaddress = #{record.saaddress,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update schoolattendance
-    set said = #{record.said,jdbcType=BIGINT},
-      cid = #{record.cid,jdbcType=INTEGER},
-      sanum = #{record.sanum,jdbcType=SMALLINT},
-      sainum = #{record.sainum,jdbcType=SMALLINT},
-      sarate = #{record.sarate,jdbcType=INTEGER},
-      couid = #{record.couid,jdbcType=INTEGER},
-      sacode = #{record.sacode,jdbcType=SMALLINT},
-      satime = #{record.satime,jdbcType=TIMESTAMP},
-      saaddress = #{record.saaddress,jdbcType=VARCHAR}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
+<select id="queryClassAttendanceTeacher" resultType="com.phd.entity.SchoolAttendance">
+  SELECT SAID,CID,SANUM,SAINUM,SARATE,COUID,SACODE,SATIME,SAADDRESS
+  ,(SELECT COUNT(1) FROM SCHOOLATTENDANCEDETAILS B WHERE A.SAID=B.SAID AND B.SADSTATUS=0) ATTENDACECONT
+  ,(SELECT COUNT(1) FROM SCHOOLATTENDANCEDETAILS B WHERE A.SAID=B.SAID AND B.SADSTATUS=2) LEAVECONT
+  FROM SCHOOLATTENDANCE A
+  WHERE 1=1
+  <if test="couid != null">
+    and COUID=#{couid}
+  </if>
+  <if test="cid != null">
+    and CID=#{cid}
+  </if>
+    ORDER BY SATIME DESC
+</select>
 </mapper>

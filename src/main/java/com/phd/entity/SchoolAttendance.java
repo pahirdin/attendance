@@ -1,7 +1,10 @@
 package com.phd.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 @Data
 public class SchoolAttendance {
@@ -19,7 +22,8 @@ public class SchoolAttendance {
 
     private Short sacode;
 
-    private Date satime;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime satime;
 
     private String saaddress;
 
