@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e53b213-6bb9-4833-8178-aba89cc33b8a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/teacherInClass/checkStuAttendance.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/qisheng.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/qisheng.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/phd/entity/SchoolAttendance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/phd/entity/SchoolAttendance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/phd/mapper/SchoolAttendanceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/phd/mapper/SchoolAttendanceMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/phd/controller/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/phd/controller/TeacherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/phd/entity/SchoolAttendanceDetailsExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/phd/entity/SchoolAttendanceDetailsExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/phd/mapper/SchoolAttendanceDetailsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/phd/mapper/SchoolAttendanceDetailsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/phd/service/ITeacherControllerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/phd/service/ITeacherControllerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/phd/service/impl/TeacherControllerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/phd/service/impl/TeacherControllerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/SchoolAttendanceMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapping/SchoolAttendanceMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/SchoolAttendanceDetailsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapping/SchoolAttendanceDetailsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teacherInClass/ClassAttendanceTeacher.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/teacherInClass/ClassAttendanceTeacher.html" afterDir="false" />
     </list>
     <list id="8de911d1-0c44-431a-b176-0d29683059cf" name="忽略更新" comment="暂时忽略" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -54,55 +58,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/mapper/SchoolAttendanceMapper.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teacherInClass/ClassAttendanceTeacher.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="22" column="54" lean-forward="true" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/controller/TeacherController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="631">
-              <caret line="42" column="75" selection-start-line="42" selection-start-column="75" selection-end-line="42" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/service/impl/TeacherControllerServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="280">
+              <caret line="79" column="20" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/entity/SchoolAttendance.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teacherInClass/checkStuAttendance.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="25" column="33" lean-forward="true" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/SchoolAttendanceMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="235" column="24" lean-forward="true" selection-start-line="235" selection-start-column="24" selection-end-line="235" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/RoleMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4212">
-              <caret line="156" column="40" selection-start-line="156" selection-start-column="40" selection-end-line="156" selection-end-column="40" />
+            <state relative-caret-position="194">
+              <caret line="45" column="38" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -120,12 +88,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>paginator</find>
-      <find>coname</find>
-      <find>securityManager</find>
-      <find>BaseResultMap</find>
-      <find>selectByAdminByAidMap</find>
-      <find>c.p.mapper.</find>
       <find>c.p.m</find>
       <find>console.log</find>
       <find>sales</find>
@@ -149,7 +111,13 @@
       <find>getClassInfo</find>
       <find>layui-table-box</find>
       <find>LAY_table_user</find>
-      <find>&lt;result column=&quot;cname&quot;</find>
+      <find>del</find>
+      <find>$.ajax</find>
+      <find>BaseResultMap</find>
+      <find>checkLeave</find>
+      <find>deleteClassesInfo</find>
+      <find>checkAttendanceStateBysaid</find>
+      <find>toolbar</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;script th:src=&quot;@{/X-admin</replace>
@@ -163,13 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/phd/controller/MyController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phd/service/impl/IStudentInfoService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/demo/index.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phd/controller/StudentInfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/login/error.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phd/entity/AdminInfoExample.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phd/shiro/ShiroConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/phd/mapper/RoleMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/RoleMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/login/welcome.html" />
@@ -210,10 +171,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/phd/entity/Classes.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/StudentInfoMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/systemSetup/studentInfoImport.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phd/service/impl/TeacherControllerServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/phd/mapper/SchoolAttendanceMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/SchoolAttendanceMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/phd/entity/SchoolAttendance.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phd/entity/SchoolAttendanceDetailsExample.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phd/mapper/SchoolAttendanceDetailsMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapping/SchoolAttendanceDetailsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phd/service/ITeacherControllerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phd/controller/TeacherController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phd/service/impl/TeacherControllerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/teacherInClass/ClassAttendanceTeacher.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/teacherInClass/checkStuAttendance.html" />
       </list>
     </option>
   </component>
@@ -244,7 +212,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="124" />
     <option name="y" value="233" />
     <option name="width" value="1443" />
@@ -321,14 +289,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapping" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="attendance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="attendance" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -340,12 +300,21 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="systemSetup" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="attendance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="attendance" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="teacherInClass" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -361,7 +330,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last.edited.regexp" value="Sample Text" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/teacherInClass" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -374,27 +343,28 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\idea_workspace\attendance\src\main" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.phd.service" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\demo\attendance\src\main\resources\templates\teacherInClass" />
       <recent name="E:\idea_workspace\attendance\attendance\src\main\resources\templates\systemSetup" />
       <recent name="E:\idea_workspace\attendance\src\main\resources\static" />
       <recent name="E:\idea_workspace\attendance\src\main\resources\templates\systemSetup" />
       <recent name="E:\idea_workspace\attendance\src\main\resources\static\img" />
-      <recent name="E:\idea_workspace\attendance\src\main\resources\templates\login" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.phd.service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\idea_workspace\attendance\src\main" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -476,7 +446,8 @@
       <workItem from="1577149056761" duration="9404000" />
       <workItem from="1577235794147" duration="12908000" />
       <workItem from="1588685981925" duration="736000" />
-      <workItem from="1588687116651" duration="1381000" />
+      <workItem from="1588687116651" duration="6544000" />
+      <workItem from="1588817368192" duration="2716000" />
     </task>
     <task id="LOCAL-00001" summary="IDEA补充">
       <created>1577080372884</created>
@@ -499,11 +470,18 @@
       <option name="project" value="LOCAL" />
       <updated>1577167055285</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="任课老师 查询课堂考勤情况">
+      <created>1588740670355</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588740670355</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174841000" />
+    <option name="totallyTimeSpent" value="182720000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -526,12 +504,12 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="8" sideWeight="0.49945828" weight="0.27132195" />
+      <window_info active="true" content_ui="combo" id="Project" order="8" sideWeight="0.49945828" visible="true" weight="0.2228145" />
       <window_info anchor="bottom" id="Problems" order="0" weight="0.3286334" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.3362256" />
-      <window_info active="true" anchor="bottom" id="Debug" order="4" sideWeight="0.4989339" visible="true" weight="0.41323212" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.4989339" weight="0.1778742" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3286334" />
@@ -573,12 +551,12 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="8" sideWeight="0.49945828" visible="true" weight="0.27132195" />
+      <window_info content_ui="combo" id="Project" order="8" sideWeight="0.49945828" weight="0.2228145" />
       <window_info anchor="bottom" id="Problems" order="0" weight="0.3286334" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.3362256" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.4989339" visible="true" weight="0.4978308" />
+      <window_info active="true" anchor="bottom" id="Debug" order="4" sideWeight="0.4989339" visible="true" weight="0.1778742" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3286334" />
@@ -659,7 +637,8 @@
     <MESSAGE value="IDEA补充" />
     <MESSAGE value="thymeleaf+layui" />
     <MESSAGE value="thymeleaf+layui+数据表格重载" />
-    <option name="LAST_COMMIT_MESSAGE" value="thymeleaf+layui+数据表格重载" />
+    <MESSAGE value="任课老师 查询课堂考勤情况" />
+    <option name="LAST_COMMIT_MESSAGE" value="任课老师 查询课堂考勤情况" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -682,12 +661,6 @@
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/phd/service/impl/TeacherControllerServiceImpl.java</url>
-          <line>32</line>
-          <properties />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -697,50 +670,6 @@
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/CourseMapper.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/mapper/CourseMapper.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0.jar!/org/apache/shiro/authc/AbstractAuthenticator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/mapper/AdminInfoMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/shiro/MyAuthorizingRealm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="69" column="34" lean-forward="true" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/entity/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/AdminInfoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/ClassesMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="153" selection-start-line="153" selection-end-line="153" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/mapper/ClassesMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
@@ -944,16 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/controller/SystemSetupController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/entity/StudentInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
@@ -1040,20 +959,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/controller/TeacherController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="42" column="75" selection-start-line="42" selection-start-column="75" selection-end-line="42" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/mapper/SchoolAttendanceMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="22" column="54" lean-forward="true" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/MajorMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
@@ -1081,17 +986,99 @@
     <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.10.0/jackson-annotations-2.10.0.jar!/com/fasterxml/jackson/annotation/JsonValue.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/service/impl/TeacherControllerServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/entity/SchoolAttendance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="25" column="33" lean-forward="true" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/entity/SchoolAttendanceDetailsExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="203" lean-forward="true" selection-start-line="203" selection-end-line="203" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/systemSetup/popupresults.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-771" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/mapper/SchoolAttendanceDetailsMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="24" column="20" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/SchoolAttendanceDetailsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="203" column="81" selection-start-line="203" selection-start-column="81" selection-end-line="203" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/controller/SystemSetupController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="104" column="4" selection-start-line="104" selection-start-column="4" selection-end-line="112" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/mapper/SchoolAttendanceMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="10" column="47" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/entity/SchoolAttendanceExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="117" column="24" selection-start-line="117" selection-start-column="24" selection-end-line="117" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/controller/TeacherController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="70" column="25" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/service/impl/TeacherControllerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="71" column="24" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="24" />
+          <folding>
+            <element signature="e#2027#2028#0" expanded="true" />
+            <element signature="e#2093#2094#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phd/service/ITeacherControllerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teacherInClass/ClassAttendanceTeacher.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="79" column="20" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teacherInClass/checkStuAttendance.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="45" column="38" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
         </state>
       </provider>
     </entry>

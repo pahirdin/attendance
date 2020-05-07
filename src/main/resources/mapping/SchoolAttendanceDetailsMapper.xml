@@ -197,4 +197,10 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+
+  <select id="checkAttendanceStateBysaid" resultType="com.phd.entity.StudentInfo">
+    SELECT B.SID,B.SNO,B.SNAME,B.CID,B.STEL,B.SDOR,B.SPTEL,B.COID
+    FROM SCHOOLATTENDANCEDETAILS A,STUDENTINFO B
+    WHERE SAID=#{said} AND SADSTATUS=#{state} AND A.SID=B.SID ORDER BY B.SNO DESC
+  </select>
 </mapper>

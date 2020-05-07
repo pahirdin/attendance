@@ -202,7 +202,7 @@ public class SchoolAttendanceDetailsExample {
             return (Criteria) this;
         }
 
-        public Criteria andSaidEqualTo(Integer value) {
+        public Criteria andSaidEqualTo(Long value) {
             addCriterion("said =", value, "said");
             return (Criteria) this;
         }
@@ -382,7 +382,7 @@ public class SchoolAttendanceDetailsExample {
             return (Criteria) this;
         }
 
-        public Criteria andSadstatusEqualTo(String value) {
+        public Criteria andSadstatusEqualTo(Integer value) {
             addCriterion("sadstatus =", value, "sadstatus");
             return (Criteria) this;
         }

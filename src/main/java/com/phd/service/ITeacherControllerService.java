@@ -1,9 +1,7 @@
 package com.phd.service;
 
 import com.github.pagehelper.PageInfo;
-import com.phd.entity.Classes;
-import com.phd.entity.Course;
-import com.phd.entity.SchoolAttendance;
+import com.phd.entity.*;
 
 import java.util.List;
 
@@ -17,4 +15,8 @@ public interface ITeacherControllerService {
     List<Course> queryCourseByAid(String aid);
 
     List<Classes> getClassesByCouid(Integer couid);
+
+    PageInfo<StudentInfo> checkAttendanceStateBysaid(Long said, Integer state,Integer page, Integer limit);
+
+    int deleteSchoolattendanceInfo(Long said);
 }

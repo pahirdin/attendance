@@ -49,10 +49,6 @@
                                 <!--                                <option th:each="m,stat:${js_type}" th:value="${m.mid}" th:text="${m.mname}"></option>-->
                             </select>
                         </div>
-                        专业：
-                        <div class="layui-inline">
-                            <input class="layui-input" name="className" id="className" autocomplete="off">
-                        </div>
                         <button class="layui-btn" data-type="reload">搜索</button>
                     </div>
                 </div>
@@ -64,13 +60,13 @@
     </div>
 </div>
 
-
 <script type="text/html" id="indexTpl">
     {{d.LAY_TABLE_INDEX+1}}
 </script>
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="bedit">查看请假</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">查看缺勤</a>
+    <a class="layui-btn layui-btn-xs" lay-event="checkLeave">查看请假</a>
+    <a class="layui-btn layui-btn-xs" lay-event="checkAbsence">查看缺勤</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 <script  th:inline="none">
     layui.use('table', function(){
@@ -80,11 +76,6 @@
         table.render({
             elem: '#LAY_table_user'
             ,url: '/queryClassAttendanceTeacher'
-            // ,defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
-            //     title: '提示'
-            //     ,layEvent: 'LAYTABLE_TIPS'
-            //     ,icon: 'layui-icon-tips'
-            // }]
             ,defaultToolbar: ['filter', 'print', 'exports']
             ,toolbar: true
             ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
@@ -132,12 +123,12 @@
         table.on('tool(test)', function(obj){
             var data = obj.data;
             if(obj.event === 'del'){
-                layer.confirm('确定删除 【'+data.cname+"】 班级吗?", function(index){
+                layer.confirm('确定删除 此次考勤吗?', function(index){
                     //向服务端发送删除指令
                     $.ajax({
-                        url:'/deleteClassesInfo',
+                        url:'/deleteSchoolattendanceInfo',
                         type:'get',
-                        data:{'cid':data.cid},//向服务端发送删除的id
+                        data:{'said':data.said},//向服务端发送删除的id
                         success:function(suc){
                             if(suc==200){
                                 obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
@@ -152,51 +143,27 @@
                     layer.close(index);
                 });
             }
-            //辅导员设置打开弹窗
-            if(obj.event === 'fedit') {
-                layer.confirm('确定成为 【'+data.cname+"】 班级的辅导员吗?", function(index){
-                    //向服务端发送删除指令
-                    $.ajax({
-                        url:'/setClassesIns',
-                        type:'get',
-                        data:{'cid':data.cid},//向服务端发送删除的id
-                        success:function(suc){
-                            if(suc==200){
-                                layer.close(index);
-                                layer.msg("设置成",{icon:1});
-                            }
-                            else if(suc==201){
-                                layer.msg("您不是辅导员",{icon:5},{time:5000});
-                            }else {
-                                layer.msg("失败,原因："+suc,{icon:5},{time:5000});
-                            }
-                        }
-                    });
-                    layer.close(index);
+            if(obj.event === 'checkLeave') {
+                layer.open({
+                    type: 2,
+                    title: '请假学生明细',
+                    shadeClose: true,
+                    shade: 0.6,
+                    area: ['780px', '620px'],
+                    // content: 'money_log?uid=' + uid + '&utype=3'
+                    content: '/openkAttendanceStateBysaid?said=' + data.said + '&state=2'
                 });
             }
             //班主任设置打开弹窗
-            if(obj.event === 'bedit') {
-                layer.confirm('确定成为 【'+data.cname+"】 班级的班主任吗?", function(index){
-                    //向服务端发送删除指令
-                    $.ajax({
-                        url:'/setClassesMaster',
-                        type:'get',
-                        data:{'cid':data.cid},//向服务端发送删除的id
-                        success:function(suc){
-                            if(suc==200){
-                                layer.close(index);
-                                layer.msg("设置成",{icon:1});
-                            }else if(suc==201) {
-                                layer.msg("您不是班主任",{icon:5},{time:5000});
-                            }else if(suc==202){
-                                layer.msg("您已是别的班的班主任、请先失效",{icon:5},{time:5000});
-                            }else {
-                                layer.msg("失败,原因："+suc,{icon:5},{time:5000});
-                            }
-                        }
-                    });
-                    layer.close(index);
+            if(obj.event === 'checkAbsence') {
+                layer.open({
+                    type: 2,
+                    title: '缺勤学生明细',
+                    shadeClose: true,
+                    shade: 0.6,
+                    area: ['780px', '620px'],
+                    // content: 'money_log?uid=' + uid + '&utype=3'
+                    content: '/openkAttendanceStateBysaid?said=' + data.said + '&state=0'
                 });
             }
         });

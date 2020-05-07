@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -41,5 +42,34 @@ public class TeacherController {
             return new Result<>();
         }
         return new Result<>(this.TeacherControllerServiceImpl.queryClassAttendanceTeacher(page,limit,couid,cid,admin.getAid()));
+    }
+
+    @RequestMapping("/openkAttendanceStateBysaid")
+    public String openkAttendanceStateBysaid(Long said, Integer state, Model model) {
+        model.addAttribute("said", said);
+        model.addAttribute("state", state);
+        return "teacherInClass/checkStuAttendance.html";
+    }
+    @RequestMapping("/checkAttendanceStateBysaid")
+    @ResponseBody
+    public Result<StudentInfo> checkAttendanceStateBysaid(Long said, Integer state,Integer page, Integer limit) {
+        if (said == null || state == null) {
+            return new Result<>();
+        }
+        Result<StudentInfo> studentInfoResult = new Result<>(this.TeacherControllerServiceImpl.checkAttendanceStateBysaid(said, state, page, limit));
+        return studentInfoResult;
+    }
+
+    @RequestMapping("/deleteSchoolattendanceInfo")
+    @ResponseBody
+    public String deleteSchoolattendanceInfo(Long said) {
+        if (said == null) {
+            return "未收到删除主键！";
+        }
+        int cont = this.TeacherControllerServiceImpl.deleteSchoolattendanceInfo(said);
+        if(cont > 0 ) {
+            return "200";
+        }
+        return "数据库连接失败，请联系管理员....";
     }
 }
