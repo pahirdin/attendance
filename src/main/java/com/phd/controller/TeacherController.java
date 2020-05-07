@@ -23,12 +23,22 @@ public class TeacherController {
 
 
     @RequestMapping("/openClassAttendanceTeacher")
-    public String editInstructorInClass(Model model){
+    public String openClassAttendanceTeacher(Model model){
         AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
         List<Course> course = this.TeacherControllerServiceImpl.queryCourseByAid(admin.getAid());
         model.addAttribute("course", course);
-        return "teacherInClass/ClassAttendanceTeacher.html";
+        return "teacherInClass/classAttendanceTeacher.html";
     }
+
+    @RequestMapping("/openStuAttendanceTeacher")
+    public String openStuAttendanceTeacher(Model model){
+        AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
+        List<Course> course = this.TeacherControllerServiceImpl.queryCourseByAid(admin.getAid());
+        model.addAttribute("course", course);
+        return "teacherInClass/StuAttendanceTeacher.html";
+    }
+
+
     @RequestMapping("/getClassesByCouid")
     @ResponseBody
     public List<Classes> getClassesByCouid(Integer couid){
@@ -44,12 +54,30 @@ public class TeacherController {
         return new Result<>(this.TeacherControllerServiceImpl.queryClassAttendanceTeacher(page,limit,couid,cid,admin.getAid()));
     }
 
+    @RequestMapping("/queryStuAttendanceTeacher")
+    @ResponseBody
+    public Result<StudentInfo> queryStuAttendanceTeacher(Integer page, Integer limit,Integer couid,Integer cid,String start,String end,String name) {
+        AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
+        return new Result<>(this.TeacherControllerServiceImpl.queryStuAttendanceTeacher(page,limit,couid,cid,admin.getAid(),start,end,name));
+    }
+
+
     @RequestMapping("/openkAttendanceStateBysaid")
     public String openkAttendanceStateBysaid(Long said, Integer state, Model model) {
         model.addAttribute("said", said);
         model.addAttribute("state", state);
         return "teacherInClass/checkStuAttendance.html";
     }
+
+    @RequestMapping("/openCheckLeavDil")
+    public String openCheckLeavDil(Integer sid, String start, String end, Model model) {
+        model.addAttribute("sid", sid);
+        model.addAttribute("start", start);
+        model.addAttribute("end", end);
+        return "teacherInClass/checkLeavDil.html";
+    }
+
+
     @RequestMapping("/checkAttendanceStateBysaid")
     @ResponseBody
     public Result<StudentInfo> checkAttendanceStateBysaid(Long said, Integer state,Integer page, Integer limit) {
@@ -59,6 +87,18 @@ public class TeacherController {
         Result<StudentInfo> studentInfoResult = new Result<>(this.TeacherControllerServiceImpl.checkAttendanceStateBysaid(said, state, page, limit));
         return studentInfoResult;
     }
+
+    @RequestMapping("/checkLeavDil")
+    @ResponseBody
+    public Result<SchoolAttendance> checkLeavDil(Integer sid, String start,String end,Integer page, Integer limit) {
+        if (sid == null) {
+            return new Result<>();
+        }
+        Result<SchoolAttendance> schoolAttendance = new Result<>(this.TeacherControllerServiceImpl.checkLeavDil(sid, start,end, page, limit));
+        return schoolAttendance;
+    }
+
+
 
     @RequestMapping("/deleteSchoolattendanceInfo")
     @ResponseBody

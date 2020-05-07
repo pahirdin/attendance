@@ -3,11 +3,9 @@ package com.phd.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.phd.entity.*;
-import com.phd.mapper.ClassesMapper;
-import com.phd.mapper.CourseMapper;
-import com.phd.mapper.SchoolAttendanceDetailsMapper;
-import com.phd.mapper.SchoolAttendanceMapper;
+import com.phd.mapper.*;
 import com.phd.service.ITeacherControllerService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +25,8 @@ public class TeacherControllerServiceImpl implements ITeacherControllerService {
     private ClassesMapper classesMapper;
     @Autowired
     private SchoolAttendanceDetailsMapper schoolAttendanceDetailsMapper;
+    @Autowired
+    private StudentInfoMapper studentInfoMapper;
     @Override
     public PageInfo<SchoolAttendance> queryClassAttendanceTeacher(Integer page, Integer limit, Integer couid, Integer cid, String aid) {
         page = page == null ? 1 : page;
@@ -72,5 +72,37 @@ public class TeacherControllerServiceImpl implements ITeacherControllerService {
         SchoolAttendanceExample schoolAttendanceExample = new SchoolAttendanceExample();
         schoolAttendanceExample.createCriteria().andSaidEqualTo(said);
         return this.schoolAttendanceMapper.deleteByExample(schoolAttendanceExample);
+    }
+
+    @Override
+    public PageInfo<StudentInfo> queryStuAttendanceTeacher(Integer page, Integer limit, Integer couid, Integer cid, String aid, String start, String end, String name) {
+        page = page == null ? 1 : page;
+        limit = limit == null ? 3 : limit;
+        if (StringUtils.isNotBlank(name)) {
+            name = "%" + name + "%";
+        }
+        //在帮助类中传入分页参数
+        PageHelper.startPage(page, limit);
+        List<StudentInfo> list = this.schoolAttendanceDetailsMapper.queryStuAttendanceTeacher(couid, cid,start,end,name,aid);
+        for (StudentInfo studentInfo : list) {
+            studentInfo.setCname(this.classesMapper.getCnameByCid(studentInfo.getCid()));
+        }
+        return new PageInfo<StudentInfo>(list);
+    }
+
+    @Override
+    public PageInfo<SchoolAttendance> checkLeavDil(Integer sid, String start, String end, Integer page, Integer limit) {
+        page = page == null ? 1 : page;
+        limit = limit == null ? 3 : limit;
+        //在帮助类中传入分页参数
+        PageHelper.startPage(page, limit);
+        List<SchoolAttendance> list = this.schoolAttendanceMapper.checkLeavDil(sid,start,end);
+        String sname = this.studentInfoMapper.getSnameBySid(sid);
+        for (SchoolAttendance schoolAttendance : list) {
+            schoolAttendance.setCouname(this.courseMapper.getCounameByCouid(schoolAttendance.getCouid()));
+            schoolAttendance.setCname(this.classesMapper.getCnameByCid(schoolAttendance.getCid()));
+            schoolAttendance.setSname(sname);
+        }
+        return new PageInfo<SchoolAttendance>(list);
     }
 }

@@ -235,4 +235,15 @@
   </if>
     ORDER BY SATIME DESC
 </select>
+
+  <select id="checkLeavDil" resultType="com.phd.entity.SchoolAttendance">
+    SELECT A.COUID,A.SATIME,A.CID FROM SCHOOLATTENDANCE A WHERE 1=1
+      AND  EXISTS (SELECT 1 FROM SCHOOLATTENDANCEDETAILS B WHERE A.SAID=B.SAID AND B.SID=#{sid} AND B.SADSTATUS='0')
+      <if test="start != null and start!=''">
+        AND SATIME >= TO_DATE(#{start},'YYYY-MM-DD')
+      </if>
+      <if test="end != null  and end!=''">
+          AND SATIME &lt; TO_DATE(#{end},'YYYY-MM-DD')
+      </if>
+  </select>
 </mapper>

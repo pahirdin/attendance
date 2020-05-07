@@ -33,4 +33,5 @@ public class SchoolAttendance {
 
     private Integer leaveCont;
     private Integer attendaceCont;
+    private String sname;
 }

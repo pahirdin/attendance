@@ -19,4 +19,8 @@ public interface ITeacherControllerService {
     PageInfo<StudentInfo> checkAttendanceStateBysaid(Long said, Integer state,Integer page, Integer limit);
 
     int deleteSchoolattendanceInfo(Long said);
+
+    PageInfo<StudentInfo> queryStuAttendanceTeacher(Integer page, Integer limit, Integer couid, Integer cid, String aid, String start, String end, String name);
+
+    PageInfo<SchoolAttendance> checkLeavDil(Integer sid, String start, String end, Integer page, Integer limit);
 }

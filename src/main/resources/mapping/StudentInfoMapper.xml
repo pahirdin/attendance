@@ -259,4 +259,7 @@
     </if>
     ORDER BY STU.SNO
   </select>
+  <select id="getSnameBySid" resultType="java.lang.String">
+    SELECT SNAME FROM STUDENTINFO WHERE SID=#{sid}
+  </select>
 </mapper>

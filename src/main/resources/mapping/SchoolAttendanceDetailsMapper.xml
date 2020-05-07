@@ -203,4 +203,31 @@
     FROM SCHOOLATTENDANCEDETAILS A,STUDENTINFO B
     WHERE SAID=#{said} AND SADSTATUS=#{state} AND A.SID=B.SID ORDER BY B.SNO DESC
   </select>
+
+  <select id="queryStuAttendanceTeacher" resultType="com.phd.entity.StudentInfo">
+    SELECT distinct A.SID,B.SID,B.SNO,B.SNAME,B.CID,B.STEL,B.SDOR,B.SPTEL,B.COID
+    ,(select count(1) from SCHOOLATTENDANCEDETAILS E where 1=1 AND SADSTATUS = 2 AND E.SID=A.SID
+                     <if test="start != null and start!=''">AND EXISTS (SELECT 1 FROM SCHOOLATTENDANCE D WHERE D.SAID=E.SAID AND D.SATIME >= to_date(#{start},'YYYY-MM-DD'))</if>
+                     <if test="end != null  and end!=''">AND EXISTS (SELECT 1 FROM SCHOOLATTENDANCE D WHERE D.SAID=E.SAID AND D.SATIME &lt; to_date(#{end},'YYYY-MM-DD')))</if>) leaveCont
+    ,(select count(1) from SCHOOLATTENDANCEDETAILS E where 1=1 AND SADSTATUS = 0 AND E.SID=A.SID
+    <if test="start != null and start!=''">AND EXISTS (SELECT 1 FROM SCHOOLATTENDANCE D WHERE D.SAID=E.SAID AND D.SATIME >= to_date(#{start},'YYYY-MM-DD'))</if>
+    <if test="end != null  and end!=''">AND EXISTS (SELECT 1 FROM SCHOOLATTENDANCE D WHERE D.SAID=E.SAID AND D.SATIME &lt; to_date(#{end},'YYYY-MM-DD')))</if>) attendaceCont
+    FROM STUDENTINFO B,SCHOOLATTENDANCEDETAILS A WHERE A.SID=B.SID
+    <if test="couid != null">
+        AND A.couid=#{couid}
+    </if>
+     AND  A.COUID IN (SELECT COUID FROM COURSE WHERE AID=#{aid})
+    <if test="cid != null">
+       AND  B.cid = #{cid}
+    </if>
+    <if test="start != null and start!=''">
+      AND EXISTS (SELECT 1 FROM SCHOOLATTENDANCE D WHERE D.SAID=A.SAID AND D.SATIME >= to_date(#{start},'YYYY-MM-DD'))
+    </if>
+    <if test="end != null  and end!=''">
+      AND EXISTS (SELECT 1 FROM SCHOOLATTENDANCE D WHERE D.SAID=A.SAID AND D.SATIME &lt; to_date(#{end},'YYYY-MM-DD'))
+    </if>
+    <if test="name != null  and name!=''">
+     AND (B.SNAME LIKE #{name} OR B.SNO LIKE #{name})
+    </if>
+  </select>
 </mapper>

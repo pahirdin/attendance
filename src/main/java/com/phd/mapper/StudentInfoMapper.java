@@ -21,4 +21,6 @@ public interface StudentInfoMapper {
     int updateByExample(@Param("record") StudentInfo record, @Param("example") StudentInfoExample example);
 
     List<StudentInfo> queryStudenInfoByParam(@Param("sno") String sno,@Param("college") Integer college,@Param("major") Integer major);
+
+    String getSnameBySid(Integer sid);
 }

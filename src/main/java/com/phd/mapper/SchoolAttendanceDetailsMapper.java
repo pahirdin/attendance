@@ -23,4 +23,7 @@ public interface SchoolAttendanceDetailsMapper {
     int updateByExample(@Param("record") SchoolAttendanceDetails record, @Param("example") SchoolAttendanceDetailsExample example);
 
     List<StudentInfo> checkAttendanceStateBysaid(@Param("said") Long said, @Param("state") Integer state);
+
+    List<StudentInfo> queryStuAttendanceTeacher(@Param("couid") Integer couid,@Param("cid") Integer cid,
+                                                @Param("start") String start,@Param("end") String end,@Param("name") String name,@Param("aid") String aid);
 }

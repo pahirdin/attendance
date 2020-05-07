@@ -21,4 +21,6 @@ public interface SchoolAttendanceMapper {
     int updateByExample(@Param("record") SchoolAttendance record, @Param("example") SchoolAttendanceExample example);
 
     List<SchoolAttendance> queryClassAttendanceTeacher(Integer couid, Integer cid);
+
+    List<SchoolAttendance> checkLeavDil(@Param("sid") Integer sid,@Param("start") String start,@Param("end") String end);
 }

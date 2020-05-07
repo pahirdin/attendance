@@ -1,5 +1,8 @@
 package com.phd.entity;
 
+import lombok.Data;
+
+@Data
 public class StudentInfo {
     private Integer sid;
 
@@ -10,6 +13,7 @@ public class StudentInfo {
     private String spwd;
 
     private Integer cid;
+    private String cname;
 
     private String stel;
 
@@ -23,91 +27,8 @@ public class StudentInfo {
 
     private College college;
 
-    public Classes getClasses() {
-        return classes;
-    }
+    private Integer leaveCont;
 
-    public void setClasses(Classes classes) {
-        this.classes = classes;
-    }
+    private Integer attendaceCont;
 
-    public College getCollege() {
-        return college;
-    }
-
-    public void setCollege(College college) {
-        this.college = college;
-    }
-
-    public Integer getSid() {
-        return sid;
-    }
-
-    public void setSid(Integer sid) {
-        this.sid = sid;
-    }
-
-    public String getSno() {
-        return sno;
-    }
-
-    public void setSno(String sno) {
-        this.sno = sno == null ? null : sno.trim();
-    }
-
-    public String getSname() {
-        return sname;
-    }
-
-    public void setSname(String sname) {
-        this.sname = sname == null ? null : sname.trim();
-    }
-
-    public String getSpwd() {
-        return spwd;
-    }
-
-    public void setSpwd(String spwd) {
-        this.spwd = spwd == null ? null : spwd.trim();
-    }
-
-    public Integer getCid() {
-        return cid;
-    }
-
-    public void setCid(Integer cid) {
-        this.cid = cid;
-    }
-
-    public String getStel() {
-        return stel;
-    }
-
-    public void setStel(String stel) {
-        this.stel = stel == null ? null : stel.trim();
-    }
-
-    public String getSdor() {
-        return sdor;
-    }
-
-    public void setSdor(String sdor) {
-        this.sdor = sdor == null ? null : sdor.trim();
-    }
-
-    public String getSptel() {
-        return sptel;
-    }
-
-    public void setSptel(String sptel) {
-        this.sptel = sptel == null ? null : sptel.trim();
-    }
-
-    public Integer getCoid() {
-        return coid;
-    }
-
-    public void setCoid(Integer coid) {
-        this.coid = coid;
-    }
 }
