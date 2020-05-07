@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.phd.entity.*;
 import com.phd.mapper.*;
 import com.phd.service.ITeacherControllerService;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -104,5 +105,19 @@ public class TeacherControllerServiceImpl implements ITeacherControllerService {
             schoolAttendance.setSname(sname);
         }
         return new PageInfo<SchoolAttendance>(list);
+    }
+
+    @Override
+    public List<Course> queryCourseByCid(Integer cid) {
+        return this.courseMapper.queryCourseByCid(cid);
+    }
+
+    @Override
+    public Integer getCidByHeadmasterId(String aid) {
+        List<Classes> classecByMasterId = this.classesMapper.getClassecByMasterId(aid);
+        if (null == classecByMasterId || classecByMasterId.size() == 0) {
+            return null;
+        }
+        return classecByMasterId.get(0).getCid();
     }
 }

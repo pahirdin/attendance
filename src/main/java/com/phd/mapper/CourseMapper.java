@@ -21,4 +21,6 @@ public interface CourseMapper {
     int updateByExample(@Param("record") Course record, @Param("example") CourseExample example);
 
     String getCounameByCouid(@Param("couid") Integer couid);
+
+    List<Course> queryCourseByCid(@Param("cid") Integer cid);
 }

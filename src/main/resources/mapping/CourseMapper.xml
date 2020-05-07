@@ -154,4 +154,9 @@
   <select id="getCounameByCouid" resultType="java.lang.String">
     SELECT COUNAME FROM COURSE  WHERE COUID=#{couid}
   </select>
+
+  <select id="queryCourseByCid" resultType="com.phd.entity.Course">
+    select couid,couname,aid from course a where 1=1
+    and exists(select 1 from schoolattendance b where a.couid=b.couid and cid=#{cid})
+  </select>
 </mapper>

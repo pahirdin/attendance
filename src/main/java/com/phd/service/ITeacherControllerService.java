@@ -23,4 +23,8 @@ public interface ITeacherControllerService {
     PageInfo<StudentInfo> queryStuAttendanceTeacher(Integer page, Integer limit, Integer couid, Integer cid, String aid, String start, String end, String name);
 
     PageInfo<SchoolAttendance> checkLeavDil(Integer sid, String start, String end, Integer page, Integer limit);
+
+    List<Course> queryCourseByCid(Integer cid);
+
+    Integer getCidByHeadmasterId(String aid);
 }
