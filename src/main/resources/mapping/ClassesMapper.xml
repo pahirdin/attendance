@@ -183,4 +183,10 @@
   <select id="getClassesByCouid" resultType="com.phd.entity.Classes">
     SELECT A.CID,A.MID,A.CNAME,A.MASTERID,A.INSID FROM CLASSES A,COURSEDETAILS B WHERE A.CID = B.CID AND B.COUID=#{couid}
   </select>
+
+    <select id="queryClassesByInsAid" resultType="com.phd.entity.Classes">
+      select CID,CNAME from CLASSES a where 1=1
+        and exists(select 1 from adminmanageclassesdetails b where a.cid=b.cid
+             and exists(select 1 from adminmanageclasses c where c.amcid=b.amcid and c.aid = #{aid}) )
+    </select>
 </mapper>

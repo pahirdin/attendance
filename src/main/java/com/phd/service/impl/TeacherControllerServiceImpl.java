@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author pahaied@asiainfo.com
@@ -118,6 +119,39 @@ public class TeacherControllerServiceImpl implements ITeacherControllerService {
     @Override
     public int updateLeave(Integer lid, Integer lstatus) {
         return this.leaveMapper.updateLeave(lid,lstatus);
+    }
+
+    @Override
+    public List<Classes> queryClassesByInsAid(String aid) {
+        return this.classesMapper.queryClassesByInsAid(aid);
+    }
+
+    @Override
+    public PageInfo<Leave> queryStuLeavesIns(Integer page, Integer limit, String aid, Integer lstatus, Integer cid, String name) {
+        page = page == null ? 1 : page;
+        limit = limit == null ? 3 : limit;
+        if (StringUtils.isNotBlank(name)) {
+            name = "%" + name + "%";
+        }
+        //在帮助类中传入分页参数
+        PageHelper.startPage(page, limit);
+        List<Classes> classes = queryClassesByInsAid(aid);
+        List<Integer> lists = classes.stream().map(Classes::getCid).collect(Collectors.toList());
+//        String cids = String.join(",", lists.stream().map(String::valueOf).collect(Collectors.toList()));
+        String cids = null;
+        if (lists.isEmpty()) {
+            cids = "'000'";
+        }else {
+            cids = "'"+StringUtils.join(lists,"','")+"'";
+        }
+        List<Leave> list = this.leaveMapper.queryStuLeavesIns(lstatus,cid,name,cids);
+        for (Leave leave : list) {
+            leave.setSname(this.studentInfoMapper.getSnameBySid(leave.getSid()));
+            leave.setLtypeName(getLtypeNameByTypeId(leave.getLtype()));
+            leave.setLstatusName(getLstatusNameByLstatus(leave.getLstatus()));
+            leave.setAname(this.adminInfoMapper.getAnameByAid(leave.getAid()));
+        }
+        return new PageInfo<Leave>(list);
     }
 
     private String getLstatusNameByLstatus(String lstatus) {

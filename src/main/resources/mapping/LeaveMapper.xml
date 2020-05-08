@@ -226,4 +226,21 @@
       and lstatus = #{lstatus}
     </if>
   </select>
+
+  <select id="queryStuLeavesIns" resultType="com.phd.entity.Leave">
+    select lid,sid,lstime,letime,ltype,lcontent,aid,lstatus from leave a
+    where 1=1
+    <if test="name != null and name!=''">
+      and exists(select 1 from studentinfo b where  a.sid=b.sid and (b.sname like #{name} or b.sno like #{name}))
+    </if>
+      <if test="cid != null">
+        and exists(select 1 from studentinfo b where  a.sid=b.sid and b.cid=#{cid})
+      </if>
+    <if test="lstatus != null">
+      and lstatus = #{lstatus}
+    </if>
+      <if test="cids != null and cids!= ''">
+        and exists(select 1 from studentinfo b where  a.sid=b.sid and b.cid in ( ${cids} ) )
+      </if>
+  </select>
 </mapper>

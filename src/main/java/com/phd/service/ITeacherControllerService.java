@@ -41,4 +41,8 @@ public interface ITeacherControllerService {
     PageInfo<Leave> queryStuLeaves(Integer page, Integer limit, String aid, Integer lstatus,Integer cid,String name);
 
     int updateLeave(Integer lid, Integer lstatus);
+
+    List<Classes> queryClassesByInsAid(String aid);
+
+    PageInfo<Leave> queryStuLeavesIns(Integer page, Integer limit, String aid, Integer lstatus, Integer cid, String name);
 }

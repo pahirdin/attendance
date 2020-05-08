@@ -31,4 +31,6 @@ public interface ClassesMapper {
     String getCnameByCid(@Param("cid")Integer cid);
 
     List<Classes> getClassesByCouid(@Param("couid") Integer couid);
+
+    List<Classes> queryClassesByInsAid(@Param("aid") String aid);
 }

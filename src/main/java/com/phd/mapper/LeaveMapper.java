@@ -23,4 +23,7 @@ public interface LeaveMapper {
     List<Leave> queryStuLeaves(@Param("lstatus") Integer lstatus,@Param("cid") Integer cid,@Param("name") String name);
 
     int updateLeave(@Param("lid") Integer lid,@Param("lstatus") Integer lstatus);
+
+    List<Leave> queryStuLeavesIns(@Param("lstatus") Integer lstatus,@Param("cid") Integer cid,
+                                  @Param("name") String name,@Param("cids") String cids);
 }

@@ -1,9 +1,6 @@
 package com.phd.controller;
 
-import com.phd.entity.AdminInfo;
-import com.phd.entity.ClassCode;
-import com.phd.entity.Classes;
-import com.phd.entity.Course;
+import com.phd.entity.*;
 import com.phd.service.ICommomService;
 import com.phd.service.IInstructorService;
 import com.phd.service.ITeacherControllerService;
@@ -30,7 +27,6 @@ public class InstructorController {
     private ICommomService commomServiceImpl;
     @Autowired
     private ITeacherControllerService TeacherControllerServiceImpl;
-
 
     @RequestMapping("/openClassAttendanceInstructor")
     public String openClassAttendanceInstructor(Model model){
@@ -74,5 +70,21 @@ public class InstructorController {
 //        Classes classes = this.commomServiceImpl.queryClassesById(cid);
 //        model.addAttribute("classes", classes);
         return "systemSetup/editInstructorInClass.html";
+    }
+
+
+    @RequestMapping("/openStuLeavesInstructor")
+    public String openStuLeavesHeadmaster(Model model){
+        AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
+        List<Classes> classes = this.TeacherControllerServiceImpl.queryClassesByInsAid(admin.getAid());
+        model.addAttribute("classes", classes);
+        return "instructorInClass/stuLeavesInstructor.html";
+    }
+
+    @RequestMapping("/queryStuLeavesIns")
+    @ResponseBody
+    public Result<Leave> queryStuLeavesIns(Integer page, Integer limit, Integer cid, Integer lstatus, String name) {
+        AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
+        return new Result<>(this.TeacherControllerServiceImpl.queryStuLeavesIns(page,limit,admin.getAid(),lstatus,cid,name));
     }
 }
