@@ -27,4 +27,6 @@ public interface ITeacherControllerService {
     List<Course> queryCourseByCid(Integer cid);
 
     Integer getCidByHeadmasterId(String aid);
+
+    List<Course> queryCourseByStuCoid(String aid);
 }

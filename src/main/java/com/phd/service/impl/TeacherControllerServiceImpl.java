@@ -120,4 +120,9 @@ public class TeacherControllerServiceImpl implements ITeacherControllerService {
         }
         return classecByMasterId.get(0).getCid();
     }
+
+    @Override
+    public List<Course> queryCourseByStuCoid(String aid) {
+        return this.courseMapper.queryCourseByStuCoid(aid);
+    }
 }

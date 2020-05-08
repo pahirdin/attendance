@@ -3,8 +3,10 @@ package com.phd.controller;
 import com.phd.entity.AdminInfo;
 import com.phd.entity.ClassCode;
 import com.phd.entity.Classes;
+import com.phd.entity.Course;
 import com.phd.service.ICommomService;
 import com.phd.service.IInstructorService;
+import com.phd.service.ITeacherControllerService;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,25 @@ public class InstructorController {
     private IInstructorService instructorServiceImpl;
     @Autowired
     private ICommomService commomServiceImpl;
+    @Autowired
+    private ITeacherControllerService TeacherControllerServiceImpl;
+
+
+    @RequestMapping("/openClassAttendanceInstructor")
+    public String openClassAttendanceInstructor(Model model){
+        AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
+        List<Course> course = this.TeacherControllerServiceImpl.queryCourseByStuCoid(admin.getAid());
+        model.addAttribute("course", course);
+        return "instructorInClass/classAttendanceInstructor.html";
+    }
+
+    @RequestMapping("/openStuAttendanceInstructor")
+    public String openStuAttendanceInstructor(Model model){
+        AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
+        List<Course> course = this.TeacherControllerServiceImpl.queryCourseByStuCoid(admin.getAid());
+        model.addAttribute("course", course);
+        return "instructorInClass/StuAttendanceInstructor.html";
+    }
 
     @RequestMapping("/getClassInstructorNonSelect")
     @ResponseBody

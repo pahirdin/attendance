@@ -23,4 +23,6 @@ public interface CourseMapper {
     String getCounameByCouid(@Param("couid") Integer couid);
 
     List<Course> queryCourseByCid(@Param("cid") Integer cid);
+
+    List<Course> queryCourseByStuCoid(@Param("aid") String aid);
 }
