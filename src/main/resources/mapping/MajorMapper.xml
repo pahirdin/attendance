@@ -125,7 +125,8 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+
+    <update id="updateByExampleSelective" parameterType="map">
     update major
     <set>
       <if test="record.mid != null">
@@ -160,5 +161,8 @@
      values (nextval('major_mid_seq'),#{mname},#{coid})
   </insert>
 
-
+  <select id="getMnameByCid" resultType="java.lang.String">
+    select mname from major a where 1=1
+      and exists(select 1 from classes c where c.mid=a.mid and c.cid=#{cid})
+  </select>
 </mapper>

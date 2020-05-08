@@ -23,4 +23,7 @@ public interface SchoolAttendanceMapper {
     List<SchoolAttendance> queryClassAttendanceTeacher(Integer couid, Integer cid);
 
     List<SchoolAttendance> checkLeavDil(@Param("sid") Integer sid,@Param("start") String start,@Param("end") String end);
+
+    List<SchoolAttendance> queryStatisticsAttendanceCollegeAdmin(@Param("couid") Integer couid,@Param("cid") Integer cid,
+                                                                 @Param("name") String name,@Param("coid") Integer coid);
 }

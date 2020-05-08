@@ -24,5 +24,7 @@ public interface CourseMapper {
 
     List<Course> queryCourseByCid(@Param("cid") Integer cid);
 
-    List<Course> queryCourseByStuCoid(@Param("aid") String aid);
+    List<Course> queryCourseByInsAid(@Param("aid") String aid);
+
+    List<Course> queryCourseByStuCoid(@Param("coid") Integer coid);
 }

@@ -160,10 +160,15 @@
     and exists(select 1 from schoolattendance b where a.couid=b.couid and cid=#{cid})
   </select>
 
-  <select id="queryCourseByStuCoid" resultType="com.phd.entity.Course">
+  <select id="queryCourseByInsAid" resultType="com.phd.entity.Course">
     select couid,couname,aid from course a where 1=1
     and exists(select 1 from courseDetails b where a.couid=b.couid
         and exists(select 1 from adminmanageclassesdetails d where d.cid=b.cid
             and exists(select 1 from adminmanageclasses e where e.amcid=d.amcid and e.aid=#{aid})))
+  </select>
+  <select id="queryCourseByStuCoid" resultType="com.phd.entity.Course">
+    select couid,couname,aid from course a where 1=1
+          and exists(select 1 from courseDetails b where a.couid=b.couid
+              and exists(select 1 from studentinfo c where c.cid=b.cid and c.coid=#{coid}))
   </select>
 </mapper>

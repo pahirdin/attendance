@@ -34,4 +34,11 @@ public class SchoolAttendance {
     private Integer leaveCont;
     private Integer attendaceCont;
     private String sname;
+
+    private String mname;
+    private String aname;
+    private String atel;
+    private Integer attendanceCount;
+    private Integer sarateCount;
+
 }

@@ -26,4 +26,6 @@ public interface MajorMapper {
      * @return 更新数量  并在major里附带新增时的主键
      */
     int insertOne(Major major);
+
+    String getMnameByCid(@Param("cid") Integer cid);
 }

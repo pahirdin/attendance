@@ -35,7 +35,7 @@ public class InstructorController {
     @RequestMapping("/openClassAttendanceInstructor")
     public String openClassAttendanceInstructor(Model model){
         AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
-        List<Course> course = this.TeacherControllerServiceImpl.queryCourseByStuCoid(admin.getAid());
+        List<Course> course = this.TeacherControllerServiceImpl.queryCourseByInsAid(admin.getAid());
         model.addAttribute("course", course);
         return "instructorInClass/classAttendanceInstructor.html";
     }
@@ -43,7 +43,7 @@ public class InstructorController {
     @RequestMapping("/openStuAttendanceInstructor")
     public String openStuAttendanceInstructor(Model model){
         AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
-        List<Course> course = this.TeacherControllerServiceImpl.queryCourseByStuCoid(admin.getAid());
+        List<Course> course = this.TeacherControllerServiceImpl.queryCourseByInsAid(admin.getAid());
         model.addAttribute("course", course);
         return "instructorInClass/StuAttendanceInstructor.html";
     }

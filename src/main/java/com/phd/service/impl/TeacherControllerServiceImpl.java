@@ -28,6 +28,10 @@ public class TeacherControllerServiceImpl implements ITeacherControllerService {
     private SchoolAttendanceDetailsMapper schoolAttendanceDetailsMapper;
     @Autowired
     private StudentInfoMapper studentInfoMapper;
+    @Autowired
+    private MajorMapper majorMapper;
+    @Autowired
+    private AdminInfoMapper adminInfoMapper;
     @Override
     public PageInfo<SchoolAttendance> queryClassAttendanceTeacher(Integer page, Integer limit, Integer couid, Integer cid, String aid) {
         page = page == null ? 1 : page;
@@ -38,6 +42,43 @@ public class TeacherControllerServiceImpl implements ITeacherControllerService {
         for (SchoolAttendance schoolAttendance : list) {
             schoolAttendance.setCouname(courseMapper.getCounameByCouid(schoolAttendance.getCouid()));
             schoolAttendance.setCname(classesMapper.getCnameByCid(schoolAttendance.getCid()));
+        }
+        return new PageInfo<SchoolAttendance>(list);
+    }
+
+    @Override
+    public PageInfo<SchoolAttendance> queryClassAttendanceCollegeAdmin(Integer page, Integer limit, Integer couid, Integer cid, String aid) {
+        page = page == null ? 1 : page;
+        limit = limit == null ? 3 : limit;
+        //在帮助类中传入分页参数
+        PageHelper.startPage(page, limit);
+        List<SchoolAttendance> list = this.schoolAttendanceMapper.queryClassAttendanceTeacher(couid,cid);
+        for (SchoolAttendance schoolAttendance : list) {
+            schoolAttendance.setCouname(courseMapper.getCounameByCouid(schoolAttendance.getCouid()));
+            schoolAttendance.setCname(classesMapper.getCnameByCid(schoolAttendance.getCid()));
+            schoolAttendance.setMname(majorMapper.getMnameByCid(schoolAttendance.getCid()));
+            schoolAttendance.setAname(adminInfoMapper.getAnameByCouid(schoolAttendance.getCouid()));
+            schoolAttendance.setAtel(adminInfoMapper.getAtelByCouid(schoolAttendance.getCouid()));
+        }
+        return new PageInfo<SchoolAttendance>(list);
+    }
+
+    @Override
+    public PageInfo<SchoolAttendance> queryStatisticsAttendanceCollegeAdmin(Integer page, Integer limit, Integer couid, Integer cid, String name, AdminInfo admin) {
+        page = page == null ? 1 : page;
+        limit = limit == null ? 3 : limit;
+        if (StringUtils.isNotBlank(name)) {
+            name = "%"+name+"%";
+        }
+        //在帮助类中传入分页参数
+        PageHelper.startPage(page, limit);
+        List<SchoolAttendance> list = this.schoolAttendanceMapper.queryStatisticsAttendanceCollegeAdmin(couid,cid,name,admin.getCoid());
+        for (SchoolAttendance schoolAttendance : list) {
+            schoolAttendance.setAname(this.adminInfoMapper.getAnameByCouid(schoolAttendance.getCouid()));
+            schoolAttendance.setAtel(this.adminInfoMapper.getAtelByCouid(schoolAttendance.getCouid()));
+            schoolAttendance.setCouname(this.courseMapper.getCounameByCouid(schoolAttendance.getCouid()));
+            schoolAttendance.setCname(this.classesMapper.getCnameByCid(schoolAttendance.getCid()));
+
         }
         return new PageInfo<SchoolAttendance>(list);
     }
@@ -122,7 +163,13 @@ public class TeacherControllerServiceImpl implements ITeacherControllerService {
     }
 
     @Override
-    public List<Course> queryCourseByStuCoid(String aid) {
-        return this.courseMapper.queryCourseByStuCoid(aid);
+    public List<Course> queryCourseByInsAid(String aid) {
+        return this.courseMapper.queryCourseByInsAid(aid);
     }
+
+    @Override
+    public List<Course> queryCourseByStuCoid(Integer coid) {
+        return this.courseMapper.queryCourseByStuCoid(coid);
+    }
+
 }

@@ -237,4 +237,12 @@
   <select id="getAnameByAid" resultType="java.lang.String">
     select aname from admininfo where aid=#{aid}
   </select>
+    <select id="getAnameByCouid" resultType="java.lang.String">
+      select aname from admininfo a where 1=1
+        and exists(select 1 from course c where a.aid=c.aid and c.couid=#{couid})
+    </select>
+  <select id="getAtelByCouid" resultType="java.lang.String">
+    select atel from admininfo a where 1=1
+            and exists(select 1 from course c where a.aid=c.aid and c.couid=#{couid})
+  </select>
 </mapper>

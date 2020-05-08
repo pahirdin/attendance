@@ -246,4 +246,25 @@
           AND SATIME &lt; TO_DATE(#{end},'YYYY-MM-DD')
       </if>
   </select>
+    <select id="queryStatisticsAttendanceCollegeAdmin" resultType="com.phd.entity.SchoolAttendance">
+      select couid,cid,count(1) attendanceCount,trunc(avg(sarate)) sarateCount from schoolattendance a
+      where 1=1
+      <if test="couid != null and couid!=''">
+        and couid=#{couid}
+      </if>
+      <if test="cid !=null and cid!=''">
+        and cid=#{cid}
+      </if>
+      <choose>
+        <when  test="name!=null and name!=''">
+          and EXISTS(select 1 from course b where b.couid=a.couid
+          and EXISTS(select 1 from admininfo c where c.aid=b.aid and c.coid=#{coid} and c.aname like #{name}) )
+        </when >
+        <otherwise>
+          and EXISTS(select 1 from course b where b.couid=a.couid
+          and EXISTS(select 1 from admininfo c where c.aid=b.aid and c.coid=#{coid}) )
+        </otherwise>
+      </choose>
+      group by couid,cid having couid>0
+    </select>
 </mapper>

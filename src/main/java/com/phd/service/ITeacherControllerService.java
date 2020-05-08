@@ -28,5 +28,11 @@ public interface ITeacherControllerService {
 
     Integer getCidByHeadmasterId(String aid);
 
-    List<Course> queryCourseByStuCoid(String aid);
+    List<Course> queryCourseByInsAid(String aid);
+
+    List<Course> queryCourseByStuCoid(Integer coid);
+
+    PageInfo<SchoolAttendance> queryClassAttendanceCollegeAdmin(Integer page, Integer limit, Integer couid, Integer cid, String aid);
+
+    PageInfo<SchoolAttendance> queryStatisticsAttendanceCollegeAdmin(Integer page, Integer limit, Integer couid, Integer cid, String name, AdminInfo admin);
 }
