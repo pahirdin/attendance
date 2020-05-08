@@ -26,4 +26,6 @@ public interface SchoolAttendanceMapper {
 
     List<SchoolAttendance> queryStatisticsAttendanceCollegeAdmin(@Param("couid") Integer couid,@Param("cid") Integer cid,
                                                                  @Param("name") String name,@Param("coid") Integer coid);
+
+    List<SchoolAttendance> queryStatisticsAttendanceSchoolAdmin(@Param("start") String start,@Param("end") String end);
 }

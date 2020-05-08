@@ -84,6 +84,16 @@ public class TeacherControllerServiceImpl implements ITeacherControllerService {
     }
 
     @Override
+    public PageInfo<SchoolAttendance> queryStatisticsAttendanceSchoolAdmin(Integer page, Integer limit, String aid, String start, String end) {
+        page = page == null ? 1 : page;
+        limit = limit == null ? 3 : limit;
+        //在帮助类中传入分页参数
+        PageHelper.startPage(page, limit);
+        List<SchoolAttendance> list = this.schoolAttendanceMapper.queryStatisticsAttendanceSchoolAdmin(start,end);
+        return new PageInfo<SchoolAttendance>(list);
+    }
+
+    @Override
     public List<Course> queryCourseByAid(String aid) {
         CourseExample courseExample = new CourseExample();
         CourseExample.Criteria criteria = courseExample.createCriteria();

@@ -267,4 +267,18 @@
       </choose>
       group by couid,cid having couid>0
     </select>
+
+  <select id="queryStatisticsAttendanceSchoolAdmin" resultType="com.phd.entity.SchoolAttendance">
+    SELECT  (SELECT CONAME FROM COLLEGE A WHERE 1=1 AND EXISTS
+      (SELECT 1 FROM MAJOR B WHERE A.COID=B.COID AND EXISTS(SELECT 1 FROM CLASSES C WHERE C.MID=B.MID AND C.CID=F.CID))) CONAME
+         ,COUNT(1) ATTENDANCECOUNT,TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F
+    WHERE 1=1
+    <if test="start != null and start!=''">
+      AND SATIME >= TO_DATE(#{start},'YYYY-MM-DD')
+    </if>
+    <if test="end != null  and end!=''">
+      AND SATIME &lt; TO_DATE(#{end},'YYYY-MM-DD')
+    </if>
+    GROUP BY CONAME
+  </select>
 </mapper>

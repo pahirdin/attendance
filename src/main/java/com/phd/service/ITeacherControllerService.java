@@ -35,4 +35,6 @@ public interface ITeacherControllerService {
     PageInfo<SchoolAttendance> queryClassAttendanceCollegeAdmin(Integer page, Integer limit, Integer couid, Integer cid, String aid);
 
     PageInfo<SchoolAttendance> queryStatisticsAttendanceCollegeAdmin(Integer page, Integer limit, Integer couid, Integer cid, String name, AdminInfo admin);
+
+    PageInfo<SchoolAttendance> queryStatisticsAttendanceSchoolAdmin(Integer page, Integer limit, String aid, String start, String end);
 }

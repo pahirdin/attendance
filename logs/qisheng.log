@@ -17190,3 +17190,479 @@
 2020-05-08 14:57:31,688:DEBUG http-nio-80-exec-9 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT CNAME FROM CLASSES WHERE CID=? 
 2020-05-08 14:57:31,688:DEBUG http-nio-80-exec-9 (BaseJdbcLogger.java:159) - ==> Parameters: 213(Integer)
 2020-05-08 14:57:31,689:DEBUG http-nio-80-exec-9 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 15:32:12,563:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 20932 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 15:32:12,565:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 15:32:12,565:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 15:32:14,019:INFO restartedMain (StartupInfoLogger.java:61) - Started SpringbootdemoApplication in 1.519 seconds (JVM running for 2337.5)
+2020-05-08 15:34:00,092:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 20932 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 15:34:00,093:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 15:34:00,093:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 15:34:01,387:INFO restartedMain (StartupInfoLogger.java:61) - Started SpringbootdemoApplication in 1.356 seconds (JVM running for 2444.868)
+2020-05-08 15:39:35,986:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 20932 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 15:39:35,987:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 15:39:35,987:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 15:39:37,770:INFO restartedMain (StartupInfoLogger.java:61) - Started SpringbootdemoApplication in 1.863 seconds (JVM running for 2781.252)
+2020-05-08 15:41:23,487:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 20932 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 15:41:23,488:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 15:41:23,488:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 15:41:47,336:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 20932 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 15:41:47,337:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 15:41:47,337:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 15:43:28,619:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 20932 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 15:43:28,620:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 15:43:28,620:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 15:43:32,745:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 20932 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 15:43:32,746:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 15:43:32,747:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 15:44:32,669:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 20932 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 15:44:32,671:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 15:44:32,671:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 15:44:34,564:INFO restartedMain (StartupInfoLogger.java:61) - Started SpringbootdemoApplication in 1.992 seconds (JVM running for 3078.046)
+2020-05-08 15:44:46,167:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 20932 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 15:44:46,169:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 15:44:46,169:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 15:44:47,543:INFO restartedMain (StartupInfoLogger.java:61) - Started SpringbootdemoApplication in 1.495 seconds (JVM running for 3091.025)
+2020-05-08 16:01:48,142:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 20932 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 16:01:48,143:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 16:01:48,143:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 16:01:49,826:INFO restartedMain (StartupInfoLogger.java:61) - Started SpringbootdemoApplication in 1.782 seconds (JVM running for 4113.307)
+2020-05-08 16:02:17,322:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 20932 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 16:02:17,323:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 16:02:17,323:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 16:02:18,499:INFO restartedMain (StartupInfoLogger.java:61) - Started SpringbootdemoApplication in 1.263 seconds (JVM running for 4141.98)
+2020-05-08 16:02:56,637:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 6184 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 16:02:56,672:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 16:02:56,673:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 16:03:03,210:INFO restartedMain (StartupInfoLogger.java:61) - Started SpringbootdemoApplication in 7.357 seconds (JVM running for 10.268)
+2020-05-08 16:03:09,087:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:56) - 正在验证身份...
+2020-05-08 16:03:09,088:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:63) - ----->SUPPERUSED
+2020-05-08 16:03:09,333:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT * FROM ADMININFO WHERE ( ANO = ? ) 
+2020-05-08 16:03:09,346:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:09,365:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ====>  Preparing: SELECT * FROM ROLE WHERE ROLE_NAME = ? 
+2020-05-08 16:03:09,365:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ====> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:09,368:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <====      Total: 5
+2020-05-08 16:03:09,376:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:03:09,971:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:09,972:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:09,973:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:09,974:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:09,975:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:09,976:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:09,977:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:09,977:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:09,978:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:09,978:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:09,980:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:09,981:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:09,982:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:09,982:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:09,983:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:09,983:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:09,985:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:09,985:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:09,987:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:09,987:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:09,988:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:09,989:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:09,991:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:09,992:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:09,992:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:09,993:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:09,994:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:09,994:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:09,995:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:09,996:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:09,997:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:09,997:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:09,998:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:09,998:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:10,000:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:10,001:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:10,002:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:10,002:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:10,003:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:10,004:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:10,005:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:10,006:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:10,006:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:10,007:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:10,007:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:10,008:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:10,009:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:10,009:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:10,010:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:10,010:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:10,011:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:10,011:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:10,012:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:10,013:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:10,014:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:10,014:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:10,015:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:10,016:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:10,017:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:10,017:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:10,018:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:10,018:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:10,019:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:10,020:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:10,021:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:10,021:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:10,022:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:10,022:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:10,023:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:10,023:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:10,025:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:10,025:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:10,030:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:10,030:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:10,031:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:10,031:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:10,034:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:10,035:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:10,036:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:10,036:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:10,037:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:10,038:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:10,040:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:10,041:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:10,042:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:10,043:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:10,044:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:10,045:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:10,046:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:10,047:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:10,048:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:10,048:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:10,049:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:10,050:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:10,051:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:10,051:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:10,052:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:10,052:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:10,053:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:10,054:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:10,055:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:10,056:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:10,056:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:03:10,057:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:03:10,058:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:03:10,058:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:03:10,059:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:03:10,059:INFO http-nio-80-exec-2 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:03:10,975:DEBUG http-nio-80-exec-9 (BaseJdbcLogger.java:159) - ==>  Preparing: select couid,couname,aid from course a where 1=1 and exists(select 1 from courseDetails b where a.couid=b.couid and exists(select 1 from studentinfo c where c.cid=b.cid and c.coid=?)) 
+2020-05-08 16:03:10,976:DEBUG http-nio-80-exec-9 (BaseJdbcLogger.java:159) - ==> Parameters: 1(Integer)
+2020-05-08 16:03:10,980:DEBUG http-nio-80-exec-9 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:03:11,860:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT count(0) FROM (SELECT couid, cid, count(1) attendanceCount, trunc(avg(sarate)) sarateCount FROM schoolattendance a WHERE 1 = 1 AND EXISTS (SELECT 1 FROM course b WHERE b.couid = a.couid AND EXISTS (SELECT 1 FROM admininfo c WHERE c.aid = b.aid AND c.coid = ?)) GROUP BY couid, cid HAVING couid > 0) table_count 
+2020-05-08 16:03:11,861:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: 1(Integer)
+2020-05-08 16:03:11,864:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:03:11,865:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select couid,cid,count(1) attendanceCount,trunc(avg(sarate)) sarateCount from schoolattendance a where 1=1 and EXISTS(select 1 from course b where b.couid=a.couid and EXISTS(select 1 from admininfo c where c.aid=b.aid and c.coid=?) ) group by couid,cid having couid>0 LIMIT 10 
+2020-05-08 16:03:11,865:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: 1(Integer)
+2020-05-08 16:03:11,868:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 2
+2020-05-08 16:03:11,869:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select aname from admininfo a where 1=1 and exists(select 1 from course c where a.aid=c.aid and c.couid=?) 
+2020-05-08 16:03:11,870:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: 1(Integer)
+2020-05-08 16:03:11,871:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:03:11,872:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select atel from admininfo a where 1=1 and exists(select 1 from course c where a.aid=c.aid and c.couid=?) 
+2020-05-08 16:03:11,872:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: 1(Integer)
+2020-05-08 16:03:11,873:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:03:11,874:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT COUNAME FROM COURSE WHERE COUID=? 
+2020-05-08 16:03:11,874:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: 1(Integer)
+2020-05-08 16:03:11,875:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:03:11,876:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT CNAME FROM CLASSES WHERE CID=? 
+2020-05-08 16:03:11,876:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: 58(Integer)
+2020-05-08 16:03:11,877:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:03:11,878:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select aname from admininfo a where 1=1 and exists(select 1 from course c where a.aid=c.aid and c.couid=?) 
+2020-05-08 16:03:11,878:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: 1(Integer)
+2020-05-08 16:03:11,879:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:03:11,880:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select atel from admininfo a where 1=1 and exists(select 1 from course c where a.aid=c.aid and c.couid=?) 
+2020-05-08 16:03:11,880:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: 1(Integer)
+2020-05-08 16:03:11,881:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:03:11,882:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT COUNAME FROM COURSE WHERE COUID=? 
+2020-05-08 16:03:11,882:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: 1(Integer)
+2020-05-08 16:03:11,883:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:03:11,884:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT CNAME FROM CLASSES WHERE CID=? 
+2020-05-08 16:03:11,884:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: 213(Integer)
+2020-05-08 16:03:11,885:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:03:47,598:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 10704 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 16:03:47,621:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 16:03:47,629:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 16:03:54,135:INFO restartedMain (StartupInfoLogger.java:61) - Started SpringbootdemoApplication in 7.642 seconds (JVM running for 11.736)
+2020-05-08 16:04:32,254:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 10704 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 16:04:32,255:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 16:04:32,257:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 16:04:34,285:INFO restartedMain (StartupInfoLogger.java:61) - Started SpringbootdemoApplication in 2.217 seconds (JVM running for 51.885)
+2020-05-08 16:04:40,021:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:56) - 正在验证身份...
+2020-05-08 16:04:40,022:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:63) - ----->SUPPERUSED
+2020-05-08 16:04:40,273:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT * FROM ADMININFO WHERE ( ANO = ? ) 
+2020-05-08 16:04:40,289:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,309:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ====>  Preparing: SELECT * FROM ROLE WHERE ROLE_NAME = ? 
+2020-05-08 16:04:40,310:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ====> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,313:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <====      Total: 5
+2020-05-08 16:04:40,320:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:04:40,869:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,870:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,872:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,872:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,874:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,875:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,875:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,876:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,877:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,877:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,879:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,880:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,880:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,881:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,881:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,882:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,883:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,883:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,884:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,884:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,885:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,886:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,888:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,889:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,890:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,890:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,891:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,891:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,893:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,893:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,894:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,894:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,895:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,895:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,897:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,898:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,899:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,899:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,900:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,901:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,902:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,902:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,903:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,903:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,904:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,904:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,905:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,906:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,907:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,907:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,908:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,908:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,909:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,909:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,910:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,911:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,911:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,912:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,913:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,913:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,914:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,914:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,915:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,915:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,916:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,917:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,917:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,918:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,918:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,919:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,920:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,920:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,925:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,925:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,926:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,926:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,928:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,928:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,929:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,929:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,931:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,932:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,936:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,938:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,940:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,940:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,942:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,943:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,945:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,947:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,947:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,948:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,949:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,950:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,951:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,952:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,953:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,953:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,954:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,954:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,955:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,956:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:40,958:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:04:40,958:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:04:40,960:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:04:40,961:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:04:40,962:DEBUG http-nio-80-exec-10 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:04:40,963:INFO http-nio-80-exec-10 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:04:44,239:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT count(0) FROM (SELECT (SELECT CONAME FROM COLLEGE A WHERE 1 = 1 AND EXISTS (SELECT 1 FROM MAJOR B WHERE A.COID = B.COID AND EXISTS (SELECT 1 FROM CLASSES C WHERE C.MID = B.MID AND C.CID = F.CID))) CONAME, COUNT(1) ATTENDANCECOUNT, TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F WHERE 1 = 1 GROUP BY CONAME) table_count 
+2020-05-08 16:04:44,240:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2020-05-08 16:04:44,245:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:04:44,246:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT (SELECT CONAME FROM COLLEGE A WHERE 1=1 AND EXISTS (SELECT 1 FROM MAJOR B WHERE A.COID=B.COID AND EXISTS(SELECT 1 FROM CLASSES C WHERE C.MID=B.MID AND C.CID=F.CID))) CONAME ,COUNT(1) ATTENDANCECOUNT,TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F WHERE 1=1 GROUP BY CONAME LIMIT 10 
+2020-05-08 16:04:44,246:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2020-05-08 16:04:44,249:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 3
+2020-05-08 16:05:02,698:DEBUG http-nio-80-exec-5 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT count(0) FROM (SELECT (SELECT CONAME FROM COLLEGE A WHERE 1 = 1 AND EXISTS (SELECT 1 FROM MAJOR B WHERE A.COID = B.COID AND EXISTS (SELECT 1 FROM CLASSES C WHERE C.MID = B.MID AND C.CID = F.CID))) CONAME, COUNT(1) ATTENDANCECOUNT, TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F WHERE 1 = 1 AND SATIME >= TO_DATE(?, 'YYYY-MM-DD') AND SATIME < TO_DATE(?, 'YYYY-MM-DD') GROUP BY CONAME) table_count 
+2020-05-08 16:05:02,699:DEBUG http-nio-80-exec-5 (BaseJdbcLogger.java:159) - ==> Parameters: 2020-04-01(String), 2020-06-30(String)
+2020-05-08 16:05:02,702:DEBUG http-nio-80-exec-5 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:05:02,702:DEBUG http-nio-80-exec-5 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT (SELECT CONAME FROM COLLEGE A WHERE 1=1 AND EXISTS (SELECT 1 FROM MAJOR B WHERE A.COID=B.COID AND EXISTS(SELECT 1 FROM CLASSES C WHERE C.MID=B.MID AND C.CID=F.CID))) CONAME ,COUNT(1) ATTENDANCECOUNT,TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F WHERE 1=1 AND SATIME >= TO_DATE(?,'YYYY-MM-DD') AND SATIME < TO_DATE(?,'YYYY-MM-DD') GROUP BY CONAME LIMIT 10 
+2020-05-08 16:05:02,703:DEBUG http-nio-80-exec-5 (BaseJdbcLogger.java:159) - ==> Parameters: 2020-04-01(String), 2020-06-30(String)
+2020-05-08 16:05:02,707:DEBUG http-nio-80-exec-5 (BaseJdbcLogger.java:159) - <==      Total: 3
+2020-05-08 16:06:10,026:INFO restartedMain (StartupInfoLogger.java:55) - Starting SpringbootdemoApplication on pahaied with PID 15680 (E:\demo\attendance\target\classes started by pahirdinyasin in E:\demo\attendance)
+2020-05-08 16:06:10,040:DEBUG restartedMain (StartupInfoLogger.java:56) - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-08 16:06:10,041:INFO restartedMain (SpringApplication.java:651) - No active profile set, falling back to default profiles: default
+2020-05-08 16:06:16,521:INFO restartedMain (StartupInfoLogger.java:61) - Started SpringbootdemoApplication in 7.021 seconds (JVM running for 10.13)
+2020-05-08 16:06:16,841:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:56) - 正在验证身份...
+2020-05-08 16:06:16,842:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:63) - ----->SUPPERUSED
+2020-05-08 16:06:17,101:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT * FROM ADMININFO WHERE ( ANO = ? ) 
+2020-05-08 16:06:17,113:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,131:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ====>  Preparing: SELECT * FROM ROLE WHERE ROLE_NAME = ? 
+2020-05-08 16:06:17,131:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ====> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,135:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <====      Total: 5
+2020-05-08 16:06:17,141:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:06:17,782:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,783:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,785:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,785:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,786:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,787:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,788:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,788:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,789:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,790:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,792:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,792:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,793:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,793:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,794:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,795:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,796:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,796:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,797:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,797:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,798:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,798:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,801:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,801:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,802:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,802:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,803:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,803:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,804:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,805:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,806:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,806:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,807:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,807:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,810:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,810:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,811:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,812:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,812:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,812:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,813:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,814:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,814:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,814:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,815:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,816:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,817:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,817:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,818:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,818:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,819:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,819:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,820:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,821:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,822:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,823:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,824:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,824:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,825:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,826:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,826:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,827:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,827:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,828:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,829:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,829:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,830:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,830:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,831:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,831:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,832:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,833:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,837:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,837:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,839:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,839:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,840:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,841:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,841:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,842:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,843:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,844:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,845:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,847:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,848:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,848:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,850:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,851:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,852:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,854:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,854:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,854:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,856:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,857:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,858:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,858:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,859:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,859:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,860:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,860:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,861:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,862:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:17,862:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:35) - 权限配置-->doGetAuthorizationInfo
+2020-05-08 16:06:17,862:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:38) - ----------------------------->AdminInfo(aid=3, aname=帕海尔丁, alevel=1,2,3,4,5 , atel=15675120314, ano=SUPPERUSED, apwd=e10adc3949ba59abbe56e057f20f883e, coid=1, coname=null, roles=null, roleList=[{role_name=SUPPERUSED, role_id=1, role_description=headmaster}, {role_name=SUPPERUSED, role_id=2, role_description=instructor}, {role_name=SUPPERUSED, role_id=4, role_description=collegeAdmin}, {role_name=SUPPERUSED, role_id=5, role_description=teacherInClass}, {role_name=SUPPERUSED, role_id=6, role_description=schoolAdmin}])
+2020-05-08 16:06:17,863:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: select role_id,role_name,role_description from role where role_name=? 
+2020-05-08 16:06:17,864:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: SUPPERUSED(String)
+2020-05-08 16:06:17,865:DEBUG http-nio-80-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 5
+2020-05-08 16:06:17,865:INFO http-nio-80-exec-1 (MyAuthorizingRealm.java:46) - 用户帕海尔丁具有的角色:[instructor, collegeAdmin, headmaster, teacherInClass, schoolAdmin]
+2020-05-08 16:06:19,453:DEBUG http-nio-80-exec-3 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT count(0) FROM (SELECT (SELECT CONAME FROM COLLEGE A WHERE 1 = 1 AND EXISTS (SELECT 1 FROM MAJOR B WHERE A.COID = B.COID AND EXISTS (SELECT 1 FROM CLASSES C WHERE C.MID = B.MID AND C.CID = F.CID))) CONAME, COUNT(1) ATTENDANCECOUNT, TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F WHERE 1 = 1 GROUP BY CONAME) table_count 
+2020-05-08 16:06:19,454:DEBUG http-nio-80-exec-3 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2020-05-08 16:06:19,458:DEBUG http-nio-80-exec-3 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:06:19,459:DEBUG http-nio-80-exec-3 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT (SELECT CONAME FROM COLLEGE A WHERE 1=1 AND EXISTS (SELECT 1 FROM MAJOR B WHERE A.COID=B.COID AND EXISTS(SELECT 1 FROM CLASSES C WHERE C.MID=B.MID AND C.CID=F.CID))) CONAME ,COUNT(1) ATTENDANCECOUNT,TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F WHERE 1=1 GROUP BY CONAME LIMIT 10 
+2020-05-08 16:06:19,460:DEBUG http-nio-80-exec-3 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2020-05-08 16:06:19,462:DEBUG http-nio-80-exec-3 (BaseJdbcLogger.java:159) - <==      Total: 3
+2020-05-08 16:06:38,692:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT count(0) FROM (SELECT (SELECT CONAME FROM COLLEGE A WHERE 1 = 1 AND EXISTS (SELECT 1 FROM MAJOR B WHERE A.COID = B.COID AND EXISTS (SELECT 1 FROM CLASSES C WHERE C.MID = B.MID AND C.CID = F.CID))) CONAME, COUNT(1) ATTENDANCECOUNT, TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F WHERE 1 = 1 AND SATIME >= TO_DATE(?, 'YYYY-MM-DD') AND SATIME < TO_DATE(?, 'YYYY-MM-DD') GROUP BY CONAME) table_count 
+2020-05-08 16:06:38,693:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: 2020-05-01(String), 2020-05-02(String)
+2020-05-08 16:06:38,694:DEBUG http-nio-80-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:06:42,499:DEBUG http-nio-80-exec-4 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT count(0) FROM (SELECT (SELECT CONAME FROM COLLEGE A WHERE 1 = 1 AND EXISTS (SELECT 1 FROM MAJOR B WHERE A.COID = B.COID AND EXISTS (SELECT 1 FROM CLASSES C WHERE C.MID = B.MID AND C.CID = F.CID))) CONAME, COUNT(1) ATTENDANCECOUNT, TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F WHERE 1 = 1 AND SATIME >= TO_DATE(?, 'YYYY-MM-DD') AND SATIME < TO_DATE(?, 'YYYY-MM-DD') GROUP BY CONAME) table_count 
+2020-05-08 16:06:42,499:DEBUG http-nio-80-exec-4 (BaseJdbcLogger.java:159) - ==> Parameters: 2020-05-01(String), 2020-05-03(String)
+2020-05-08 16:06:42,501:DEBUG http-nio-80-exec-4 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:06:46,151:DEBUG http-nio-80-exec-5 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT count(0) FROM (SELECT (SELECT CONAME FROM COLLEGE A WHERE 1 = 1 AND EXISTS (SELECT 1 FROM MAJOR B WHERE A.COID = B.COID AND EXISTS (SELECT 1 FROM CLASSES C WHERE C.MID = B.MID AND C.CID = F.CID))) CONAME, COUNT(1) ATTENDANCECOUNT, TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F WHERE 1 = 1 AND SATIME >= TO_DATE(?, 'YYYY-MM-DD') AND SATIME < TO_DATE(?, 'YYYY-MM-DD') GROUP BY CONAME) table_count 
+2020-05-08 16:06:46,151:DEBUG http-nio-80-exec-5 (BaseJdbcLogger.java:159) - ==> Parameters: 2020-05-01(String), 2020-05-04(String)
+2020-05-08 16:06:46,153:DEBUG http-nio-80-exec-5 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:06:49,366:DEBUG http-nio-80-exec-6 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT count(0) FROM (SELECT (SELECT CONAME FROM COLLEGE A WHERE 1 = 1 AND EXISTS (SELECT 1 FROM MAJOR B WHERE A.COID = B.COID AND EXISTS (SELECT 1 FROM CLASSES C WHERE C.MID = B.MID AND C.CID = F.CID))) CONAME, COUNT(1) ATTENDANCECOUNT, TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F WHERE 1 = 1 AND SATIME >= TO_DATE(?, 'YYYY-MM-DD') AND SATIME < TO_DATE(?, 'YYYY-MM-DD') GROUP BY CONAME) table_count 
+2020-05-08 16:06:49,366:DEBUG http-nio-80-exec-6 (BaseJdbcLogger.java:159) - ==> Parameters: 2020-05-01(String), 2020-05-05(String)
+2020-05-08 16:06:49,369:DEBUG http-nio-80-exec-6 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:06:49,369:DEBUG http-nio-80-exec-6 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT (SELECT CONAME FROM COLLEGE A WHERE 1=1 AND EXISTS (SELECT 1 FROM MAJOR B WHERE A.COID=B.COID AND EXISTS(SELECT 1 FROM CLASSES C WHERE C.MID=B.MID AND C.CID=F.CID))) CONAME ,COUNT(1) ATTENDANCECOUNT,TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F WHERE 1=1 AND SATIME >= TO_DATE(?,'YYYY-MM-DD') AND SATIME < TO_DATE(?,'YYYY-MM-DD') GROUP BY CONAME LIMIT 10 
+2020-05-08 16:06:49,369:DEBUG http-nio-80-exec-6 (BaseJdbcLogger.java:159) - ==> Parameters: 2020-05-01(String), 2020-05-05(String)
+2020-05-08 16:06:49,372:DEBUG http-nio-80-exec-6 (BaseJdbcLogger.java:159) - <==      Total: 3
+2020-05-08 16:07:06,490:DEBUG http-nio-80-exec-7 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT count(0) FROM (SELECT (SELECT CONAME FROM COLLEGE A WHERE 1 = 1 AND EXISTS (SELECT 1 FROM MAJOR B WHERE A.COID = B.COID AND EXISTS (SELECT 1 FROM CLASSES C WHERE C.MID = B.MID AND C.CID = F.CID))) CONAME, COUNT(1) ATTENDANCECOUNT, TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F WHERE 1 = 1 AND SATIME >= TO_DATE(?, 'YYYY-MM-DD') AND SATIME < TO_DATE(?, 'YYYY-MM-DD') GROUP BY CONAME) table_count 
+2020-05-08 16:07:06,490:DEBUG http-nio-80-exec-7 (BaseJdbcLogger.java:159) - ==> Parameters: 2020-05-01(String), 2020-05-05(String)
+2020-05-08 16:07:06,492:DEBUG http-nio-80-exec-7 (BaseJdbcLogger.java:159) - <==      Total: 1
+2020-05-08 16:07:06,493:DEBUG http-nio-80-exec-7 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT (SELECT CONAME FROM COLLEGE A WHERE 1=1 AND EXISTS (SELECT 1 FROM MAJOR B WHERE A.COID=B.COID AND EXISTS(SELECT 1 FROM CLASSES C WHERE C.MID=B.MID AND C.CID=F.CID))) CONAME ,COUNT(1) ATTENDANCECOUNT,TRUNC(AVG(SARATE)) SARATECOUNT FROM SCHOOLATTENDANCE F WHERE 1=1 AND SATIME >= TO_DATE(?,'YYYY-MM-DD') AND SATIME < TO_DATE(?,'YYYY-MM-DD') GROUP BY CONAME LIMIT 10 
+2020-05-08 16:07:06,493:DEBUG http-nio-80-exec-7 (BaseJdbcLogger.java:159) - ==> Parameters: 2020-05-01(String), 2020-05-05(String)
+2020-05-08 16:07:06,496:DEBUG http-nio-80-exec-7 (BaseJdbcLogger.java:159) - <==      Total: 2

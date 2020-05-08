@@ -40,5 +40,6 @@ public class SchoolAttendance {
     private String atel;
     private Integer attendanceCount;
     private Integer sarateCount;
+    private String coname;
 
 }
