@@ -19,4 +19,8 @@ public interface LeaveMapper {
     int updateByExampleSelective(@Param("record") Leave record, @Param("example") LeaveExample example);
 
     int updateByExample(@Param("record") Leave record, @Param("example") LeaveExample example);
+
+    List<Leave> queryStuLeaves(@Param("lstatus") Integer lstatus,@Param("cid") Integer cid,@Param("name") String name);
+
+    int updateLeave(@Param("lid") Integer lid,@Param("lstatus") Integer lstatus);
 }

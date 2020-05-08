@@ -162,7 +162,8 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+
+    <update id="updateByExampleSelective" parameterType="map">
     update leave
     <set>
       <if test="record.lid != null">
@@ -208,4 +209,21 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+
+  <update id="updateLeave">
+    update leave set lstatus=#{lstatus} where lid=#{lid}
+  </update>
+
+
+  <select id="queryStuLeaves" resultType="com.phd.entity.Leave">
+    select lid,sid,lstime,letime,ltype,lcontent,aid,lstatus from leave a
+    where 1=1
+    <if test="name != null and name!=''">
+      and exists(select 1 from studentinfo b where  a.sid=b.sid and b.cid=#{cid} and (b.sname like #{name} or b.sno like #{name}))
+    </if>
+    and exists(select 1 from studentinfo b where  a.sid=b.sid and b.cid=#{cid})
+    <if test="lstatus != null">
+      and lstatus = #{lstatus}
+    </if>
+  </select>
 </mapper>

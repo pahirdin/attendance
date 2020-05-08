@@ -10,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -32,6 +33,8 @@ public class TeacherControllerServiceImpl implements ITeacherControllerService {
     private MajorMapper majorMapper;
     @Autowired
     private AdminInfoMapper adminInfoMapper;
+    @Autowired
+    private LeaveMapper leaveMapper;
     @Override
     public PageInfo<SchoolAttendance> queryClassAttendanceTeacher(Integer page, Integer limit, Integer couid, Integer cid, String aid) {
         page = page == null ? 1 : page;
@@ -91,6 +94,46 @@ public class TeacherControllerServiceImpl implements ITeacherControllerService {
         PageHelper.startPage(page, limit);
         List<SchoolAttendance> list = this.schoolAttendanceMapper.queryStatisticsAttendanceSchoolAdmin(start,end);
         return new PageInfo<SchoolAttendance>(list);
+    }
+
+    @Override
+    public PageInfo<Leave> queryStuLeaves(Integer page, Integer limit, String aid, Integer lstatus,Integer cid,String name) {
+        page = page == null ? 1 : page;
+        limit = limit == null ? 3 : limit;
+        if (StringUtils.isNotBlank(name)) {
+            name = "%" + name + "%";
+        }
+        //在帮助类中传入分页参数
+        PageHelper.startPage(page, limit);
+        List<Leave> list = this.leaveMapper.queryStuLeaves(lstatus,cid,name);
+        for (Leave leave : list) {
+            leave.setSname(this.studentInfoMapper.getSnameBySid(leave.getSid()));
+            leave.setLtypeName(getLtypeNameByTypeId(leave.getLtype()));
+            leave.setLstatusName(getLstatusNameByLstatus(leave.getLstatus()));
+            leave.setAname(this.adminInfoMapper.getAnameByAid(leave.getAid()));
+        }
+        return new PageInfo<Leave>(list);
+    }
+
+    @Override
+    public int updateLeave(Integer lid, Integer lstatus) {
+        return this.leaveMapper.updateLeave(lid,lstatus);
+    }
+
+    private String getLstatusNameByLstatus(String lstatus) {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("0", "待审批");
+        map.put("1","批准");
+        map.put("2","拒绝");
+        return map.get(lstatus);
+    }
+
+    private String getLtypeNameByTypeId(String ltype) {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("0", "事假");
+        map.put("1","病假");
+        map.put("2","其它");
+        return map.get(ltype);
     }
 
     @Override

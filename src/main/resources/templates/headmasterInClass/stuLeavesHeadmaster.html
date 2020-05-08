@@ -1,0 +1,248 @@
+<html  class="x-admin-sm" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>学生考勤情况</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/X-admin/css/font.css}">
+    <link rel="stylesheet" th:href="@{/X-admin/css/xadmin.css}">
+    <link rel="stylesheet" th:href="@{/X-admin/css/theme5.css}">
+    <script th:src="@{/X-admin/lib/layui/layui.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{/X-admin/js/xadmin.js}"></script>
+    <script th:src="@{/X-admin/js/jquery.min.js}" charset="utf-8"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="x-nav">
+            <span class="layui-breadcrumb">
+                <a href="">首页</a>
+                <a href="">演示</a>
+                <a>
+                    <cite>导航元素</cite></a>
+            </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+        <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i>
+    </a>
+</div>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="layui-form layui-col-space5">
+                        <input type="hidden" th:value="${cid}" name="cid" id="cid"/>
+                        <div class="layui-input-inline">
+                        <select name="lstatus" id="lstatus" lay-filter="sales"  lay-search="">
+                            <option value="">请选择状态</option>
+                            <option value="0">待审批</option>
+                            <option value="1">批准</option>
+                            <option value="2">拒绝</option>
+                        </select>
+                        </div>
+                        <div class="layui-input-inline layui-show-xs-block">
+                        <div class="layui-inline">
+                            <input class="layui-input"  placeholder="姓名或学号" name="name" id="name" autocomplete="off">
+                        </div>
+                        <button class="layui-btn" data-type="reload">搜索</button>
+                    </div>
+                </div>
+
+                <!--表格-->
+                <div class="layui-card-body"><table class="layui-hide" id="LAY_table_user" lay-filter="test"></table></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="indexTpl">
+    {{d.LAY_TABLE_INDEX+1}}
+</script>
+<script type="text/html" id="barDemo">
+    {{# if(d.lstatus == '0'){}}
+    <a class="layui-btn layui-btn-xs" lay-event="ToExamine">审核</a>
+    {{# } }}
+</script>
+<script  th:inline="none">
+    //日期组件
+    layui.use(['laydate', 'form'],
+        function() {
+            var laydate = layui.laydate;
+
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#start' //指定元素
+            });
+
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#end' //指定元素
+            });
+        });
+    layui.use('table', function(){
+        var table = layui.table;
+        var $ = layui.$;
+        //方法级渲染
+        table.render({
+            elem: '#LAY_table_user'
+            ,url: '/queryStuLeaves?cid='+$("#cid").val()
+            ,defaultToolbar: ['filter', 'print', 'exports']
+            ,toolbar: true
+            ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+            ,cols: [[
+                // {checkbox: true, fixed: true}
+                {title: '编号',templet: '#indexTpl'}
+                ,{field:'sname', title: '姓名'}
+                ,{field:'lstime', title: '开始时间'}
+                ,{field:'letime', title: '结束时间'}
+                ,{field:'ltypeName', title: '请假类别'}
+                ,{field:'lcontent', title: '请假理由'}
+                ,{field:'aname', title: '审批人'}
+                ,{field:'lstatusName', title: '审批状态'}
+                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:300}
+            ]]
+            ,id: 'testReload'
+            ,page: true
+            ,height: 700
+            ,done:function(res,curr,count){
+                // 隐藏列
+            }
+        });
+
+        var $ = layui.$, active = {
+            reload: function(){
+                var cid = $('#cid');
+                var lstatus = $('#lstatus');
+                var name = $('#name');
+
+                //执行重载
+                table.reload('testReload', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    ,where: {
+                        cid:cid.val()
+                        ,lstatus:lstatus.val()
+                        ,name:name.val()
+                    }
+                }, 'data');
+            }
+        };
+        //监听行工具事件
+        table.on('tool(test)', function(obj){
+            var data = obj.data;
+            var start = $('#start').val();
+            var end = $('#end').val();
+            //班主任设置打开弹窗
+            if(obj.event === 'ToExamine') {
+                layer.open({
+                    type: 1 //此处以iframe举例
+                    ,title: '审核'
+                    ,area: ['390px', '150px']
+                    ,shade: 0
+                    ,maxmin: true
+                    // ,offset: [ //为了演示，随机坐标
+                    //     Math.random()*($(window).height()-300)
+                    //     ,Math.random()*($(window).width()-390)
+                    // ]
+                    ,content: "<fieldset class='layui-elem-field layui-field-title'><legend>请选择审核通过 或 不通过！</legend></fieldset>"
+                    ,btn: ['同意', '不同意'] //只是为了演示
+                    ,yes: function(){
+                        //向服务端发送删除指令
+                        $.ajax({
+                            url:'/updateLeave',
+                            type:'get',
+                            data:{'lid':data.lid,lstatus:1},//向服务端发送删除的id
+                            success:function(suc){
+                                if(suc==200){
+                                    layer.msg("执行成功",{icon:1});
+                                }
+                                else{
+                                    layer.msg("执行成功,原因"+suc,{icon:5},{time:5000});
+                                }
+                            }
+                        });
+                        layer.closeAll();
+                    }
+                    ,btn2: function(){
+                        $.ajax({
+                            url:'/updateLeave',
+                            type:'get',
+                            data:{'lid':data.lid,lstatus:2},//向服务端发送删除的id
+                            success:function(suc){
+                                if(suc==200){
+                                    layer.msg("执行成功",{icon:1});
+                                }
+                                else{
+                                    layer.msg("执行成功,原因"+suc,{icon:5},{time:5000});
+                                }
+                            }
+                        });
+                        layer.closeAll();
+                    }
+
+                    ,zIndex: layer.zIndex //重点1
+                    ,success: function(layero){
+                        layer.setTop(layero); //重点2
+                    }
+                });
+            }
+        });
+
+        $('.layui-card-body .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
+        $('#add').on('click',function () {
+
+        });
+    });
+
+
+    function myData(couid) {
+        var data1;
+        $.ajax({
+            url: '/getClassesByCouid',
+            type: "post",
+            data: {action: 'js_type', couid: couid},
+            async: false,
+            success: function (data) {
+                data1 = data;
+                //data1 = JSON.parse(data);
+                //console.log(data1);
+            },
+            error: function () {
+                layer.msg('读取数据失败！');
+            }
+        });
+        return data1;
+    }
+
+    layui.use('form',
+        function() {
+            var form = layui.form;
+            form.on('select(sales)', function(data){
+                $("#cid").empty();
+                if("x" == data.value) {return;}
+                var data = myData(data.value);
+                // $("#cid").append("<option value=''>请选择班级</option>");
+                $.each(data,function (index,da){
+                    $("#cid").append("<option value='"+da.cid+"'>"+da.cname+"</option>");
+                });
+                form.render('select');
+                // $("#major").find("option").remove();
+                //console.log(data);
+            });
+        });
+</script>
+
+</body>
+
+</html>
