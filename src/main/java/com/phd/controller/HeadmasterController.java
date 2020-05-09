@@ -62,4 +62,19 @@ public class HeadmasterController {
         this.TeacherControllerServiceImpl.updateLeave(lid,lstatus);
         return "200";
     }
+
+    @RequestMapping("/openSetInformation")
+    private String openSetInformation(Model model) {
+        AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
+        model.addAttribute("awarnumm",admin.getAwarnumm());
+        model.addAttribute("aemail",admin.getAemail());
+        return "headmasterInClass/setInformation.html";
+    }
+    @RequestMapping("/setInformation")
+    @ResponseBody
+    public String setInformation(Integer awarnumm,String aemail){
+        AdminInfo admin = (AdminInfo) SecurityUtils.getSubject().getPrincipal();
+        this.TeacherControllerServiceImpl.setInformation(awarnumm,aemail,admin.getAid());
+        return "200";
+    }
 }

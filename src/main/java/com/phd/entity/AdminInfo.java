@@ -24,5 +24,8 @@ public class AdminInfo {
 
     private String roles;
 
+    private Integer awarnumm;
+    private String aemail;
+
     private List<Role> roleList;
 }

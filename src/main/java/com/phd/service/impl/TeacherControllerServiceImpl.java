@@ -154,6 +154,11 @@ public class TeacherControllerServiceImpl implements ITeacherControllerService {
         return new PageInfo<Leave>(list);
     }
 
+    @Override
+    public int setInformation(Integer awarnumm, String aemail, String aid) {
+        return this.adminInfoMapper.setInformation(awarnumm,aemail,aid);
+    }
+
     private String getLstatusNameByLstatus(String lstatus) {
         HashMap<String, String> map = new HashMap<>();
         map.put("0", "待审批");

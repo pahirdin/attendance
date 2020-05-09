@@ -136,17 +136,17 @@
                             <i class="iconfont nav_right">&#xe697;</i></a>
                         <ul class="sub-menu">
                             <li  shiro:hasRole="teacherInClass">
-                                <a onclick="xadmin.add_tab('设置（任课）','order-list.html')">
+                                <a onclick="xadmin.add_tab('设置（任课）','/openSetInformation')">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>设置（任课）</cite></a>
                             </li>
                             <li shiro:hasRole="headmaster">
-                                <a onclick="xadmin.add_tab('设置（班主任）','order-list1.html')">
+                                <a onclick="xadmin.add_tab('设置（班主任）','/openSetInformation')">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>设置（班主任）</cite></a>
                             </li>
                             <li shiro:hasRole="instructor">
-                                <a onclick="xadmin.add_tab('设置（辅导员）','order-list1.html')">
+                                <a onclick="xadmin.add_tab('设置（辅导员）','/openSetInformation')">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>设置（辅导员）</cite></a>
                             </li>

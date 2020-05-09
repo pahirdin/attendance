@@ -208,6 +208,9 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+  <update id="setInformation">
+    update admininfo set awarnumm=#{awarnumm},aemail=#{aemail} where aid=#{aid}
+  </update>
 
   <select id="selectByAdminByAid" resultMap="selectByAdminByAidMap" parameterType="java.lang.String">
    SELECT * FROM ADMININFO WHERE ( ANO = #{adminAname} )

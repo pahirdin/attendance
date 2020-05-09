@@ -34,4 +34,6 @@ public interface AdminInfoMapper {
     String getAnameByCouid(@Param("couid") Integer couid);
 
     String getAtelByCouid(@Param("couid")Integer couid);
+
+    int setInformation(@Param("awarnumm") Integer awarnumm,@Param("aemail") String aemail,@Param("aid") String aid);
 }

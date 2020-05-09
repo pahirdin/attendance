@@ -45,4 +45,6 @@ public interface ITeacherControllerService {
     List<Classes> queryClassesByInsAid(String aid);
 
     PageInfo<Leave> queryStuLeavesIns(Integer page, Integer limit, String aid, Integer lstatus, Integer cid, String name);
+
+    int setInformation(Integer awarnumm, String aemail, String aid);
 }
