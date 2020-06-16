@@ -25,10 +25,8 @@ public class AdminLoginController {
     public String logon(@Validated AdminInfo admin) {
         String adminName = admin.getAno().trim();
         String PWD = admin.getApwd().trim();
-
         // 1、获取Subject实例对象
         Subject currentUser = SecurityUtils.getSubject();
-
         // 3、将用户名和密码封装到UsernamePasswordToken
         UsernamePasswordToken token = new UsernamePasswordToken(adminName, PWD);
         // 4、认证
@@ -40,7 +38,7 @@ public class AdminLoginController {
         } catch (AuthenticationException e) {
 //                e.printStackTrace();
             System.out.println("登录失败");
-            return "/login/error.html";
+            return "/login/login.html";
         }
     }
 }

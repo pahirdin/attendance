@@ -25,24 +25,11 @@ import java.util.Properties;
 public class ShiroConfig {
     @Bean
     public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
-        System.out.println("ShiroConfiguration.shirFilter()");
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //拦截器.
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String,String>();
         // 配置不会被拦截的链接 顺序判断，因为前端模板采用了thymeleaf，这里不能直接使用 ("/static/**", "anon")来配置匿名访问，必须配置到每个静态目录
-
-//         map.put(" **/login*", "anon");
-//        map.put("**/admin/**", "authc");
-//        map.put("**/headmaster*/**", "roles[headmaster]");//班主任
-//        map.put("**/instructor*/**", "roles[instructor]");//辅导员
-//        map.put("**/teacherInClass*/**", "roles[teacherInClass]");//任课老师
-//        map.put("**/collegeAdmin*/**", "roles[collegeAdmin]");//院级管理员
-//        map.put("**/teacherInClass*/**", "roles[teacherInClass]");//任课老师
-//        map.put("**/schoolAdmin*/**", "roles[schoolAdmin]");//校级管理员
-//        map.put("/**", "authc");
-
-
         filterChainDefinitionMap.put("/css/**", "anon");
         filterChainDefinitionMap.put("/fonts/**", "anon");
         filterChainDefinitionMap.put("/img/**", "anon");

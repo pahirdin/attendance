@@ -366,7 +366,7 @@ public class ImportServiceImpl implements IImportService {
             }
             if(tag) {
                 String tname = temp.getTname();
-                if("null".equals(tname)) {
+                if("null".equals(tname) || "".equals(tname)) {
                     tag = false;
                     temp.setCheccode(2);
                     temp.setCheckinfo("未填写学生姓名");
@@ -374,7 +374,7 @@ public class ImportServiceImpl implements IImportService {
             }
             if(tag) {
                 String ttel = temp.getTtel();
-                if("null".equals(ttel)) {
+                if("null".equals(ttel) || "".equals(ttel)) {
                     tag = false;
                     temp.setCheckinfo("未填写手机号");
                     temp.setCheccode(2);
@@ -388,7 +388,7 @@ public class ImportServiceImpl implements IImportService {
                 }
             }
             if (tag) {
-                if ("null".equals(temp.getConame())) {
+                if ("null".equals(temp.getConame()) || "".equals(temp.getConame())) {
                     tag = false;
                     temp.setCheckinfo("未填写学院");
                     temp.setCheccode(2);
@@ -403,16 +403,8 @@ public class ImportServiceImpl implements IImportService {
                     temp.setSpare1(CommonUtil.getKey(college,temp.getConame()));
                 }
             }
-//            if(tag) {
-//                MajorExample majorExample = new MajorExample();
-//                MajorExample.Criteria criteria = majorExample.createCriteria();
-//                criteria.andMnameEqualTo(temp.getSpare3());
-////                criteria.andMidEqualTo(temp.getSpare2());
-//                List<Major> majorList = this.majorMapper.selectByExample(majorExample);
-//                temp.setSpare1(majorList.get(0).getCoid());
-//            }
             if(tag) {
-                if("null".equals(temp.getSpare3())) {
+                if("null".equals(temp.getSpare3()) || "".equals(temp.getSpare3())) {
                     tag = false;
                     temp.setCheckinfo("未填写专业");
                     temp.setCheccode(2);
@@ -429,7 +421,7 @@ public class ImportServiceImpl implements IImportService {
                 }
             }
             if(tag) {
-                if("null".equals(temp.getSpare4())) {
+                if("null".equals(temp.getSpare4()) || "".equals(temp.getSpare4())) {
                     tag = false;
                     temp.setCheckinfo("未填写班级");
                     temp.setCheccode(2);
